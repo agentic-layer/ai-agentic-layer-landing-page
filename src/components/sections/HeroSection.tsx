@@ -15,10 +15,10 @@ export function HeroSection() {
           </p>
           
           {/* Video Integration */}
-          <div className="mt-16 max-w-6xl mx-auto">
+          <div className="mt-16 w-full">
             <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
               <video 
-                className="w-full h-full object-cover border border-border rounded-lg"
+                className="w-full h-full object-cover rounded-lg"
                 controls
                 autoPlay
                 muted
