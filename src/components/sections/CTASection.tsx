@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -42,7 +41,7 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
           {/* Column 1 - GitHub */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
             <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center mb-4">
+              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Github className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">
@@ -63,7 +62,7 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
           {/* Column 2 - Expert Consultation */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
             <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center mb-4">
+              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Calendar className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">
@@ -86,7 +85,7 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
           {/* Column 3 - Newsletter */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
             <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center mb-4">
+              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">Verfolgen Sie unsere Mission</CardTitle>
@@ -116,4 +115,3 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
     </section>
   );
 }
-
