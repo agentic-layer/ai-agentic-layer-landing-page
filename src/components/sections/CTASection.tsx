@@ -1,14 +1,15 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Github, Calendar, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -17,14 +18,17 @@ export function CTASection() {
     });
     setEmail('');
   };
-  return <section className="py-20 section-padding">
+
+  return (
+    <section className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
             Werden Sie Teil des Orchesters
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Der Weg zur souveränen KI beginnt hier. Wählen Sie Ihren passenden nächsten Schritt.
+            Der Weg zur souveränen KI beginnt hier.<br />
+            Wählen Sie Ihren passenden nächsten Schritt.
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
 
@@ -91,7 +95,13 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
                 wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
-                <Input type="email" placeholder="Ihre E-Mail-Adresse" value={email} onChange={e => setEmail(e.target.value)} required />
+                <Input
+                  type="email"
+                  placeholder="Ihre E-Mail-Adresse"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
                 <Button type="submit" className="w-full">
                   Über Meilensteine informieren
                 </Button>
@@ -100,5 +110,6 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
           </Card>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
