@@ -74,7 +74,7 @@ export function LeadMagnetSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-primary-foreground text-primary"
+                className="bg-transparent border-black text-primary-foreground placeholder:text-primary-foreground/70"
               />
               <Button 
                 type="submit" 
