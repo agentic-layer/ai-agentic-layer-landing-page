@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,7 +31,9 @@ export function CTASection() {
             Der Weg zur souveränen KI beginnt hier.<br />
             Wählen Sie Ihren passenden nächsten Schritt.
           </p>
-          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
+          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
+
+<br />
 
 Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme für die anspruchsvollsten Unternehmen Europas. Wir sind Experten für die Anbindung komplexer Legacy-Systeme und die Umsetzung robuster, skalierbarer Lösungen. Wenn Sie sich für uns entscheiden, bekommen Sie beides: einen strategischen KI-Vordenker und einen erfahrenen Implementierungspartner, der für Ihren Erfolg brennt und diesen garantiert.</p>
         </div>
@@ -113,3 +116,4 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
     </section>
   );
 }
+
