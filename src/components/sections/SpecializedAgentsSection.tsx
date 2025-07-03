@@ -1,21 +1,14 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const agents = [
-  {
-    title: "Sovereign Claims Agent",
-    description: "Unser Agent für die Versicherungsbranche automatisiert die Prüfung, Bewertung und erste Bearbeitung von Schadensmeldungen. Er reduziert die Bearbeitungszeit von Tagen auf Minuten und gibt Ihren Experten Zeit für die wirklich komplexen Fälle."
-  },
-  {
-    title: "Sovereign Sales Advisor", 
-    description: "Dieser Agent unterstützt Ihren Vertrieb, indem er Leads qualifiziert, personalisierte Angebote vorbereitet und Routineanfragen autonom beantwortet. So kann sich Ihr Team auf den Abschluss der wichtigsten Deals konzentrieren."
-  }
-];
-
+const agents = [{
+  title: "Sovereign Claims Agent",
+  description: "Unser Agent für die Versicherungsbranche automatisiert die Prüfung, Bewertung und erste Bearbeitung von Schadensmeldungen. Er reduziert die Bearbeitungszeit von Tagen auf Minuten und gibt Ihren Experten Zeit für die wirklich komplexen Fälle."
+}, {
+  title: "Sovereign Sales Advisor",
+  description: "Dieser Agent unterstützt Ihren Vertrieb, indem er Leads qualifiziert, personalisierte Angebote vorbereitet und Routineanfragen autonom beantwortet. So kann sich Ihr Team auf den Abschluss der wichtigsten Deals konzentrieren."
+}];
 export function SpecializedAgentsSection() {
-  return (
-    <section className="py-20 section-padding">
+  return <section className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
@@ -24,17 +17,11 @@ export function SpecializedAgentsSection() {
           <p className="subheadline-text max-w-4xl mx-auto">
             Sehen Sie, wie unser Agentic Layer Kernprozesse in der Versicherungsbranche automatisiert.
           </p>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            Ein souveräner Layer ist das Fundament. Echte Transformation entsteht durch intelligente Agenten, 
-            die darauf laufen. Wir bieten Ihnen beides: den Agentic Layer als offene Plattform und darauf 
-            aufbauend hochspezialisierte, branchenspezifische Agenten-Workforces, die komplexe Kernprozesse 
-            von Anfang bis Ende automatisieren.
-          </p>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {agents.map((agent, index) => (
-            <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
+          {agents.map((agent, index) => <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
               <CardHeader>
                 <CardTitle className="text-xl font-medium">
                   {agent.title}
@@ -45,10 +32,8 @@ export function SpecializedAgentsSection() {
                   {agent.description}
                 </p>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
