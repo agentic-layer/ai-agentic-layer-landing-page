@@ -1,20 +1,13 @@
-
 import React from 'react';
-
 export function HeroSection() {
-  return (
-    <section className="min-h-screen flex flex-col justify-center py-20">
+  return <section className="min-h-screen flex flex-col justify-center py-20">
       {/* Text content - centered with section padding */}
       <div className="section-padding">
         <div className="container-width">
           <div className="text-center space-y-8 animate-fade-in">
             {/* Logo */}
             <div className="mb-8">
-              <img 
-                src="/lovable-uploads/c3326386-2b61-4e04-84bf-2c05f8177e81.png" 
-                alt="Agentic Layer Logo" 
-                className="mx-auto h-16 w-auto"
-              />
+              <img src="/lovable-uploads/c3326386-2b61-4e04-84bf-2c05f8177e81.png" alt="Agentic Layer Logo" className="mx-auto h-2/6 w-auto" />
             </div>
             
             <h1 className="headline-text">
@@ -32,8 +25,8 @@ export function HeroSection() {
       <div className="mt-16 section-padding">
         <div className="container-width">
           <div className="relative w-full" style={{
-            aspectRatio: '16/9'
-          }}>
+          aspectRatio: '16/9'
+        }}>
             <video className="w-full h-full object-cover" controls autoPlay muted loop playsInline>
               <source src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" type="video/mp4" />
               Ihr Browser unterstützt das Video-Element nicht.
@@ -41,6 +34,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
