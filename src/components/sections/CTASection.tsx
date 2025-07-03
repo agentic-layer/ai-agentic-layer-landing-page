@@ -1,26 +1,23 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Github, Calendar, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Erfolgreich angemeldet!",
-      description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen.",
+      description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen."
     });
     setEmail('');
   };
-
-  return (
-    <section className="py-20 section-padding">
+  return <section className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
@@ -29,18 +26,9 @@ export function CTASection() {
           <p className="subheadline-text max-w-4xl mx-auto">
             Der Weg zur souveränen KI beginnt hier. Wählen Sie Ihren passenden nächsten Schritt.
           </p>
-          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
-            Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, 
-            braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr 
-            Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu 
-            entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne 
-            einen Partner, der sie umsetzen kann. Seit fast 20 Jahren entwerfen und bauen wir 
-            geschäftskritische Softwaresysteme für die anspruchsvollsten Unternehmen Europas. Wir sind 
-            Experten für die Anbindung komplexer Legacy-Systeme und die Umsetzung robuster, skalierbarer 
-            Lösungen. Wenn Sie sich für uns entscheiden, bekommen Sie beides: einen strategischen 
-            KI-Vordenker und einen erfahrenen Implementierungspartner, der für Ihren Erfolg brennt und 
-            diesen garantiert.
-          </p>
+          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
+
+Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme für die anspruchsvollsten Unternehmen Europas. Wir sind Experten für die Anbindung komplexer Legacy-Systeme und die Umsetzung robuster, skalierbarer Lösungen. Wenn Sie sich für uns entscheiden, bekommen Sie beides: einen strategischen KI-Vordenker und einen erfahrenen Implementierungspartner, der für Ihren Erfolg brennt und diesen garantiert.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -105,13 +93,7 @@ export function CTASection() {
                 wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <Input
-                  type="email"
-                  placeholder="Ihre E-Mail-Adresse"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
+                <Input type="email" placeholder="Ihre E-Mail-Adresse" value={email} onChange={e => setEmail(e.target.value)} required />
                 <Button type="submit" className="w-full">
                   Über Meilensteine informieren
                 </Button>
@@ -120,6 +102,5 @@ export function CTASection() {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
