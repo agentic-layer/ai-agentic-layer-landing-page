@@ -18,11 +18,12 @@ export function HeroSection() {
           <div className="mt-16 max-w-6xl mx-auto">
             <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
               <video 
-                className="w-full h-full object-cover border border-border"
+                className="w-full h-full object-cover border border-border rounded-lg"
                 controls
                 autoPlay
                 muted
                 loop
+                playsInline
               >
                 <source 
                   src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" 
