@@ -4,8 +4,8 @@ import React from 'react';
 export function HeroSection() {
   return (
     <section className="min-h-screen flex flex-col justify-center section-padding py-20">
+      {/* Text content - centered with its own container */}
       <div className="container-width">
-        {/* Text content - centered */}
         <div className="text-center space-y-8 animate-fade-in">
           <h1 className="headline-text">
             Das Gen-AI-Paradoxon
@@ -15,17 +15,17 @@ export function HeroSection() {
             Das Ergebnis ist Lärm, keine Symphonie.
           </p>
         </div>
-        
-        {/* Video Integration - same width as cards below */}
-        <div className="mt-16">
-          <div className="relative w-full" style={{
-            aspectRatio: '16/9'
-          }}>
-            <video className="w-full h-full object-cover" controls autoPlay muted loop playsInline>
-              <source src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" type="video/mp4" />
-              Ihr Browser unterstützt das Video-Element nicht.
-            </video>
-          </div>
+      </div>
+      
+      {/* Video Integration - same width as cards below */}
+      <div className="container-width mt-16">
+        <div className="relative w-full" style={{
+          aspectRatio: '16/9'
+        }}>
+          <video className="w-full h-full object-cover" controls autoPlay muted loop playsInline>
+            <source src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" type="video/mp4" />
+            Ihr Browser unterstützt das Video-Element nicht.
+          </video>
         </div>
       </div>
     </section>
