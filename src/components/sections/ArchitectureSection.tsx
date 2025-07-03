@@ -1,6 +1,7 @@
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Settings } from 'lucide-react';
+
 const features = [{
   title: "Souveräner Betrieb (BYOC & On-Premise)",
   description: "Behalten Sie die 100%ige Kontrolle über Ihre KI-Workloads. Unser Layer läuft in Ihrer bevorzugten Cloud-Umgebung oder komplett autark in Ihrem eigenen Rechenzentrum für maximale Datensouveränität."
@@ -23,17 +24,23 @@ const features = [{
   title: "Offene Standards für Zukunftssicherheit",
   description: "Investieren Sie in eine zukunftssichere, offene Architektur statt in eine geschlossene Blackbox. Unser Bekenntnis zu Standards wie A2A und MCP schützt Sie vor Vendor-Lock-in."
 }];
+
 export function ArchitectureSection() {
-  return <section className="py-20 section-padding bg-muted/30">
+  return (
+    <section className="py-20 section-padding bg-muted/30">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
-          <h2 className="headline-text">
-            Der Agentic Layer
-          </h2>
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Settings className="w-6 h-6" />
+            </div>
+            <h2 className="headline-text">
+              Der Agentic Layer
+            </h2>
+          </div>
           <p className="subheadline-text max-w-4xl mx-auto">
             Ein offenes Fundament für Ihre souveräne KI-Workforce
           </p>
-          
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -80,5 +87,6 @@ export function ArchitectureSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

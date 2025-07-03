@@ -1,17 +1,22 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Github } from 'lucide-react';
+import { Github, Code } from 'lucide-react';
 
 export function OpenSourceSection() {
   return (
     <section className="py-20 section-padding bg-muted/30">
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
-          <h2 className="headline-text">
-            Keine Blackbox. Keine Geheimnisse.<br />
-            Nur brillanter Code.
-          </h2>
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Code className="w-6 h-6" />
+            </div>
+            <h2 className="headline-text">
+              Keine Blackbox. Keine Geheimnisse.<br />
+              Nur brillanter Code.
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Wir glauben, dass die Zukunft der Enterprise AI offen sein muss. Deshalb ist unser Sovereign 
             Agentic Layer vollständig Open Source. Das bedeutet für Sie nicht nur die Freiheit von jeglichem 

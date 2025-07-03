@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { BookOpen } from 'lucide-react';
 
 export function LeadMagnetSection() {
   const [email, setEmail] = useState('');
@@ -26,7 +28,7 @@ export function LeadMagnetSection() {
               <img 
                 src="/lovable-uploads/cefdaae7-8648-4d2b-b595-4caeb84a8c07.png" 
                 alt="Das Gen-AI-Paradoxon Whitepaper Cover"
-                className="w-full h-auto"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
@@ -34,9 +36,14 @@ export function LeadMagnetSection() {
           {/* Right - Content & Form */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-light">
-                Vom Solisten zum Dirigenten
-              </h2>
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center">
+                  <BookOpen className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-light">
+                  Vom Solisten zum Dirigenten
+                </h2>
+              </div>
               <p className="text-xl opacity-90">
                 Verstehen Sie die Theorie hinter der Praxis. Unser Whitepaper gibt Ihnen die 
                 vollständige Partitur für Ihre KI-Strategie.

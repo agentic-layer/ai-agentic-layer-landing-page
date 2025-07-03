@@ -1,6 +1,10 @@
+
 import React from 'react';
+import { Zap } from 'lucide-react';
+
 export function HeroSection() {
-  return <section className="min-h-screen flex flex-col justify-center py-20">
+  return (
+    <section className="min-h-screen flex flex-col justify-center py-20">
       {/* Text content - centered with section padding */}
       <div className="section-padding">
         <div className="container-width">
@@ -10,9 +14,14 @@ export function HeroSection() {
               <img src="/lovable-uploads/c3326386-2b61-4e04-84bf-2c05f8177e81.png" alt="Agentic Layer Logo" className="mx-auto h-2/6 w-auto" />
             </div>
             
-            <h1 className="headline-text">
-              Das Gen-AI-Paradoxon
-            </h1>
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                <Zap className="w-6 h-6" />
+              </div>
+              <h1 className="headline-text">
+                Das Gen-AI-Paradoxon
+              </h1>
+            </div>
             <p className="subheadline-text max-w-4xl mx-auto">
               Ihre KI-Anwendungen sind brillant, aber sie spielen nicht zusammen. 
               Das Ergebnis ist Lärm, keine Symphonie.
@@ -34,5 +43,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
