@@ -82,9 +82,7 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
               <div className="mx-auto w-12 h-12 flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">
-                Für Interessierte: Verfolgen Sie unsere Mission
-              </CardTitle>
+              <CardTitle className="text-lg font-medium">Verfolgen Sie unsere Mission</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground text-sm text-center">
