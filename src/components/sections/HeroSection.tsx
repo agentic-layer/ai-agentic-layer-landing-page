@@ -15,7 +15,7 @@ export function HeroSection() {
           </p>
           
           {/* Video Integration */}
-          <div className="mt-16 w-full">
+          <div className="mt-16 container-width">
             <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
               <video 
                 className="w-full h-full object-cover rounded-lg"
