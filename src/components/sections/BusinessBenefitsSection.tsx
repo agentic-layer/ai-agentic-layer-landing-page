@@ -53,7 +53,7 @@ export function BusinessBenefitsSection() {
           {benefits.map((benefit, index) => (
             <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
               <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 flex items-center justify-center mb-4">
+                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6" />
                 </div>
                 <CardTitle className="text-lg font-medium">
