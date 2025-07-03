@@ -11,12 +11,12 @@ export function HeroSection() {
               <img 
                 src="/lovable-uploads/d0d90e3f-d4de-4963-b8e5-038fa00ed0f2.png" 
                 alt="Agentic Layer Logo" 
-                className="mx-auto h-16 w-auto dark:hidden" 
+                className="mx-auto h-2/6 w-auto dark:hidden" 
               />
               <img 
                 src="/lovable-uploads/c3326386-2b61-4e04-84bf-2c05f8177e81.png" 
                 alt="Agentic Layer Logo" 
-                className="mx-auto h-16 w-auto hidden dark:block" 
+                className="mx-auto h-2/6 w-auto hidden dark:block" 
               />
             </div>
             
