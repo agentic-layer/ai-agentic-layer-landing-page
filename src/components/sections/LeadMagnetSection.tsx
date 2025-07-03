@@ -24,11 +24,12 @@ export function LeadMagnetSection() {
           {/* Left - Whitepaper Visual */}
           <div className="text-center lg:text-left">
             <div className="inline-block p-8 bg-primary-foreground/10 border border-primary-foreground/20">
-              <div className="w-48 h-64 bg-primary-foreground/20 border border-primary-foreground/30 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <div className="text-2xl font-light">📖</div>
-                  <p className="text-sm">Whitepaper Cover</p>
-                </div>
+              <div className="w-48 h-64 bg-primary-foreground/20 border border-primary-foreground/30 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/cefdaae7-8648-4d2b-b595-4caeb84a8c07.png" 
+                  alt="Das Gen-AI-Paradoxon Whitepaper Cover"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
