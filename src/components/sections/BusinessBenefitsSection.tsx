@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield, Infinity, Certificate } from 'lucide-react';
+import { Shield, Infinity, BadgeCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 // Custom Dirigentenstab icon as SVG
@@ -29,7 +29,7 @@ const benefits = [
     description: "Wir geben Ihnen die ultimative Freiheit und vermeiden jeden Vendor-Lock-in. Dies erreichen wir durch zwei Kernprinzipien: Unser Layer ist Open Source für volle Transparenz und agnostisch im Design, sodass Sie jederzeit die besten Clouds, Modelle und Frontends für Ihre Bedürfnisse frei wählen können."
   },
   {
-    icon: Certificate,
+    icon: BadgeCheck,
     title: "Compliance by Design",
     description: "Erfüllen Sie mühelos die Anforderungen von EU AI Act und DSGVO durch integrierte Governance, Transparenz und Audit-Fähigkeit."
   }
