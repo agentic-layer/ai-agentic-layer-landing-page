@@ -9,7 +9,8 @@ export function OpenSourceSection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
           <h2 className="headline-text">
-            Keine Blackbox. Keine Geheimnisse. Nur brillanter Code.
+            Keine Blackbox. Keine Geheimnisse.<br />
+            Nur brillanter Code.
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Wir glauben, dass die Zukunft der Enterprise AI offen sein muss. Deshalb ist unser Sovereign 
