@@ -17,11 +17,19 @@ export function HeroSection() {
           {/* Video Integration */}
           <div className="mt-16 max-w-6xl mx-auto">
             <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-              <div className="absolute inset-0 bg-muted border border-border flex items-center justify-center">
-                <p className="text-muted-foreground text-lg">
-                  Video wird hier eingebettet (16:9 Format)
-                </p>
-              </div>
+              <video 
+                className="w-full h-full object-cover border border-border"
+                controls
+                autoPlay
+                muted
+                loop
+              >
+                <source 
+                  src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" 
+                  type="video/mp4" 
+                />
+                Ihr Browser unterstützt das Video-Element nicht.
+              </video>
             </div>
           </div>
         </div>
