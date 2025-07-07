@@ -28,27 +28,7 @@ export const DotsAnimation: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Initialize dots
-    const initializeDots = () => {
-      dotsRef.current = [];
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      console.log('Initializing dots with canvas dimensions:', width, 'x', height);
-      
-      for (let i = 0; i < DOT_COUNT; i++) {
-        dotsRef.current.push({
-          x: Math.random() * (width - DOT_SIZE * 4) + DOT_SIZE * 2,
-          y: Math.random() * (height - DOT_SIZE * 4) + DOT_SIZE * 2,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
-          tx: 0,
-          ty: 0,
-        });
-      }
-    };
-
-    // Resize canvas
+    // Resize canvas first
     const resizeCanvas = () => {
       const rect = canvas.getBoundingClientRect();
       const minWidth = 400;
@@ -58,9 +38,27 @@ export const DotsAnimation: React.FC = () => {
       canvas.height = Math.max(rect.height, minHeight);
       
       console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
+    };
+
+    // Initialize dots after canvas is properly sized
+    const initializeDots = () => {
+      dotsRef.current = [];
+      const width = canvas.width;
+      const height = canvas.height;
       
-      if (canvas.width > 0 && canvas.height > 0) {
-        initializeDots();
+      if (width <= 0 || height <= 0) return;
+      
+      console.log('Initializing dots with canvas dimensions:', width, 'x', height);
+      
+      for (let i = 0; i < DOT_COUNT; i++) {
+        dotsRef.current.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          tx: 0,
+          ty: 0,
+        });
       }
     };
 
@@ -99,12 +97,13 @@ export const DotsAnimation: React.FC = () => {
         } else if (elapsed < 10) {
           // Phase 2: transition to harmony
           if (!waveStartedRef.current) {
-            // Set target positions in a sine wave
-            const spacing = width / DOT_COUNT;
-            dot.tx = i * spacing;
-            dot.ty = centerY + Math.sin(i * 0.1) * 50;
             waveStartedRef.current = true;
           }
+          
+          // Calculate target positions using current canvas dimensions
+          const spacing = width / DOT_COUNT;
+          dot.tx = i * spacing;
+          dot.ty = centerY + Math.sin(i * 0.1) * 50;
 
           // Spring-like interpolation toward sine wave positions
           dot.x += (dot.tx - dot.x) * 0.05;
@@ -135,9 +134,10 @@ export const DotsAnimation: React.FC = () => {
 
     // Initialize and start
     resizeCanvas();
+    initializeDots();
     
     const timeoutId = setTimeout(() => {
-      if (canvas.width > 0 && canvas.height > 0) {
+      if (canvas.width > 0 && canvas.height > 0 && dotsRef.current.length > 0) {
         startTimeRef.current = performance.now();
         animate(startTimeRef.current);
       }
@@ -146,6 +146,7 @@ export const DotsAnimation: React.FC = () => {
     // Handle resize
     const handleResize = () => {
       resizeCanvas();
+      initializeDots();
       startTimeRef.current = performance.now();
       waveStartedRef.current = false;
       console.log('Animation reset due to resize');
