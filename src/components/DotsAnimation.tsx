@@ -192,18 +192,18 @@ export const DotsAnimation: React.FC = () => {
         <div className="text-center px-4 max-w-4xl">
           {/* Chaos text */}
           <p 
-            className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+            className={`subheadline-text transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
               currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
-            }`}
+            } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
           >
             Ihre KI-Anwendungen spielen nicht zusammen
           </p>
           
           {/* Harmony text */}
           <p 
-            className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+            className={`subheadline-text transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
-            }`}
+            } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
           >
             Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
           </p>
