@@ -156,30 +156,12 @@ export const DotsAnimation: React.FC = () => {
         if (phaseRef.current === 'transition') {
           const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
           
-          if (previousPhaseRef.current === 'chaos') {
-            // Chaos to harmony: smooth interpolation with velocity-based easing
-            const velocityMagnitude = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
-            const maxVelocity = 3; // Typical max velocity in chaos
-            const velocityFactor = Math.min(velocityMagnitude / maxVelocity, 1);
-            
-            // Create individual easing curves based on velocity - faster dots take longer to settle
-            const individualProgress = Math.min(transitionProgress / (0.7 + velocityFactor * 0.3), 1);
-            const eased = 1 - Math.pow(1 - individualProgress, 2); // Smoother deceleration curve
-            
-            // Direct interpolation from original position to target
-            dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
-            dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
-            
-            // Gradually reduce velocity for natural deceleration effect
-            const velocityReduction = Math.pow(1 - transitionProgress, 2);
-            dot.vx *= velocityReduction;
-            dot.vy *= velocityReduction;
-          } else {
-            // Harmony to chaos: simple interpolation
-            const eased = 1 - Math.pow(1 - transitionProgress, 3);
-            dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
-            dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
-          }
+          // Use the same elegant cubic easing for both directions
+          const eased = 1 - Math.pow(1 - transitionProgress, 3);
+          
+          // Simple, unified interpolation from original position to target
+          dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
+          dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
           // Only complete transition once for all dots
           if (transitionProgress >= 1 && index === 0) {
