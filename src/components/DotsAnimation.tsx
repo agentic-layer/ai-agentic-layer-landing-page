@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from './ThemeProvider';
 
 interface Dot {
   x: number;
@@ -11,6 +12,7 @@ interface Dot {
 }
 
 export const DotsAnimation: React.FC = () => {
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const dotsRef = useRef<Dot[]>([]);
@@ -88,8 +90,9 @@ export const DotsAnimation: React.FC = () => {
         setCurrentPhase('chaos');
       }
 
-      // Clear canvas
-      ctx.fillStyle = '#000000';
+      // Clear canvas with theme-aware background
+      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      ctx.fillStyle = isDark ? '#000000' : '#ffffff';
       ctx.fillRect(0, 0, width, height);
 
       dotsRef.current.forEach((dot, i) => {
@@ -135,8 +138,8 @@ export const DotsAnimation: React.FC = () => {
           }
         }
 
-        // Draw dot
-        ctx.fillStyle = '#ffffff';
+        // Draw dot with theme-aware color
+        ctx.fillStyle = isDark ? '#ffffff' : '#000000';
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, DOT_SIZE, 0, Math.PI * 2);
         ctx.fill();
@@ -174,7 +177,7 @@ export const DotsAnimation: React.FC = () => {
       clearTimeout(timeoutId);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div className="relative w-full h-full">
