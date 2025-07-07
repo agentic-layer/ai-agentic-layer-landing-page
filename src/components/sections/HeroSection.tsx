@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { DotsAnimation } from '@/components/DotsAnimation';
+
 export function HeroSection() {
   return <section className="min-h-screen flex flex-col justify-center py-20">
       {/* Text content - centered with section padding */}
@@ -31,16 +33,13 @@ export function HeroSection() {
         </div>
       </div>
       
-      {/* Video Integration - exactly matching cards section structure */}
+      {/* Dots Animation - replacing video */}
       <div className="mt-16 section-padding">
         <div className="container-width">
           <div className="relative w-full" style={{
           aspectRatio: '16/9'
         }}>
-            <video className="w-full h-full object-cover" controls autoPlay muted loop playsInline>
-              <source src="https://mqelqevuwjpebvaldcym.supabase.co/storage/v1/object/public/video/dots.mp4" type="video/mp4" />
-              Ihr Browser unterstützt das Video-Element nicht.
-            </video>
+            <DotsAnimation />
           </div>
         </div>
       </div>
