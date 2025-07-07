@@ -188,11 +188,11 @@ export const DotsAnimation: React.FC = () => {
       />
       
       {/* Text overlays */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-start justify-center pointer-events-none pt-8">
         <div className="text-center px-4 max-w-4xl">
           {/* Chaos text */}
           <p 
-            className={`subheadline-text transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+            className={`subheadline-text transition-opacity duration-1000 ${
               currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
             } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
           >
@@ -201,7 +201,7 @@ export const DotsAnimation: React.FC = () => {
           
           {/* Harmony text */}
           <p 
-            className={`subheadline-text transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+            className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
             } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
           >
