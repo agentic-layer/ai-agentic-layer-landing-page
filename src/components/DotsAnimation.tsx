@@ -103,7 +103,9 @@ export const DotsAnimation: React.FC = () => {
           // Calculate target positions using current canvas dimensions
           const spacing = width / DOT_COUNT;
           dot.tx = i * spacing;
-          dot.ty = centerY + Math.sin(i * 0.1) * 120;
+          // Create proper sine wave based on x position, not index
+          const waveFrequency = 0.01; // Controls how many waves across the width
+          dot.ty = centerY + Math.sin(dot.tx * waveFrequency) * 120;
 
           // Spring-like interpolation toward sine wave positions
           dot.x += (dot.tx - dot.x) * 0.05;
