@@ -155,42 +155,28 @@ export const DotsAnimation: React.FC = () => {
       dotsRef.current.forEach((dot, index) => {
         if (phaseRef.current === 'transition') {
           const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
-          const eased = 1 - Math.pow(1 - transitionProgress, 3);
           
           if (previousPhaseRef.current === 'chaos') {
-            // Chaos to harmony: blend chaotic movement with attraction to wave positions
-            const chaosInfluence = 1 - eased; // Decreasing chaos influence
-            const harmonyInfluence = eased; // Increasing harmony influence
+            // Chaos to harmony: smooth interpolation with velocity-based easing
+            const velocityMagnitude = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
+            const maxVelocity = 3; // Typical max velocity in chaos
+            const velocityFactor = Math.min(velocityMagnitude / maxVelocity, 1);
             
-            // Continue chaotic movement with decreasing influence
-            const chaosX = dot.x + dot.vx * chaosInfluence;
-            const chaosY = dot.y + dot.vy * chaosInfluence;
+            // Create individual easing curves based on velocity - faster dots take longer to settle
+            const individualProgress = Math.min(transitionProgress / (0.7 + velocityFactor * 0.3), 1);
+            const eased = 1 - Math.pow(1 - individualProgress, 2); // Smoother deceleration curve
             
-            // Apply attraction to target position with increasing influence
-            const attractionStrength = harmonyInfluence * 0.15; // Gentle attraction
-            const targetAttractionX = (dot.targetX - dot.x) * attractionStrength;
-            const targetAttractionY = (dot.targetY - dot.y) * attractionStrength;
+            // Direct interpolation from original position to target
+            dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
+            dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
             
-            // Blend both forces
-            dot.x = chaosX + targetAttractionX;
-            dot.y = chaosY + targetAttractionY;
-            
-            // Apply damping to velocity as harmony influence increases
-            const damping = 1 - (harmonyInfluence * 0.05);
-            dot.vx *= damping;
-            dot.vy *= damping;
-            
-            // Boundary checking
-            if (dot.x <= DOT_SIZE || dot.x >= width - DOT_SIZE) {
-              dot.vx *= -1;
-              dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
-            }
-            if (dot.y <= DOT_SIZE || dot.y >= height - DOT_SIZE) {
-              dot.vy *= -1;
-              dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
-            }
+            // Gradually reduce velocity for natural deceleration effect
+            const velocityReduction = Math.pow(1 - transitionProgress, 2);
+            dot.vx *= velocityReduction;
+            dot.vy *= velocityReduction;
           } else {
             // Harmony to chaos: simple interpolation
+            const eased = 1 - Math.pow(1 - transitionProgress, 3);
             dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
             dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
           }
