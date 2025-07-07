@@ -202,7 +202,7 @@ export const DotsAnimation: React.FC = () => {
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer zu einer harmonischen Symphonie.
+            Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
           </p>
         </div>
       </div>
