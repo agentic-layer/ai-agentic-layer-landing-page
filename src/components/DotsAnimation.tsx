@@ -6,25 +6,19 @@ interface Dot {
   y: number;
   vx: number;
   vy: number;
-  targetX: number;
-  targetY: number;
-  originalX: number;
-  originalY: number;
+  tx: number; // target x
+  ty: number; // target y
 }
 
 export const DotsAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
-  const phaseRef = useRef<'chaos' | 'transition' | 'harmony'>('chaos');
-  const previousPhaseRef = useRef<'chaos' | 'harmony'>('chaos');
   const dotsRef = useRef<Dot[]>([]);
   const startTimeRef = useRef<number>(Date.now());
-  const lastPhaseChangeRef = useRef<number>(Date.now());
-  const transitionStartTimeRef = useRef<number>(Date.now());
+  const waveStartedRef = useRef<boolean>(false);
 
   const DOT_COUNT = 40;
   const DOT_SIZE = 4;
-  const TRANSITION_DURATION = 2000;
   const PHASE_DURATION = 5000; // 5 seconds per phase
 
   useEffect(() => {
@@ -48,46 +42,10 @@ export const DotsAnimation: React.FC = () => {
           y: Math.random() * (height - DOT_SIZE * 4) + DOT_SIZE * 2,
           vx: (Math.random() - 0.5) * 2,
           vy: (Math.random() - 0.5) * 2,
-          targetX: 0,
-          targetY: 0,
-          originalX: 0,
-          originalY: 0,
+          tx: 0,
+          ty: 0,
         });
       }
-    };
-
-    // Calculate wave positions with time-based progression
-    const calculateWavePositions = (timeOffset = 0) => {
-      const width = canvas.width;
-      const height = canvas.height;
-      const centerY = height / 2;
-      const amplitude = Math.min(height * 0.15, 60);
-      
-      dotsRef.current.forEach((dot, index) => {
-        const padding = width * 0.1;
-        const availableWidth = width - (padding * 2);
-        const x = padding + (availableWidth / (DOT_COUNT - 1)) * index;
-        
-        const frequency = (2 * Math.PI * 2) / width;
-        const wavePhase = timeOffset * 0.002; // Wave progression speed
-        const y = centerY + Math.sin(x * frequency + wavePhase) * amplitude;
-        
-        dot.targetX = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, x));
-        dot.targetY = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, y));
-      });
-    };
-
-    // Calculate random chaos positions
-    const calculateChaosPositions = () => {
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      dotsRef.current.forEach((dot) => {
-        dot.targetX = Math.random() * (width - DOT_SIZE * 4) + DOT_SIZE * 2;
-        dot.targetY = Math.random() * (height - DOT_SIZE * 4) + DOT_SIZE * 2;
-        dot.vx = (Math.random() - 0.5) * 2;
-        dot.vy = (Math.random() - 0.5) * 2;
-      });
     };
 
     // Resize canvas
@@ -107,7 +65,7 @@ export const DotsAnimation: React.FC = () => {
     };
 
     // Animation loop
-    const animate = () => {
+    const animate = (timestamp: number) => {
       const width = canvas.width;
       const height = canvas.height;
       
@@ -116,62 +74,16 @@ export const DotsAnimation: React.FC = () => {
         return;
       }
 
-      const currentTime = Date.now();
-      const elapsed = currentTime - startTimeRef.current;
-      const timeSinceLastPhaseChange = currentTime - lastPhaseChangeRef.current;
-      const timeSinceTransitionStart = currentTime - transitionStartTimeRef.current;
+      const elapsed = (timestamp - startTimeRef.current) / 1000; // Convert to seconds
+      const centerY = height / 2;
 
       // Clear canvas
       ctx.fillStyle = '#000000';
       ctx.fillRect(0, 0, width, height);
 
-      // Phase transitions - every 5 seconds
-      if (timeSinceLastPhaseChange > PHASE_DURATION && phaseRef.current !== 'transition') {
-        console.log(`Starting transition from ${phaseRef.current} at ${elapsed}ms`);
-        
-        // Store original positions for transition
-        dotsRef.current.forEach((dot) => {
-          dot.originalX = dot.x;
-          dot.originalY = dot.y;
-        });
-        
-        // Store current phase and calculate target positions
-        previousPhaseRef.current = phaseRef.current as 'chaos' | 'harmony';
-        
-        if (phaseRef.current === 'chaos') {
-          calculateWavePositions(elapsed);
-        } else if (phaseRef.current === 'harmony') {
-          calculateChaosPositions();
-        }
-        
-        phaseRef.current = 'transition';
-        lastPhaseChangeRef.current = currentTime;
-        transitionStartTimeRef.current = currentTime;
-      }
-
-      let visibleDots = 0;
-
-      // Update dots based on phase
-      dotsRef.current.forEach((dot, index) => {
-        if (phaseRef.current === 'transition') {
-          const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
-          
-          // Use the same elegant cubic easing for both directions
-          const eased = 1 - Math.pow(1 - transitionProgress, 3);
-          
-          // Simple, unified interpolation from original position to target
-          dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
-          dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
-
-          // Only complete transition once for all dots
-          if (transitionProgress >= 1 && index === 0) {
-            // Alternate between chaos and harmony based on previous phase
-            phaseRef.current = previousPhaseRef.current === 'chaos' ? 'harmony' : 'chaos';
-            
-            console.log(`Transition complete, entering ${phaseRef.current} at ${elapsed}ms`);
-          }
-        } else if (phaseRef.current === 'chaos') {
-          // Chaotic movement
+      dotsRef.current.forEach((dot, i) => {
+        if (elapsed < 5) {
+          // Phase 1: chaos
           dot.x += dot.vx;
           dot.y += dot.vy;
 
@@ -184,36 +96,31 @@ export const DotsAnimation: React.FC = () => {
             dot.vy *= -1;
             dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
           }
-        } else if (phaseRef.current === 'harmony') {
-          // Continuous wave movement with progression
-          const padding = width * 0.1;
-          const availableWidth = width - (padding * 2);
-          const baseX = padding + (availableWidth / (DOT_COUNT - 1)) * index;
-          
-          const frequency = (2 * Math.PI * 2) / width;
-          const wavePhase = elapsed * 0.002; // Wave progression speed
-          const centerY = height / 2;
-          const amplitude = Math.min(height * 0.15, 60);
-          
-          // Calculate wave position with time-based progression
-          const waveY = centerY + Math.sin(baseX * frequency + wavePhase) * amplitude;
-          
-          // Add gentle floating motion
-          const time = elapsed * 0.0005;
-          const verticalFloat = Math.sin(time * 2 + index * 0.3) * 8;
-          const horizontalFloat = Math.sin(time + index * 0.1) * 20;
-          
-          dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, baseX + horizontalFloat));
-          dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, waveY + verticalFloat));
-          
-          // Reset velocity for smoother transitions
-          dot.vx = 0;
-          dot.vy = 0;
-        }
+        } else if (elapsed < 10) {
+          // Phase 2: transition to harmony
+          if (!waveStartedRef.current) {
+            // Set target positions in a sine wave
+            const spacing = width / DOT_COUNT;
+            dot.tx = i * spacing;
+            dot.ty = centerY + Math.sin(i * 0.1) * 50;
+            waveStartedRef.current = true;
+          }
 
-        // Count visible dots
-        if (dot.x >= 0 && dot.x <= width && dot.y >= 0 && dot.y <= height) {
-          visibleDots++;
+          // Spring-like interpolation toward sine wave positions
+          dot.x += (dot.tx - dot.x) * 0.05;
+          dot.y += (dot.ty - dot.y) * 0.05;
+
+          // Subtle floating after reaching target
+          dot.y += Math.sin(timestamp / 500 + i) * 0.3;
+        } else {
+          // Phase 3: reset to chaos
+          if (waveStartedRef.current) {
+            // Reset for new chaos phase
+            waveStartedRef.current = false;
+            startTimeRef.current = timestamp;
+            dot.vx = (Math.random() - 0.5) * 2;
+            dot.vy = (Math.random() - 0.5) * 2;
+          }
         }
 
         // Draw dot
@@ -223,11 +130,6 @@ export const DotsAnimation: React.FC = () => {
         ctx.fill();
       });
 
-      // Debug info every second
-      if (Math.floor(elapsed / 1000) !== Math.floor((elapsed - 16) / 1000)) {
-        console.log(`Phase: ${phaseRef.current}, Elapsed: ${elapsed}ms, Time since last change: ${timeSinceLastPhaseChange}ms, Visible dots: ${visibleDots}/${DOT_COUNT}`);
-      }
-
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
@@ -236,17 +138,16 @@ export const DotsAnimation: React.FC = () => {
     
     const timeoutId = setTimeout(() => {
       if (canvas.width > 0 && canvas.height > 0) {
-        animate();
+        startTimeRef.current = performance.now();
+        animate(startTimeRef.current);
       }
     }, 100);
 
     // Handle resize
     const handleResize = () => {
       resizeCanvas();
-      startTimeRef.current = Date.now();
-      lastPhaseChangeRef.current = Date.now();
-      transitionStartTimeRef.current = Date.now();
-      phaseRef.current = 'chaos';
+      startTimeRef.current = performance.now();
+      waveStartedRef.current = false;
       console.log('Animation reset due to resize');
     };
 
