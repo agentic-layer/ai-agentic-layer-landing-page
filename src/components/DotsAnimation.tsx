@@ -189,7 +189,15 @@ export const DotsAnimation: React.FC = () => {
       
       {/* Text overlays */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center px-4 max-w-4xl">
+        {/* Vignette */}
+        <div 
+          className={`absolute w-96 h-32 rounded-full ${
+            theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) 
+              ? 'bg-white/50' 
+              : 'bg-black/50'
+          }`}
+        />
+        <div className="text-center px-4 max-w-4xl relative z-10">
           {/* Chaos text */}
           <p 
             className={`subheadline-text transition-opacity duration-1000 ${
