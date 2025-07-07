@@ -194,7 +194,7 @@ export const DotsAnimation: React.FC = () => {
           <p 
             className={`subheadline-text transition-opacity duration-1000 ${
               currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
-            } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
+            }`}
           >
             Ihre KI-Anwendungen spielen nicht zusammen
           </p>
@@ -203,7 +203,7 @@ export const DotsAnimation: React.FC = () => {
           <p 
             className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
-            } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
+            }`}
           >
             Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
           </p>
