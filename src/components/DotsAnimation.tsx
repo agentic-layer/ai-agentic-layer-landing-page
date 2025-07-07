@@ -161,7 +161,8 @@ export const DotsAnimation: React.FC = () => {
           dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
           dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
-          if (transitionProgress >= 1) {
+          // Only complete transition once for all dots
+          if (transitionProgress >= 1 && index === 0) {
             // Alternate between chaos and harmony based on previous phase
             phaseRef.current = previousPhaseRef.current === 'chaos' ? 'harmony' : 'chaos';
             
