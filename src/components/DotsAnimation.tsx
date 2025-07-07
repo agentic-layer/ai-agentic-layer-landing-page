@@ -105,7 +105,7 @@ export const DotsAnimation: React.FC = () => {
           dot.tx = i * spacing;
           // Create moving sine wave - phase moves the wave from left to right
           const waveFrequency = 0.01; // Controls how many waves across the width
-          const phase = timestamp * 0.001; // Controls speed of wave movement (slower)
+          const phase = timestamp * -0.001; // Controls speed of wave movement (left to right)
           dot.ty = centerY + Math.sin(dot.tx * waveFrequency + phase) * 120;
 
           // Spring-like interpolation toward sine wave positions
