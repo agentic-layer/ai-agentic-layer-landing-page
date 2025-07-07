@@ -164,10 +164,35 @@ export const DotsAnimation: React.FC = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="w-full h-full"
-      style={{ background: '#000000' }}
-    />
+    <div className="relative w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full"
+        style={{ background: '#000000' }}
+      />
+      
+      {/* Text overlays */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="text-center px-4 max-w-4xl">
+          {/* Chaos text */}
+          <p 
+            className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+              startTimeRef.current && Date.now() - startTimeRef.current < 4000 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            Ihre KI-Anwendungen spielen nicht zusammen
+          </p>
+          
+          {/* Harmony text */}
+          <p 
+            className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
+              startTimeRef.current && Date.now() - startTimeRef.current > 6000 && Date.now() - startTimeRef.current < 14000 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer zu einer harmonischen Symphonie.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
