@@ -161,15 +161,19 @@ export const DotsAnimation: React.FC = () => {
           dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
           dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
+          // If transitioning from chaos to harmony, gradually reduce velocity
+          if (previousPhaseRef.current === 'chaos') {
+            const velocityReduction = 1 - eased; // Gradually reduce velocity as transition progresses
+            dot.vx *= velocityReduction;
+            dot.vy *= velocityReduction;
+          }
+
           // Only complete transition once for all dots
           if (transitionProgress >= 1 && index === 0) {
             // Alternate between chaos and harmony based on previous phase
             phaseRef.current = previousPhaseRef.current === 'chaos' ? 'harmony' : 'chaos';
             
             console.log(`Transition complete, entering ${phaseRef.current} at ${elapsed}ms`);
-            
-            // Reset timing for new phase
-            lastPhaseChangeRef.current = currentTime;
           }
         } else if (phaseRef.current === 'chaos') {
           // Chaotic movement
