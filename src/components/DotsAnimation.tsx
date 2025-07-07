@@ -94,7 +94,7 @@ export const DotsAnimation: React.FC = () => {
             dot.vy *= -1;
             dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
           }
-        } else if (elapsed < 10) {
+        } else if (elapsed < 15) {
           // Phase 2: transition to harmony
           if (!waveStartedRef.current) {
             waveStartedRef.current = true;
@@ -105,7 +105,7 @@ export const DotsAnimation: React.FC = () => {
           dot.tx = i * spacing;
           // Create moving sine wave - phase moves the wave from left to right
           const waveFrequency = 0.01; // Controls how many waves across the width
-          const phase = timestamp * 0.002; // Controls speed of wave movement
+          const phase = timestamp * 0.001; // Controls speed of wave movement (slower)
           dot.ty = centerY + Math.sin(dot.tx * waveFrequency + phase) * 120;
 
           // Spring-like interpolation toward sine wave positions
