@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 
 interface Dot {
@@ -51,14 +52,12 @@ export const DotsAnimation: React.FC = () => {
       }
     };
 
-    // Calculate wave positions
-    const calculateWavePositions = () => {
+    // Calculate wave positions with time-based progression
+    const calculateWavePositions = (timeOffset = 0) => {
       const width = canvas.width;
       const height = canvas.height;
       const centerY = height / 2;
       const amplitude = Math.min(height * 0.15, 60);
-      
-      console.log('Calculating wave positions - Canvas:', width, 'x', height, 'Center Y:', centerY, 'Amplitude:', amplitude);
       
       dotsRef.current.forEach((dot, index) => {
         const padding = width * 0.1;
@@ -66,15 +65,15 @@ export const DotsAnimation: React.FC = () => {
         const x = padding + (availableWidth / (DOT_COUNT - 1)) * index;
         
         const frequency = (2 * Math.PI * 2) / width;
-        const y = centerY + Math.sin(x * frequency) * amplitude;
+        const wavePhase = timeOffset * 0.002; // Wave progression speed
+        const y = centerY + Math.sin(x * frequency + wavePhase) * amplitude;
         
         dot.targetX = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, x));
         dot.targetY = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, y));
-        dot.originalX = dot.x;
-        dot.originalY = dot.y;
         
-        if (index < 3) {
-          console.log(`Dot ${index}: current (${dot.x.toFixed(1)}, ${dot.y.toFixed(1)}) -> target (${dot.targetX.toFixed(1)}, ${dot.targetY.toFixed(1)})`);
+        if (phaseRef.current === 'transition') {
+          dot.originalX = dot.x;
+          dot.originalY = dot.y;
         }
       });
     };
@@ -116,7 +115,7 @@ export const DotsAnimation: React.FC = () => {
       if (elapsed > 5000 && phaseRef.current === 'chaos') {
         console.log('Phase transition: chaos -> transition at', elapsed, 'ms');
         phaseRef.current = 'transition';
-        calculateWavePositions();
+        calculateWavePositions(elapsed);
       }
 
       let visibleDots = 0;
@@ -142,6 +141,9 @@ export const DotsAnimation: React.FC = () => {
           const transitionProgress = Math.min((elapsed - 5000) / TRANSITION_DURATION, 1);
           const eased = 1 - Math.pow(1 - transitionProgress, 3);
           
+          // Recalculate wave positions with current time for smooth progression
+          calculateWavePositions(elapsed);
+          
           dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
           dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
@@ -150,17 +152,26 @@ export const DotsAnimation: React.FC = () => {
             console.log('Phase transition: transition -> harmony at', elapsed, 'ms');
           }
         } else if (phaseRef.current === 'harmony') {
-          // Gentle wave movement
-          const time = (elapsed - 7000) * 0.0005;
-          const waveOffset = Math.sin(time + index * 0.1) * 20;
+          // Continuous wave movement with progression
+          const padding = width * 0.1;
+          const availableWidth = width - (padding * 2);
+          const baseX = padding + (availableWidth / (DOT_COUNT - 1)) * index;
+          
+          const frequency = (2 * Math.PI * 2) / width;
+          const wavePhase = elapsed * 0.002; // Wave progression speed
+          const centerY = height / 2;
+          const amplitude = Math.min(height * 0.15, 60);
+          
+          // Calculate wave position with time-based progression
+          const waveY = centerY + Math.sin(baseX * frequency + wavePhase) * amplitude;
+          
+          // Add gentle floating motion
+          const time = elapsed * 0.0005;
           const verticalFloat = Math.sin(time * 2 + index * 0.3) * 8;
+          const horizontalFloat = Math.sin(time + index * 0.1) * 20;
           
-          dot.x = dot.targetX + waveOffset;
-          dot.y = dot.targetY + verticalFloat;
-          
-          // Keep in bounds
-          dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
-          dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
+          dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, baseX + horizontalFloat));
+          dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, waveY + verticalFloat));
         }
 
         // Count visible dots
@@ -209,7 +220,7 @@ export const DotsAnimation: React.FC = () => {
       clearTimeout(timeoutId);
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Empty dependency array - run once on mount
+  }, []);
 
   return (
     <canvas
