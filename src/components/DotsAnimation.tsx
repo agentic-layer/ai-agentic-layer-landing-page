@@ -153,22 +153,8 @@ export const DotsAnimation: React.FC = () => {
 
       // Update dots based on phase
       dotsRef.current.forEach((dot, index) => {
-        if (phaseRef.current === 'chaos') {
-          // Chaotic movement
-          dot.x += dot.vx;
-          dot.y += dot.vy;
-
-          // Bounce off edges
-          if (dot.x <= DOT_SIZE || dot.x >= width - DOT_SIZE) {
-            dot.vx *= -1;
-            dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
-          }
-          if (dot.y <= DOT_SIZE || dot.y >= height - DOT_SIZE) {
-            dot.vy *= -1;
-            dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
-          }
-        } else if (phaseRef.current === 'transition') {
-          // Smooth transition
+        if (phaseRef.current === 'transition') {
+          // Smooth transition - interpolate between original and target positions
           const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
           const eased = 1 - Math.pow(1 - transitionProgress, 3);
           
@@ -183,6 +169,20 @@ export const DotsAnimation: React.FC = () => {
             
             // Reset timing for new phase
             lastPhaseChangeRef.current = currentTime;
+          }
+        } else if (phaseRef.current === 'chaos') {
+          // Chaotic movement
+          dot.x += dot.vx;
+          dot.y += dot.vy;
+
+          // Bounce off edges
+          if (dot.x <= DOT_SIZE || dot.x >= width - DOT_SIZE) {
+            dot.vx *= -1;
+            dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
+          }
+          if (dot.y <= DOT_SIZE || dot.y >= height - DOT_SIZE) {
+            dot.vy *= -1;
+            dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
           }
         } else if (phaseRef.current === 'harmony') {
           // Continuous wave movement with progression
