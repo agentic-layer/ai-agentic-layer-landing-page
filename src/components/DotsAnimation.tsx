@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useRef } from 'react';
 
 interface Dot {
@@ -20,6 +19,7 @@ export const DotsAnimation: React.FC = () => {
   const dotsRef = useRef<Dot[]>([]);
   const startTimeRef = useRef<number>(Date.now());
   const lastPhaseChangeRef = useRef<number>(Date.now());
+  const transitionStartTimeRef = useRef<number>(Date.now());
 
   const DOT_COUNT = 40;
   const DOT_SIZE = 4;
@@ -73,11 +73,6 @@ export const DotsAnimation: React.FC = () => {
         
         dot.targetX = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, x));
         dot.targetY = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, y));
-        
-        if (phaseRef.current === 'transition') {
-          dot.originalX = dot.x;
-          dot.originalY = dot.y;
-        }
       });
     };
 
@@ -91,11 +86,6 @@ export const DotsAnimation: React.FC = () => {
         dot.targetY = Math.random() * (height - DOT_SIZE * 4) + DOT_SIZE * 2;
         dot.vx = (Math.random() - 0.5) * 2;
         dot.vy = (Math.random() - 0.5) * 2;
-        
-        if (phaseRef.current === 'transition') {
-          dot.originalX = dot.x;
-          dot.originalY = dot.y;
-        }
       });
     };
 
@@ -128,23 +118,32 @@ export const DotsAnimation: React.FC = () => {
       const currentTime = Date.now();
       const elapsed = currentTime - startTimeRef.current;
       const timeSinceLastPhaseChange = currentTime - lastPhaseChangeRef.current;
+      const timeSinceTransitionStart = currentTime - transitionStartTimeRef.current;
 
       // Clear canvas
       ctx.fillStyle = '#000000';
       ctx.fillRect(0, 0, width, height);
 
-      // Phase transitions - ping pong every 5 seconds
+      // Phase transitions - every 5 seconds
       if (timeSinceLastPhaseChange > PHASE_DURATION && phaseRef.current !== 'transition') {
+        console.log(`Starting transition from ${phaseRef.current} at ${elapsed}ms`);
+        
+        // Store original positions for transition
+        dotsRef.current.forEach((dot) => {
+          dot.originalX = dot.x;
+          dot.originalY = dot.y;
+        });
+        
+        // Calculate target positions based on current phase
         if (phaseRef.current === 'chaos') {
-          console.log('Phase transition: chaos -> transition (to harmony) at', elapsed, 'ms');
-          phaseRef.current = 'transition';
           calculateWavePositions(elapsed);
         } else if (phaseRef.current === 'harmony') {
-          console.log('Phase transition: harmony -> transition (to chaos) at', elapsed, 'ms');
-          phaseRef.current = 'transition';
           calculateChaosPositions();
         }
+        
+        phaseRef.current = 'transition';
         lastPhaseChangeRef.current = currentTime;
+        transitionStartTimeRef.current = currentTime;
       }
 
       let visibleDots = 0;
@@ -167,30 +166,21 @@ export const DotsAnimation: React.FC = () => {
           }
         } else if (phaseRef.current === 'transition') {
           // Smooth transition
-          const transitionProgress = Math.min(timeSinceLastPhaseChange / TRANSITION_DURATION, 1);
+          const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
           const eased = 1 - Math.pow(1 - transitionProgress, 3);
-          
-          // Update target positions during transition
-          if (dot.targetX !== 0 && dot.targetY !== 0) {
-            // For wave transitions, recalculate positions with current time
-            if (dot.targetX > width * 0.05 && dot.targetX < width * 0.95) {
-              calculateWavePositions(elapsed);
-            }
-          }
           
           dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
           dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
           if (transitionProgress >= 1) {
-            // Determine next phase based on target positions
-            const isWaveTransition = dot.targetX > width * 0.05 && dot.targetX < width * 0.95;
-            phaseRef.current = isWaveTransition ? 'harmony' : 'chaos';
+            // Determine next phase based on where we came from
+            const wasInChaos = dot.vx !== 0 && dot.vy !== 0;
+            phaseRef.current = wasInChaos ? 'harmony' : 'chaos';
             
-            if (phaseRef.current === 'chaos') {
-              console.log('Phase transition: transition -> chaos at', elapsed, 'ms');
-            } else {
-              console.log('Phase transition: transition -> harmony at', elapsed, 'ms');
-            }
+            console.log(`Transition complete, entering ${phaseRef.current} at ${elapsed}ms`);
+            
+            // Reset timing for new phase
+            lastPhaseChangeRef.current = currentTime;
           }
         } else if (phaseRef.current === 'harmony') {
           // Continuous wave movement with progression
@@ -213,6 +203,10 @@ export const DotsAnimation: React.FC = () => {
           
           dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, baseX + horizontalFloat));
           dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, waveY + verticalFloat));
+          
+          // Reset velocity for smoother transitions
+          dot.vx = 0;
+          dot.vy = 0;
         }
 
         // Count visible dots
@@ -249,6 +243,7 @@ export const DotsAnimation: React.FC = () => {
       resizeCanvas();
       startTimeRef.current = Date.now();
       lastPhaseChangeRef.current = Date.now();
+      transitionStartTimeRef.current = Date.now();
       phaseRef.current = 'chaos';
       console.log('Animation reset due to resize');
     };
@@ -272,4 +267,3 @@ export const DotsAnimation: React.FC = () => {
     />
   );
 };
-
