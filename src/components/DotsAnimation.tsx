@@ -196,7 +196,7 @@ export const DotsAnimation: React.FC = () => {
               currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
             } ${theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'text-black' : 'text-white'}`}
           >
-            Ihre KI-Anwendungen spielen nicht zusammen
+            Ihre KI-Anwendungen<br />spielen nicht zusammen
           </p>
           
           {/* Harmony text */}
