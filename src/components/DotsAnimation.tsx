@@ -188,7 +188,7 @@ export const DotsAnimation: React.FC = () => {
       />
       
       {/* Text overlays */}
-      <div className="absolute inset-0 flex items-start justify-center pointer-events-none pt-8">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center px-4 max-w-4xl">
           {/* Chaos text */}
           <p 
