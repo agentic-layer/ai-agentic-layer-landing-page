@@ -154,18 +154,45 @@ export const DotsAnimation: React.FC = () => {
       // Update dots based on phase
       dotsRef.current.forEach((dot, index) => {
         if (phaseRef.current === 'transition') {
-          // Smooth transition - interpolate between original and target positions
           const transitionProgress = Math.min(timeSinceTransitionStart / TRANSITION_DURATION, 1);
           const eased = 1 - Math.pow(1 - transitionProgress, 3);
           
-          dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
-          dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
-
-          // If transitioning from chaos to harmony, gradually reduce velocity
           if (previousPhaseRef.current === 'chaos') {
-            const velocityReduction = 1 - eased; // Gradually reduce velocity as transition progresses
-            dot.vx *= velocityReduction;
-            dot.vy *= velocityReduction;
+            // Chaos to harmony: blend chaotic movement with attraction to wave positions
+            const chaosInfluence = 1 - eased; // Decreasing chaos influence
+            const harmonyInfluence = eased; // Increasing harmony influence
+            
+            // Continue chaotic movement with decreasing influence
+            const chaosX = dot.x + dot.vx * chaosInfluence;
+            const chaosY = dot.y + dot.vy * chaosInfluence;
+            
+            // Apply attraction to target position with increasing influence
+            const attractionStrength = harmonyInfluence * 0.15; // Gentle attraction
+            const targetAttractionX = (dot.targetX - dot.x) * attractionStrength;
+            const targetAttractionY = (dot.targetY - dot.y) * attractionStrength;
+            
+            // Blend both forces
+            dot.x = chaosX + targetAttractionX;
+            dot.y = chaosY + targetAttractionY;
+            
+            // Apply damping to velocity as harmony influence increases
+            const damping = 1 - (harmonyInfluence * 0.05);
+            dot.vx *= damping;
+            dot.vy *= damping;
+            
+            // Boundary checking
+            if (dot.x <= DOT_SIZE || dot.x >= width - DOT_SIZE) {
+              dot.vx *= -1;
+              dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
+            }
+            if (dot.y <= DOT_SIZE || dot.y >= height - DOT_SIZE) {
+              dot.vy *= -1;
+              dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
+            }
+          } else {
+            // Harmony to chaos: simple interpolation
+            dot.x = dot.originalX + (dot.targetX - dot.originalX) * eased;
+            dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
           }
 
           // Only complete transition once for all dots
