@@ -16,6 +16,7 @@ export const DotsAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const phaseRef = useRef<'chaos' | 'transition' | 'harmony'>('chaos');
+  const previousPhaseRef = useRef<'chaos' | 'harmony'>('chaos');
   const dotsRef = useRef<Dot[]>([]);
   const startTimeRef = useRef<number>(Date.now());
   const lastPhaseChangeRef = useRef<number>(Date.now());
@@ -134,7 +135,9 @@ export const DotsAnimation: React.FC = () => {
           dot.originalY = dot.y;
         });
         
-        // Calculate target positions based on current phase
+        // Store current phase and calculate target positions
+        previousPhaseRef.current = phaseRef.current as 'chaos' | 'harmony';
+        
         if (phaseRef.current === 'chaos') {
           calculateWavePositions(elapsed);
         } else if (phaseRef.current === 'harmony') {
@@ -173,9 +176,8 @@ export const DotsAnimation: React.FC = () => {
           dot.y = dot.originalY + (dot.targetY - dot.originalY) * eased;
 
           if (transitionProgress >= 1) {
-            // Determine next phase based on where we came from
-            const wasInChaos = dot.vx !== 0 && dot.vy !== 0;
-            phaseRef.current = wasInChaos ? 'harmony' : 'chaos';
+            // Alternate between chaos and harmony based on previous phase
+            phaseRef.current = previousPhaseRef.current === 'chaos' ? 'harmony' : 'chaos';
             
             console.log(`Transition complete, entering ${phaseRef.current} at ${elapsed}ms`);
             
