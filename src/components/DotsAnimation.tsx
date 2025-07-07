@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Dot {
   x: number;
@@ -14,12 +14,12 @@ export const DotsAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const dotsRef = useRef<Dot[]>([]);
-  const startTimeRef = useRef<number>(Date.now());
+  const startTimeRef = useRef<number>(0);
   const waveStartedRef = useRef<boolean>(false);
+  const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
 
   const DOT_COUNT = 40;
   const DOT_SIZE = 4;
-  const PHASE_DURATION = 5000; // 5 seconds per phase
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,6 +74,19 @@ export const DotsAnimation: React.FC = () => {
 
       const elapsed = (timestamp - startTimeRef.current) / 1000; // Convert to seconds
       const centerY = height / 2;
+
+      // Update phase for text animation
+      if (elapsed < 4) {
+        setCurrentPhase('chaos');
+      } else if (elapsed < 5) {
+        setCurrentPhase('transition');
+      } else if (elapsed < 14) {
+        setCurrentPhase('harmony');
+      } else if (elapsed < 15) {
+        setCurrentPhase('transition');
+      } else {
+        setCurrentPhase('chaos');
+      }
 
       // Clear canvas
       ctx.fillStyle = '#000000';
@@ -177,7 +190,7 @@ export const DotsAnimation: React.FC = () => {
           {/* Chaos text */}
           <p 
             className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
-              startTimeRef.current && Date.now() - startTimeRef.current < 4000 ? 'opacity-100' : 'opacity-0'
+              currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
             }`}
           >
             Ihre KI-Anwendungen spielen nicht zusammen
@@ -186,7 +199,7 @@ export const DotsAnimation: React.FC = () => {
           {/* Harmony text */}
           <p 
             className={`subheadline-text text-white transition-opacity duration-1000 absolute inset-0 flex items-center justify-center ${
-              startTimeRef.current && Date.now() - startTimeRef.current > 6000 && Date.now() - startTimeRef.current < 14000 ? 'opacity-100' : 'opacity-0'
+              currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
             }`}
           >
             Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer zu einer harmonischen Symphonie.
