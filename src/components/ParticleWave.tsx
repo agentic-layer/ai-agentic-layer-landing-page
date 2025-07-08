@@ -43,17 +43,17 @@ function Particles({ currentPhase }: ParticleWaveProps) {
     const positions = mesh.current.geometry.attributes.position.array as Float32Array;
 
     if (currentPhase === 'chaos') {
-      // Random movement
+      // Free movement throughout the entire space
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const i3 = i * 3;
-        positions[i3] += (Math.random() - 0.5) * 0.02; // x
-        positions[i3 + 1] += (Math.random() - 0.5) * 0.02; // y
-        positions[i3 + 2] += (Math.random() - 0.5) * 0.02; // z
+        positions[i3] += (Math.random() - 0.5) * 0.15; // x - much faster movement
+        positions[i3 + 1] += (Math.random() - 0.5) * 0.15; // y
+        positions[i3 + 2] += (Math.random() - 0.5) * 0.15; // z
         
-        // Keep particles within bounds
-        positions[i3] = Math.max(-10, Math.min(10, positions[i3]));
-        positions[i3 + 1] = Math.max(-5, Math.min(5, positions[i3 + 1]));
-        positions[i3 + 2] = Math.max(-5, Math.min(5, positions[i3 + 2]));
+        // Keep particles within bounds but allow full space usage
+        positions[i3] = Math.max(-12, Math.min(12, positions[i3]));
+        positions[i3 + 1] = Math.max(-6, Math.min(6, positions[i3 + 1]));
+        positions[i3 + 2] = Math.max(-6, Math.min(6, positions[i3 + 2]));
       }
     } else if (currentPhase === 'harmony') {
       // Multi-wave formation
