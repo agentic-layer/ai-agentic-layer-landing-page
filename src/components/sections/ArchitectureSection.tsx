@@ -53,7 +53,7 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <div className="aspect-square bg-background dark:bg-slate-800 border-2 border-dashed border-border flex items-center justify-center">
+            <div className="aspect-square bg-background dark:bg-gray-900 border-2 border-dashed border-border flex items-center justify-center">
               <p className="text-muted-foreground text-center">
                 System-Architektur-Skizze<br />
                 (Diagramm wird hier eingefügt)
@@ -69,11 +69,11 @@ export function ArchitectureSection() {
             
             <div className="space-y-3">
               {features.map((feature, index) => <Collapsible key={index}>
-                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left bg-background dark:bg-slate-800 border border-border hover:bg-accent transition-colors">
+                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left bg-background dark:bg-gray-900 border border-border hover:bg-accent transition-colors">
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 bg-background/80 dark:bg-slate-800/80 border-x border-b border-border">
+                  <CollapsibleContent className="p-4 bg-background/80 dark:bg-gray-900/80 border-x border-b border-border">
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
