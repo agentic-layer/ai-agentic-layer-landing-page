@@ -171,30 +171,54 @@ export const ParticleWave: React.FC = () => {
   const { theme } = useTheme();
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
   const [startTime] = useState(() => Date.now());
+  const [hasFirstScrolled, setHasFirstScrolled] = useState(false);
 
   useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // If at top and haven't scrolled yet, prevent default and trigger transition
+      if (window.scrollY === 0 && !hasFirstScrolled) {
+        e.preventDefault();
+        setCurrentPhase('transition');
+        setHasFirstScrolled(true);
+        
+        // After transition, allow normal scrolling
+        setTimeout(() => {
+          setCurrentPhase('harmony');
+        }, 1000);
+      }
+    };
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const scrollThreshold = 100; // Start transition after 100px scroll
       
-      if (scrollY === 0) {
-        // At very top - chaos mode
-        setCurrentPhase('chaos');
-      } else if (scrollY < scrollThreshold) {
-        // Transitioning from top
-        setCurrentPhase('transition');
-      } else {
-        // Scrolled down - harmony mode
-        setCurrentPhase('harmony');
+      // Only update phase if we've already done the first scroll transition
+      if (hasFirstScrolled) {
+        if (scrollY === 0) {
+          setCurrentPhase('chaos');
+          setHasFirstScrolled(false);
+        } else {
+          setCurrentPhase('harmony');
+        }
       }
     };
 
     // Set initial phase based on current scroll position
-    handleScroll();
+    if (window.scrollY === 0) {
+      setCurrentPhase('chaos');
+      setHasFirstScrolled(false);
+    } else {
+      setCurrentPhase('harmony');
+      setHasFirstScrolled(true);
+    }
     
+    window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasFirstScrolled]);
 
   // Determine if we're in dark mode
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
