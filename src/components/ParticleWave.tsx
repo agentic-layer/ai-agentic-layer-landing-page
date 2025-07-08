@@ -240,7 +240,10 @@ export const ParticleWave: React.FC = () => {
               }`}
             >
               <h1 className="headline-text mb-8">
-                agenticlayer.io: Ihre KI. Ihre Infrastruktur. Ihre Regeln.
+                agenticlayer.io<br />
+                Ihre KI.<br />
+                Ihre Infrastruktur<br />
+                Ihre Regeln.
               </h1>
               <p className="subheadline-text">
                 Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle über Daten, Prozesse und Compliance gibt.
