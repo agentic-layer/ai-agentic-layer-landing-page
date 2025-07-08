@@ -13,6 +13,17 @@ function Particles({ currentPhase }: ParticleWaveProps) {
   const mesh = useRef<THREE.Points>(null);
   const [startTime] = useState(() => Date.now());
   
+  // Velocity arrays for free movement
+  const velocities = useMemo(() => {
+    const vels = new Float32Array(PARTICLE_COUNT * 3);
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      vels[i * 3] = (Math.random() - 0.5) * 0.1; // x velocity
+      vels[i * 3 + 1] = (Math.random() - 0.5) * 0.1; // y velocity  
+      vels[i * 3 + 2] = (Math.random() - 0.5) * 0.1; // z velocity
+    }
+    return vels;
+  }, []);
+  
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     
@@ -43,17 +54,38 @@ function Particles({ currentPhase }: ParticleWaveProps) {
     const positions = mesh.current.geometry.attributes.position.array as Float32Array;
 
     if (currentPhase === 'chaos') {
-      // Random movement
+      // Free-flying chaotic movement with persistent velocities
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const i3 = i * 3;
-        positions[i3] += (Math.random() - 0.5) * 0.02; // x
-        positions[i3 + 1] += (Math.random() - 0.5) * 0.02; // y
-        positions[i3 + 2] += (Math.random() - 0.5) * 0.02; // z
         
-        // Keep particles within bounds
-        positions[i3] = Math.max(-10, Math.min(10, positions[i3]));
-        positions[i3 + 1] = Math.max(-5, Math.min(5, positions[i3 + 1]));
-        positions[i3 + 2] = Math.max(-5, Math.min(5, positions[i3 + 2]));
+        // Apply and update velocities with some randomness
+        velocities[i3] += (Math.random() - 0.5) * 0.01; // x velocity change
+        velocities[i3 + 1] += (Math.random() - 0.5) * 0.01; // y velocity change
+        velocities[i3 + 2] += (Math.random() - 0.5) * 0.01; // z velocity change
+        
+        // Damping to prevent infinite acceleration
+        velocities[i3] *= 0.98;
+        velocities[i3 + 1] *= 0.98;
+        velocities[i3 + 2] *= 0.98;
+        
+        // Apply velocities to positions
+        positions[i3] += velocities[i3];
+        positions[i3 + 1] += velocities[i3 + 1];
+        positions[i3 + 2] += velocities[i3 + 2];
+        
+        // Bounce off boundaries instead of clamping
+        if (positions[i3] > 12 || positions[i3] < -12) {
+          velocities[i3] *= -0.8;
+          positions[i3] = Math.max(-12, Math.min(12, positions[i3]));
+        }
+        if (positions[i3 + 1] > 7 || positions[i3 + 1] < -7) {
+          velocities[i3 + 1] *= -0.8;
+          positions[i3 + 1] = Math.max(-7, Math.min(7, positions[i3 + 1]));
+        }
+        if (positions[i3 + 2] > 7 || positions[i3 + 2] < -7) {
+          velocities[i3 + 2] *= -0.8;
+          positions[i3 + 2] = Math.max(-7, Math.min(7, positions[i3 + 2]));
+        }
       }
     } else if (currentPhase === 'harmony') {
       // Multi-wave formation
