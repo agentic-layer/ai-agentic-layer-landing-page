@@ -217,34 +217,35 @@ export const ParticleWave: React.FC = () => {
       {/* Text overlays */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center px-4 max-w-5xl space-y-8">
-          {/* Always visible headline */}
-          <h1 className="headline-text">
-            Das Gen-AI-Paradoxon
-          </h1>
-          
-          {/* Text content with same positioning */}
+          {/* Text content with conditional headlines and subheadlines */}
           <div className="relative">
-            {/* Chaos text */}
-            <p 
-              className={`subheadline-text transition-opacity duration-1000 ${
+            {/* Chaos mode - headline and subheadline */}
+            <div 
+              className={`transition-opacity duration-1000 ${
                 currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              Ihre KI-Anwendungen spielen nicht zusammen
-            </p>
+              <h1 className="headline-text mb-8">
+                Großartige Solisten, aber kein Orchester?
+              </h1>
+              <p className="subheadline-text">
+                Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
+              </p>
+            </div>
             
-            {/* Harmony text */}
-            <p 
-              className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+            {/* Harmony mode - headline and subheadline */}
+            <div 
+              className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
                 currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <span className="block md:inline">Formen Sie Ihre KI-Anwendungen</span>
-              <br className="md:hidden" />
-              <span className="block md:inline"> mit dem Agentic Layer</span>
-              <br className="md:hidden" />
-              <span className="block md:inline"> zu einer harmonischen Symphonie.</span>
-            </p>
+              <h1 className="headline-text mb-8">
+                agenticlayer.io: Ihre KI. Ihre Infrastruktur. Ihre Regeln.
+              </h1>
+              <p className="subheadline-text">
+                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle über Daten, Prozesse und Compliance gibt.
+              </p>
+            </div>
           </div>
         </div>
       </div>
