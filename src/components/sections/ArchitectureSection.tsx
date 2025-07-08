@@ -25,7 +25,7 @@ const features = [{
   description: "Investieren Sie in eine zukunftssichere, offene Architektur statt in eine geschlossene Blackbox. Unser Bekenntnis zu Standards wie A2A und MCP schützt Sie vor Vendor-Lock-in."
 }];
 export function ArchitectureSection() {
-  return <section className="py-20 section-padding bg-muted/30 dark:bg-muted/50">
+  return <section className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
