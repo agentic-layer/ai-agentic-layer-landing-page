@@ -233,7 +233,7 @@ export const ParticleWave: React.FC = () => {
           
           {/* Harmony text */}
           <p 
-            className={`subheadline-text transition-opacity duration-1000 absolute top-20 left-0 right-0 ${
+            className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
             }`}
           >
