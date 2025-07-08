@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BusinessBenefitsSection } from '@/components/sections/BusinessBenefitsSection';
 import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
-        <ThemeToggle />
+        <Header />
         
         <HeroSection />
         <BusinessBenefitsSection />

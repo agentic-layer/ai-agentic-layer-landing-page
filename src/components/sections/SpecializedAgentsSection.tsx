@@ -14,7 +14,7 @@ const agents = [{
 }];
 
 export function SpecializedAgentsSection() {
-  return <section className="py-20 section-padding">
+  return <section id="agents" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">

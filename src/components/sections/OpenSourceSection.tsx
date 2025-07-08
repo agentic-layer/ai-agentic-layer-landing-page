@@ -5,7 +5,7 @@ import { Github } from 'lucide-react';
 
 export function OpenSourceSection() {
   return (
-    <section className="py-20 section-padding bg-muted/30 dark:bg-muted">
+    <section id="open-source" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
           <h2 className="headline-text">

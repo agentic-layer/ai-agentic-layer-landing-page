@@ -20,7 +20,7 @@ export function CTASection() {
   };
 
   return (
-    <section className="py-20 section-padding">
+    <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">

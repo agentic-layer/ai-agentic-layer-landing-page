@@ -17,7 +17,7 @@ export function LeadMagnetSection() {
   };
 
   return (
-    <section className="py-20 section-padding bg-primary text-primary-foreground">
+    <section id="lead-magnet" className="py-20 section-padding bg-primary text-primary-foreground">
       <div className="container-width">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left - Whitepaper Visual */}

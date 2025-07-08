@@ -29,7 +29,7 @@ const features = [{
 }];
 
 export function ArchitectureSection() {
-  return <section className="py-20 section-padding bg-muted/30 dark:bg-muted">
+  return <section id="architecture" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
