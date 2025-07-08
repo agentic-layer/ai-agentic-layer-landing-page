@@ -239,7 +239,7 @@ export const ParticleWave: React.FC = () => {
                 currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
+              <span className="whitespace-nowrap">Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer</span><br />zu einer harmonischen Symphonie.
             </p>
           </div>
         </div>
