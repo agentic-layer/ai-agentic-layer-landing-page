@@ -27,7 +27,7 @@ export function CTASection() {
             Werden Sie Teil des Orchesters
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Der Weg zur souveränen KI beginnt hier.<br />
+            Der Weg zur souveränen KI<br className="md:hidden" /> beginnt hier.<br />
             Wählen Sie Ihren passenden nächsten Schritt.
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
