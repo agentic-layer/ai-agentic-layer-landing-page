@@ -1,5 +1,6 @@
 
 
+
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
@@ -74,7 +75,7 @@ export function ArchitectureSection() {
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 bg-muted/20 dark:bg-muted/80 border-x border-b border-muted-foreground/20">
+                  <CollapsibleContent className="p-4 border-x border-b border-muted-foreground/20" style={{backgroundColor: '#292929'}}>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
@@ -86,4 +87,5 @@ export function ArchitectureSection() {
       </div>
     </section>;
 }
+
 
