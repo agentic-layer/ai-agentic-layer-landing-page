@@ -75,7 +75,7 @@ export function ArchitectureSection() {
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 border-x border-b border-muted-foreground/20 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                  <CollapsibleContent className="p-4 border-x border-b border-muted-foreground/20 data-[state=open]:animate-fade-in">
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
