@@ -172,26 +172,34 @@ export const ParticleWave: React.FC = () => {
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
   const [startTime] = useState(() => Date.now());
   const [hasTriggeredTransition, setHasTriggeredTransition] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
-      if (scrollY === 0) {
-        // At very top - reset to chaos mode
+      if (scrollY === 0 && !isTransitioning && !hasTriggeredTransition) {
+        // At very top and not transitioning - chaos mode
         setCurrentPhase('chaos');
-        setHasTriggeredTransition(false);
-      } else if (scrollY > 0 && !hasTriggeredTransition) {
+      } else if (scrollY > 0 && !hasTriggeredTransition && !isTransitioning) {
         // First scroll from top - trigger transition and prevent page scroll
+        setIsTransitioning(true);
         setCurrentPhase('transition');
-        setHasTriggeredTransition(true);
         // Prevent actual page scroll by resetting to top
         window.scrollTo(0, 0);
-        // After a brief moment, switch to harmony mode
-        setTimeout(() => setCurrentPhase('harmony'), 1000);
-      } else if (hasTriggeredTransition && scrollY > 100) {
+        // After transition completes, enable normal scrolling
+        setTimeout(() => {
+          setCurrentPhase('harmony');
+          setHasTriggeredTransition(true);
+          setIsTransitioning(false);
+        }, 1000);
+      } else if (hasTriggeredTransition && scrollY > 0) {
         // Normal scrolling behavior after transition
         setCurrentPhase('harmony');
+      } else if (scrollY === 0 && hasTriggeredTransition && !isTransitioning) {
+        // Scrolled back to top after transition - reset for next cycle
+        setCurrentPhase('chaos');
+        setHasTriggeredTransition(false);
       }
     };
 
@@ -200,7 +208,7 @@ export const ParticleWave: React.FC = () => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasTriggeredTransition]);
+  }, [hasTriggeredTransition, isTransitioning]);
 
   // Determine if we're in dark mode
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
