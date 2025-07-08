@@ -17,9 +17,9 @@ function Particles({ currentPhase }: ParticleWaveProps) {
   const velocities = useMemo(() => {
     const vels = new Float32Array(PARTICLE_COUNT * 3);
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      vels[i * 3] = (Math.random() - 0.5) * 0.1; // x velocity
-      vels[i * 3 + 1] = (Math.random() - 0.5) * 0.1; // y velocity  
-      vels[i * 3 + 2] = (Math.random() - 0.5) * 0.1; // z velocity
+      vels[i * 3] = (Math.random() - 0.5) * 0.03; // x velocity
+      vels[i * 3 + 1] = (Math.random() - 0.5) * 0.03; // y velocity  
+      vels[i * 3 + 2] = (Math.random() - 0.5) * 0.03; // z velocity
     }
     return vels;
   }, []);
@@ -59,9 +59,9 @@ function Particles({ currentPhase }: ParticleWaveProps) {
         const i3 = i * 3;
         
         // Apply and update velocities with some randomness
-        velocities[i3] += (Math.random() - 0.5) * 0.01; // x velocity change
-        velocities[i3 + 1] += (Math.random() - 0.5) * 0.01; // y velocity change
-        velocities[i3 + 2] += (Math.random() - 0.5) * 0.01; // z velocity change
+        velocities[i3] += (Math.random() - 0.5) * 0.003; // x velocity change
+        velocities[i3 + 1] += (Math.random() - 0.5) * 0.003; // y velocity change
+        velocities[i3 + 2] += (Math.random() - 0.5) * 0.003; // z velocity change
         
         // Damping to prevent infinite acceleration
         velocities[i3] *= 0.98;
