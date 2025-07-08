@@ -2,26 +2,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from './ThemeProvider';
 
-interface Dot {
+interface Particle {
   x: number;
   y: number;
   vx: number;
   vy: number;
   tx: number; // target x
   ty: number; // target y
+  opacity: number;
+  size: number;
 }
 
 export const DotsAnimation: React.FC = () => {
   const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
-  const dotsRef = useRef<Dot[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
   const startTimeRef = useRef<number>(0);
   const waveStartedRef = useRef<boolean>(false);
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
 
-  const DOT_COUNT = 40;
-  const DOT_SIZE = 4;
+  const PARTICLE_COUNT = 60;
+  const BASE_PARTICLE_SIZE = 2;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,24 +44,26 @@ export const DotsAnimation: React.FC = () => {
       console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
     };
 
-    // Initialize dots after canvas is properly sized
-    const initializeDots = () => {
-      dotsRef.current = [];
+    // Initialize particles after canvas is properly sized
+    const initializeParticles = () => {
+      particlesRef.current = [];
       const width = canvas.width;
       const height = canvas.height;
       
       if (width <= 0 || height <= 0) return;
       
-      console.log('Initializing dots with canvas dimensions:', width, 'x', height);
+      console.log('Initializing particles with canvas dimensions:', width, 'x', height);
       
-      for (let i = 0; i < DOT_COUNT; i++) {
-        dotsRef.current.push({
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particlesRef.current.push({
           x: Math.random() * width,
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 2,
           vy: (Math.random() - 0.5) * 2,
           tx: 0,
           ty: 0,
+          opacity: Math.random() * 0.5 + 0.5,
+          size: BASE_PARTICLE_SIZE + Math.random() * 2,
         });
       }
     };
@@ -95,53 +99,88 @@ export const DotsAnimation: React.FC = () => {
       ctx.fillStyle = isDark ? '#000000' : '#ffffff';
       ctx.fillRect(0, 0, width, height);
 
-      dotsRef.current.forEach((dot, i) => {
+      particlesRef.current.forEach((particle, i) => {
         if (elapsed < 5) {
           // Phase 1: chaos
-          dot.x += dot.vx;
-          dot.y += dot.vy;
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.opacity = Math.random() * 0.5 + 0.3;
+          particle.size = BASE_PARTICLE_SIZE + Math.random() * 2;
 
           // Bounce off edges
-          if (dot.x <= DOT_SIZE || dot.x >= width - DOT_SIZE) {
-            dot.vx *= -1;
-            dot.x = Math.max(DOT_SIZE, Math.min(width - DOT_SIZE, dot.x));
+          if (particle.x <= particle.size || particle.x >= width - particle.size) {
+            particle.vx *= -1;
+            particle.x = Math.max(particle.size, Math.min(width - particle.size, particle.x));
           }
-          if (dot.y <= DOT_SIZE || dot.y >= height - DOT_SIZE) {
-            dot.vy *= -1;
-            dot.y = Math.max(DOT_SIZE, Math.min(height - DOT_SIZE, dot.y));
+          if (particle.y <= particle.size || particle.y >= height - particle.size) {
+            particle.vy *= -1;
+            particle.y = Math.max(particle.size, Math.min(height - particle.size, particle.y));
           }
         } else if (elapsed < 15) {
-          // Phase 2: transition to harmony
+          // Phase 2: transition to harmony - multi-wave structure
           if (!waveStartedRef.current) {
             waveStartedRef.current = true;
           }
           
-          // Calculate target positions using current canvas dimensions
-          const spacing = width / DOT_COUNT;
-          dot.tx = i * spacing;
-          // Create moving sine wave - phase moves the wave from left to right
-          const waveFrequency = 0.01; // Controls how many waves across the width
-          const phase = timestamp * -0.001; // Controls speed of wave movement (left to right)
-          dot.ty = centerY + Math.sin(dot.tx * waveFrequency + phase) * 120;
+          // Calculate target positions for flowing multi-wave pattern
+          const spacing = width / PARTICLE_COUNT;
+          particle.tx = i * spacing;
+          
+          // Create multiple overlapping sine waves with different frequencies and phases
+          const time = timestamp * 0.001;
+          const wave1 = Math.sin(particle.tx * 0.008 + time * 2) * 60;
+          const wave2 = Math.sin(particle.tx * 0.015 + time * -1.5) * 40;
+          const wave3 = Math.sin(particle.tx * 0.005 + time * 3) * 80;
+          
+          // Combine waves for complex flowing pattern
+          particle.ty = centerY + wave1 + wave2 * 0.7 + wave3 * 0.3;
 
-          // Spring-like interpolation toward sine wave positions
-          dot.x += (dot.tx - dot.x) * 0.05;
-          dot.y += (dot.ty - dot.y) * 0.05;
+          // Spring-like interpolation toward wave positions
+          particle.x += (particle.tx - particle.x) * 0.08;
+          particle.y += (particle.ty - particle.y) * 0.08;
+          
+          // Smooth opacity and size transitions
+          particle.opacity = 0.8 + Math.sin(time * 2 + i * 0.1) * 0.2;
+          particle.size = BASE_PARTICLE_SIZE + Math.sin(time * 1.5 + i * 0.2) * 1.5;
         } else {
           // Phase 3: reset to chaos
           if (waveStartedRef.current) {
             // Reset for new chaos phase
             waveStartedRef.current = false;
             startTimeRef.current = timestamp;
-            dot.vx = (Math.random() - 0.5) * 2;
-            dot.vy = (Math.random() - 0.5) * 2;
+            particle.vx = (Math.random() - 0.5) * 2;
+            particle.vy = (Math.random() - 0.5) * 2;
           }
         }
 
-        // Draw dot with theme-aware color
-        ctx.fillStyle = isDark ? '#ffffff' : '#000000';
+        // Draw particle with glow effect
+        const alpha = Math.max(0, Math.min(1, particle.opacity));
+        
+        // Create glow effect
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.size * 3
+        );
+        
+        if (isDark) {
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+          gradient.addColorStop(0.4, `rgba(255, 255, 255, ${alpha * 0.6})`);
+          gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+        } else {
+          gradient.addColorStop(0, `rgba(0, 0, 0, ${alpha})`);
+          gradient.addColorStop(0.4, `rgba(0, 0, 0, ${alpha * 0.6})`);
+          gradient.addColorStop(1, `rgba(0, 0, 0, 0)`);
+        }
+
+        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, DOT_SIZE, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw core particle
+        ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${alpha})` : `rgba(0, 0, 0, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
@@ -150,10 +189,10 @@ export const DotsAnimation: React.FC = () => {
 
     // Initialize and start
     resizeCanvas();
-    initializeDots();
+    initializeParticles();
     
     const timeoutId = setTimeout(() => {
-      if (canvas.width > 0 && canvas.height > 0 && dotsRef.current.length > 0) {
+      if (canvas.width > 0 && canvas.height > 0 && particlesRef.current.length > 0) {
         startTimeRef.current = performance.now();
         animate(startTimeRef.current);
       }
@@ -162,7 +201,7 @@ export const DotsAnimation: React.FC = () => {
     // Handle resize
     const handleResize = () => {
       resizeCanvas();
-      initializeDots();
+      initializeParticles();
       startTimeRef.current = performance.now();
       waveStartedRef.current = false;
       console.log('Animation reset due to resize');
