@@ -53,7 +53,7 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <div className="aspect-square bg-background border-2 border-dashed border-border flex items-center justify-center" style={{ backgroundColor: '#272725' }}>
+            <div className="aspect-square bg-muted/30 dark:bg-muted border-2 border-muted-foreground/20 hover:border-muted-foreground/40 transition-colors flex items-center justify-center">
               <p className="text-muted-foreground text-center">
                 System-Architektur-Skizze<br />
                 (Diagramm wird hier eingefügt)
@@ -69,11 +69,11 @@ export function ArchitectureSection() {
             
             <div className="space-y-3">
               {features.map((feature, index) => <Collapsible key={index}>
-                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left bg-background border border-border hover:bg-accent transition-colors" style={{ backgroundColor: '#272725' }}>
+                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left bg-muted/30 dark:bg-muted border border-muted-foreground/20 hover:border-muted-foreground/40 hover:bg-accent transition-colors">
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 bg-background/80 border-x border-b border-border" style={{ backgroundColor: 'rgba(39, 39, 37, 0.8)' }}>
+                  <CollapsibleContent className="p-4 bg-muted/20 dark:bg-muted/80 border-x border-b border-muted-foreground/20">
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
