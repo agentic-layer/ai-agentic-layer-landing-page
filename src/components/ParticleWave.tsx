@@ -239,7 +239,11 @@ export const ParticleWave: React.FC = () => {
                 currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <span className="sm:whitespace-nowrap">Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer</span><br className="hidden sm:block" /><span className="sm:hidden"> </span>zu einer harmonischen Symphonie.
+              <span className="block md:inline">Formen Sie Ihre KI-Anwendungen</span>
+              <br className="md:hidden" />
+              <span className="block md:inline"> mit dem Agentic Layer</span>
+              <br className="md:hidden" />
+              <span className="block md:inline"> zu einer harmonischen Symphonie.</span>
             </p>
           </div>
         </div>
