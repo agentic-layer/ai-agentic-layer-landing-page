@@ -112,28 +112,33 @@ function Particles({ currentPhase }: ParticleWaveProps) {
         positions[i3 + 2] += (targetPositions[i3 + 2] - positions[i3 + 2]) * 0.05;
       }
     } else if (currentPhase === 'transition') {
-      // Smooth transition between chaos and harmony
-      if (currentPhase === 'transition') {
-        const gridSize = Math.sqrt(PARTICLE_COUNT);
+      // Smooth direct transition between chaos and harmony
+      const gridSize = Math.sqrt(PARTICLE_COUNT);
+      
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const i3 = i * 3;
+        const row = Math.floor(i / gridSize);
+        const col = i % gridSize;
         
-        for (let i = 0; i < PARTICLE_COUNT; i++) {
-          const i3 = i * 3;
-          const row = Math.floor(i / gridSize);
-          const col = i % gridSize;
-          
-          const x = (col / gridSize) * 2 - 1;
-          const z = (row / gridSize) * 2 - 1;
-          
-          // Set grid positions as targets
-          targetPositions[i3] = x * 8;
-          targetPositions[i3 + 1] = 0;
-          targetPositions[i3 + 2] = z * 8;
-          
-          // Faster interpolation during transition
-          positions[i3] += (targetPositions[i3] - positions[i3]) * 0.08;
-          positions[i3 + 1] += (targetPositions[i3 + 1] - positions[i3 + 1]) * 0.08;
-          positions[i3 + 2] += (targetPositions[i3 + 2] - positions[i3 + 2]) * 0.08;
-        }
+        const x = (col / gridSize) * 2 - 1;
+        const z = (row / gridSize) * 2 - 1;
+        
+        // Calculate harmonic wave positions directly
+        const wave1 = Math.sin(x * 3 + time * 0.5) * 0.8;
+        const wave2 = Math.sin(z * 2 + time * 0.3) * 0.6;
+        const wave3 = Math.sin((x + z) * 1.5 + time * 0.7) * 0.4;
+        const wave4 = Math.sin(x * 4 - z * 2 + time * 0.4) * 0.3;
+        const y = (wave1 + wave2 * 0.7 + wave3 * 0.5 + wave4 * 0.3) * 1.5;
+        
+        // Set harmonic positions as targets for smooth transition
+        targetPositions[i3] = x * 8;
+        targetPositions[i3 + 1] = y;
+        targetPositions[i3 + 2] = z * 8;
+        
+        // Faster interpolation during transition
+        positions[i3] += (targetPositions[i3] - positions[i3]) * 0.08;
+        positions[i3 + 1] += (targetPositions[i3 + 1] - positions[i3 + 1]) * 0.08;
+        positions[i3 + 2] += (targetPositions[i3 + 2] - positions[i3 + 2]) * 0.08;
       }
     }
 
