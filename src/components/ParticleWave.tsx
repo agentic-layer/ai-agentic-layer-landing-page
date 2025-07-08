@@ -246,7 +246,7 @@ export const ParticleWave: React.FC = () => {
                 Ihre Regeln.
               </h1>
               <p className="subheadline-text">
-                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle über Daten, Prozesse und Compliance gibt.
+                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
               </p>
             </div>
           </div>
