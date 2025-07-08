@@ -58,15 +58,7 @@ function Particles({ currentPhase }: ParticleWaveProps) {
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const i3 = i * 3;
         
-        // Apply and update velocities with some randomness
-        velocities[i3] += (Math.random() - 0.5) * 0.003; // x velocity change
-        velocities[i3 + 1] += (Math.random() - 0.5) * 0.003; // y velocity change
-        velocities[i3 + 2] += (Math.random() - 0.5) * 0.003; // z velocity change
-        
-        // Damping to prevent infinite acceleration
-        velocities[i3] *= 0.98;
-        velocities[i3 + 1] *= 0.98;
-        velocities[i3 + 2] *= 0.98;
+        // Keep velocities constant for linear movement
         
         // Apply velocities to positions
         positions[i3] += velocities[i3];
