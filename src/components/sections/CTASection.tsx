@@ -40,15 +40,15 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Column 1 - GitHub */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
-            <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <CardHeader>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Github className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">
                 Explore the Code
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center space-y-4 flex-1 flex flex-col">
+            <CardContent className="space-y-4 flex-1 flex flex-col">
               <p className="text-muted-foreground text-sm flex-1">
                 Unser Agentic Layer ist Open Source. Verfolgen Sie die Entwicklung, bringen Sie sich ein 
                 und werden Sie Teil der Community.
@@ -61,15 +61,15 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
 
           {/* Column 2 - Expert Consultation */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
-            <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <CardHeader>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Calendar className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">
                 Von der Strategie zur Umsetzung
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center space-y-4 flex-1 flex flex-col">
+            <CardContent className="space-y-4 flex-1 flex flex-col">
               <p className="text-muted-foreground text-sm flex-1">
                 Egal, ob Sie das strategische Potenzial für Ihr Unternehmen bewerten wollen oder bereits 
                 ein konkretes Projektvorhaben haben: Buchen Sie eine kostenlose, unverbindliche Session. 
@@ -84,14 +84,14 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
 
           {/* Column 3 - Newsletter */}
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
-            <CardHeader className="text-center">
-              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <CardHeader>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">Verfolgen Sie unsere Mission</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 flex-1 flex flex-col">
-              <p className="text-muted-foreground text-sm text-center flex-1">
+              <p className="text-muted-foreground text-sm flex-1">
                 Sie finden das Thema spannend, sind aber noch nicht bereit für den tiefen Einstieg? 
                 Tragen Sie sich ein und wir informieren Sie gezielt über wichtige Projekt-Meilensteine, 
                 wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
