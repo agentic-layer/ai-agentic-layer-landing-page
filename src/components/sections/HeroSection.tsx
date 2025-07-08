@@ -1,5 +1,5 @@
 import React from 'react';
-import { DotsAnimation } from '@/components/DotsAnimation';
+import { ParticleWave } from '@/components/ParticleWave';
 export function HeroSection() {
   return <section className="min-h-screen flex flex-col justify-center py-20">
       {/* Text content - centered with section padding */}
@@ -26,7 +26,7 @@ export function HeroSection() {
           <div className="relative w-full" style={{
           aspectRatio: '16/9'
         }}>
-            <DotsAnimation />
+            <ParticleWave />
           </div>
         </div>
       </div>

@@ -1,0 +1,209 @@
+import React, { useRef, useMemo, useState, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useTheme } from './ThemeProvider';
+import * as THREE from 'three';
+
+interface ParticleWaveProps {
+  currentPhase: 'chaos' | 'harmony' | 'transition';
+}
+
+const PARTICLE_COUNT = 3000;
+
+function Particles({ currentPhase }: ParticleWaveProps) {
+  const mesh = useRef<THREE.Points>(null);
+  const [startTime] = useState(() => Date.now());
+  
+  const particlesPosition = useMemo(() => {
+    const positions = new Float32Array(PARTICLE_COUNT * 3);
+    
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      // Initialize particles randomly in 3D space
+      positions[i * 3] = (Math.random() - 0.5) * 20; // x
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 10; // y
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10; // z
+    }
+    
+    return positions;
+  }, []);
+
+  const originalPositions = useMemo(() => {
+    return Float32Array.from(particlesPosition);
+  }, [particlesPosition]);
+
+  const targetPositions = useMemo(() => {
+    return new Float32Array(PARTICLE_COUNT * 3);
+  }, []);
+
+  useFrame((state) => {
+    if (!mesh.current) return;
+
+    const elapsed = (Date.now() - startTime) / 1000;
+    const time = state.clock.elapsedTime;
+    
+    const positions = mesh.current.geometry.attributes.position.array as Float32Array;
+
+    if (currentPhase === 'chaos') {
+      // Random movement
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const i3 = i * 3;
+        positions[i3] += (Math.random() - 0.5) * 0.02; // x
+        positions[i3 + 1] += (Math.random() - 0.5) * 0.02; // y
+        positions[i3 + 2] += (Math.random() - 0.5) * 0.02; // z
+        
+        // Keep particles within bounds
+        positions[i3] = Math.max(-10, Math.min(10, positions[i3]));
+        positions[i3 + 1] = Math.max(-5, Math.min(5, positions[i3 + 1]));
+        positions[i3 + 2] = Math.max(-5, Math.min(5, positions[i3 + 2]));
+      }
+    } else if (currentPhase === 'harmony') {
+      // Multi-wave formation
+      const gridSize = Math.sqrt(PARTICLE_COUNT);
+      
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const i3 = i * 3;
+        const row = Math.floor(i / gridSize);
+        const col = i % gridSize;
+        
+        // Normalize to -1 to 1 range
+        const x = (col / gridSize) * 2 - 1;
+        const z = (row / gridSize) * 2 - 1;
+        
+        // Create multiple overlapping waves
+        const wave1 = Math.sin(x * 3 + time * 0.5) * 0.8;
+        const wave2 = Math.sin(z * 2 + time * 0.3) * 0.6;
+        const wave3 = Math.sin((x + z) * 1.5 + time * 0.7) * 0.4;
+        const wave4 = Math.sin(x * 4 - z * 2 + time * 0.4) * 0.3;
+        
+        // Combine waves for complex surface
+        const y = (wave1 + wave2 * 0.7 + wave3 * 0.5 + wave4 * 0.3) * 1.5;
+        
+        // Set target positions
+        targetPositions[i3] = x * 8; // Spread horizontally
+        targetPositions[i3 + 1] = y; // Wave height
+        targetPositions[i3 + 2] = z * 8; // Spread in depth
+        
+        // Smooth interpolation to targets
+        positions[i3] += (targetPositions[i3] - positions[i3]) * 0.05;
+        positions[i3 + 1] += (targetPositions[i3 + 1] - positions[i3 + 1]) * 0.05;
+        positions[i3 + 2] += (targetPositions[i3 + 2] - positions[i3 + 2]) * 0.05;
+      }
+    } else if (currentPhase === 'transition') {
+      // Smooth transition between chaos and harmony
+      if (currentPhase === 'transition') {
+        const gridSize = Math.sqrt(PARTICLE_COUNT);
+        
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          const i3 = i * 3;
+          const row = Math.floor(i / gridSize);
+          const col = i % gridSize;
+          
+          const x = (col / gridSize) * 2 - 1;
+          const z = (row / gridSize) * 2 - 1;
+          
+          // Set grid positions as targets
+          targetPositions[i3] = x * 8;
+          targetPositions[i3 + 1] = 0;
+          targetPositions[i3 + 2] = z * 8;
+          
+          // Faster interpolation during transition
+          positions[i3] += (targetPositions[i3] - positions[i3]) * 0.08;
+          positions[i3 + 1] += (targetPositions[i3 + 1] - positions[i3 + 1]) * 0.08;
+          positions[i3 + 2] += (targetPositions[i3 + 2] - positions[i3 + 2]) * 0.08;
+        }
+      }
+    }
+
+    mesh.current.geometry.attributes.position.needsUpdate = true;
+  });
+
+  return (
+    <points ref={mesh}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={PARTICLE_COUNT}
+          array={particlesPosition}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.05}
+        sizeAttenuation={true}
+        transparent={true}
+        opacity={0.8}
+        color="#ffffff"
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+}
+
+export const ParticleWave: React.FC = () => {
+  const { theme } = useTheme();
+  const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
+  const [startTime] = useState(() => Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const elapsed = (Date.now() - startTime) / 1000;
+      
+      if (elapsed < 4) {
+        setCurrentPhase('chaos');
+      } else if (elapsed < 5) {
+        setCurrentPhase('transition');
+      } else if (elapsed < 14) {
+        setCurrentPhase('harmony');
+      } else if (elapsed < 15) {
+        setCurrentPhase('transition');
+      } else {
+        // Reset cycle
+        setCurrentPhase('chaos');
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [startTime]);
+
+  // Determine if we're in dark mode
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  return (
+    <div className="relative w-full h-full">
+      <Canvas
+        camera={{ position: [0, 0, 12], fov: 60 }}
+        style={{ 
+          background: isDark ? '#000000' : '#ffffff',
+          width: '100%',
+          height: '100%'
+        }}
+      >
+        <ambientLight intensity={0.3} />
+        <pointLight position={[10, 10, 10]} intensity={0.5} />
+        <Particles currentPhase={currentPhase} />
+      </Canvas>
+      
+      {/* Text overlays */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="text-center px-4 max-w-4xl">
+          {/* Chaos text */}
+          <p 
+            className={`subheadline-text transition-opacity duration-1000 ${
+              currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            Ihre KI-Anwendungen spielen nicht zusammen
+          </p>
+          
+          {/* Harmony text */}
+          <p 
+            className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+              currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
