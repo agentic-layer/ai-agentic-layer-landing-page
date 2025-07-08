@@ -34,12 +34,12 @@ export function OpenSourceSection() {
             Aufbauend auf bewährten Open-Source-Technologien
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="px-4 py-2 border border-border text-sm">Kubernetes</div>
-            <div className="px-4 py-2 border border-border text-sm">Docker</div>
-            <div className="px-4 py-2 border border-border text-sm">Python</div>
-            <div className="px-4 py-2 border border-border text-sm">TypeScript</div>
-            <div className="px-4 py-2 border border-border text-sm">Redis</div>
-            <div className="px-4 py-2 border border-border text-sm">PostgreSQL</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Kubernetes</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Docker</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Python</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">TypeScript</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Redis</div>
+            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">PostgreSQL</div>
           </div>
         </div>
       </div>
