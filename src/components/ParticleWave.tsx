@@ -217,6 +217,11 @@ export const ParticleWave: React.FC = () => {
       {/* Text overlays */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center px-4 max-w-4xl">
+          {/* Always visible headline */}
+          <h1 className="headline-text mb-20">
+            Das Gen-AI-Paradoxon
+          </h1>
+          
           {/* Chaos text */}
           <p 
             className={`subheadline-text transition-opacity duration-1000 ${
@@ -228,7 +233,7 @@ export const ParticleWave: React.FC = () => {
           
           {/* Harmony text */}
           <p 
-            className={`subheadline-text transition-opacity duration-1000 absolute top-8 left-0 right-0 ${
+            className={`subheadline-text transition-opacity duration-1000 absolute top-20 left-0 right-0 ${
               currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
             }`}
           >
