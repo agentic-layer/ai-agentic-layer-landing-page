@@ -170,18 +170,16 @@ export const ParticleWave: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const elapsed = (Date.now() - startTime) / 1000;
+      const cycleTime = elapsed % 15; // 15 second cycle that repeats forever
       
-      if (elapsed < 4) {
+      if (cycleTime < 4) {
         setCurrentPhase('chaos');
-      } else if (elapsed < 5) {
+      } else if (cycleTime < 5) {
         setCurrentPhase('transition');
-      } else if (elapsed < 14) {
+      } else if (cycleTime < 14) {
         setCurrentPhase('harmony');
-      } else if (elapsed < 15) {
-        setCurrentPhase('transition');
       } else {
-        // Reset cycle
-        setCurrentPhase('chaos');
+        setCurrentPhase('transition');
       }
     }, 100);
 
