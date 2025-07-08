@@ -29,14 +29,12 @@ export function SpecializedAgentsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {agents.map((agent, index) => <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
               <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <agent.icon className="w-6 h-6" />
-                  </div>
-                  <CardTitle className="text-xl font-medium">
-                    {agent.title}
-                  </CardTitle>
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <agent.icon className="w-6 h-6" />
                 </div>
+                <CardTitle className="text-xl font-medium">
+                  {agent.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
