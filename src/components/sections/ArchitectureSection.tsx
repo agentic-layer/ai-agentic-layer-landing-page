@@ -44,10 +44,10 @@ export function ArchitectureSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Architecture */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-medium">
+            <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Unsere Architektur für souveräne KI-Orchestrierung
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed md:text-center lg:text-left">
               Unsere Architektur ist auf maximale Souveränität, Sicherheit und Interoperabilität ausgelegt. 
               Im Zentrum steht der modulare souveräne Agentic Layer, der als zentrales Nervensystem für Ihre 
               KI-Workforce fungiert. Er orchestriert, kontrolliert und sichert alle Agenten-Interaktionen in 
@@ -65,7 +65,7 @@ export function ArchitectureSection() {
 
           {/* Right Column - Features */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-medium">
+            <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Technische Merkmale & Eigenschaften
             </h3>
             
