@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
@@ -53,7 +54,7 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <div className="aspect-square bg-muted/50 dark:bg-gray-800 border-2 border-muted-foreground/20 hover:border-muted-foreground/40 transition-colors flex items-center justify-center">
+            <div className="aspect-square bg-muted/50 border-2 border-muted-foreground/20 hover:border-muted-foreground/40 transition-colors flex items-center justify-center" style={{backgroundColor: '#292929'}}>
               <p className="text-muted-foreground text-center">
                 System-Architektur-Skizze<br />
                 (Diagramm wird hier eingefügt)
@@ -69,7 +70,7 @@ export function ArchitectureSection() {
             
             <div className="space-y-3">
               {features.map((feature, index) => <Collapsible key={index}>
-                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left bg-muted/50 dark:bg-gray-800 border border-muted-foreground/20 hover:border-muted-foreground/40 hover:bg-accent transition-colors">
+                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left border border-muted-foreground/20 hover:border-muted-foreground/40 hover:bg-accent transition-colors" style={{backgroundColor: '#292929'}}>
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
@@ -85,3 +86,4 @@ export function ArchitectureSection() {
       </div>
     </section>;
 }
+
