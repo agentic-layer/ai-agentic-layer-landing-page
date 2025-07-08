@@ -40,7 +40,7 @@ export function Header() {
 
           {/* Navigation and Theme Toggle */}
           <div className="flex items-center space-x-8 ml-auto">
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <button
                   key={item.name}
