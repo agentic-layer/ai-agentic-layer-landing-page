@@ -35,21 +35,21 @@ export function Header() {
             />
           </button>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Theme Toggle */}
-          <ThemeToggle />
+          {/* Navigation and Theme Toggle */}
+          <div className="flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>
