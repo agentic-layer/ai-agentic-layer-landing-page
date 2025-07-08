@@ -8,9 +8,7 @@ export function HeroSection() {
       {/* Dots Animation - replacing video */}
       <div className="mt-16 section-padding">
         <div className="container-width">
-          <div className="relative w-full" style={{
-          aspectRatio: '16/9'
-        }}>
+          <div className="relative w-full aspect-[9/16] md:aspect-[16/9]">
             <ParticleWave />
           </div>
         </div>
