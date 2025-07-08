@@ -54,7 +54,8 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
                 und werden Sie Teil der Community.
               </p>
               <Button className="w-full mt-auto">
-                Zum GitHub-Repository
+                <span className="hidden lg:inline">Zum GitHub-Repository</span>
+                <span className="lg:hidden">GitHub-Repository</span>
               </Button>
             </CardContent>
           </Card>
@@ -77,7 +78,8 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
                 technische Herausforderung.
               </p>
               <Button className="w-full mt-auto">
-                Gespräch mit Experten buchen
+                <span className="hidden lg:inline">Gespräch mit Experten buchen</span>
+                <span className="lg:hidden">Gespräch buchen</span>
               </Button>
             </CardContent>
           </Card>
@@ -105,7 +107,8 @@ Seit fast 20 Jahren entwerfen und bauen wir geschäftskritische Softwaresysteme 
                   required
                 />
                 <Button type="submit" className="w-full">
-                  Über Meilensteine informieren
+                  <span className="hidden lg:inline">Über Meilensteine informieren</span>
+                  <span className="lg:hidden">Newsletter</span>
                 </Button>
               </form>
             </CardContent>
