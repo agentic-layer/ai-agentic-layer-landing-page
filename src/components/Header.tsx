@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from './ThemeProvider';
 
 
 const navigationItems = [
@@ -12,6 +13,8 @@ const navigationItems = [
 ];
 
 export function Header() {
+  const { theme } = useTheme();
+  
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -29,7 +32,7 @@ export function Header() {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img 
-              src="/lovable-uploads/e9f10c80-e782-424c-ace9-5144a98a8300.png" 
+              src={theme === "light" ? "/lovable-uploads/9383bbc1-3be8-4e47-af0a-b8d4afc8f2e5.png" : "/lovable-uploads/e9f10c80-e782-424c-ace9-5144a98a8300.png"} 
               alt="Agentic Layer Logo" 
               className="h-8 w-auto"
             />
