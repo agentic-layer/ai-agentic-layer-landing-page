@@ -173,23 +173,28 @@ export const ParticleWave: React.FC = () => {
   const [startTime] = useState(() => Date.now());
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const elapsed = (Date.now() - startTime) / 1000;
-      const cycleTime = elapsed % 15; // 15 second cycle that repeats forever
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const scrollThreshold = 100; // Start transition after 100px scroll
       
-      if (cycleTime < 4) {
+      if (scrollY === 0) {
+        // At very top - chaos mode
         setCurrentPhase('chaos');
-      } else if (cycleTime < 5) {
+      } else if (scrollY < scrollThreshold) {
+        // Transitioning from top
         setCurrentPhase('transition');
-      } else if (cycleTime < 14) {
-        setCurrentPhase('harmony');
       } else {
-        setCurrentPhase('transition');
+        // Scrolled down - harmony mode
+        setCurrentPhase('harmony');
       }
-    }, 100);
+    };
 
-    return () => clearInterval(interval);
-  }, [startTime]);
+    // Set initial phase based on current scroll position
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Determine if we're in dark mode
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
