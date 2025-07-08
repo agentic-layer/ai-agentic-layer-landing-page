@@ -199,7 +199,7 @@ export const ParticleWave: React.FC = () => {
       <Canvas
         camera={{ position: [0, 0, 12], fov: 60 }}
         style={{ 
-          background: isDark ? '#000000' : '#ffffff',
+          background: '#000000',
           width: '100%',
           height: '100%'
         }}
