@@ -200,7 +200,7 @@ export const ParticleWave: React.FC = () => {
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full particle-wave">
       <Canvas
         camera={{ position: [0, 0, 12], fov: 60 }}
         style={{ 

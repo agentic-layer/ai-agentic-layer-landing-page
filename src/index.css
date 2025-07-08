@@ -109,6 +109,10 @@ All colors MUST be HSL.
   
   .headline-text {
     @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-tight;
+  }
+  
+  /* Animation headline specific styling */
+  .particle-wave .headline-text {
     color: white;
   }
   
