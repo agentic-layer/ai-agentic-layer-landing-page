@@ -218,7 +218,7 @@ export const ParticleWave: React.FC = () => {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center px-4 max-w-4xl">
           {/* Always visible headline */}
-          <h1 className="headline-text mb-20">
+          <h1 className="headline-text mb-14">
             Das Gen-AI-Paradoxon
           </h1>
           
