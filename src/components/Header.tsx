@@ -3,7 +3,6 @@ import { ThemeToggle } from './ThemeToggle';
 
 
 const navigationItems = [
-  { name: 'Home', href: '#hero' },
   { name: 'Vorteile', href: '#benefits' },
   { name: 'Architektur', href: '#architecture' },
   { name: 'Whitepaper', href: '#lead-magnet' },
@@ -25,13 +24,16 @@ export function Header() {
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <button 
+            onClick={() => scrollToSection('#hero')}
+            className="flex items-center hover:opacity-80 transition-opacity"
+          >
             <img 
               src="/lovable-uploads/39002765-64a7-4c03-9d1e-9f7c8e266b56.png" 
               alt="Agentic Layer Logo" 
               className="h-8 w-auto"
             />
-          </div>
+          </button>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
