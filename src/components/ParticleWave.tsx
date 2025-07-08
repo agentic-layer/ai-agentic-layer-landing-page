@@ -240,7 +240,7 @@ export const ParticleWave: React.FC = () => {
               }`}
             >
               <h1 className="headline-text mb-8">
-                agenticlayer.io<br />
+                <span className="subheadline-text">agenticlayer.io</span><br />
                 <span className="block mt-8">
                   Ihre KI.<br />
                   Ihre Infrastruktur<br />
