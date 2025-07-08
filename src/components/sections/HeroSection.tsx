@@ -12,9 +12,7 @@ export function HeroSection() {
               <img src="/lovable-uploads/c3326386-2b61-4e04-84bf-2c05f8177e81.png" alt="Agentic Layer Logo" className="mx-auto h-2/6 w-auto hidden dark:block" />
             </div>
             
-            <h1 className="headline-text">
-              Das Gen-AI-Paradoxon
-            </h1>
+            
             
           </div>
         </div>
