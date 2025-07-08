@@ -171,20 +171,26 @@ export const ParticleWave: React.FC = () => {
   const { theme } = useTheme();
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
   const [startTime] = useState(() => Date.now());
+  const [hasTriggeredTransition, setHasTriggeredTransition] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const scrollThreshold = 100; // Start transition after 100px scroll
       
       if (scrollY === 0) {
-        // At very top - chaos mode
+        // At very top - reset to chaos mode
         setCurrentPhase('chaos');
-      } else if (scrollY < scrollThreshold) {
-        // Transitioning from top
+        setHasTriggeredTransition(false);
+      } else if (scrollY > 0 && !hasTriggeredTransition) {
+        // First scroll from top - trigger transition and prevent page scroll
         setCurrentPhase('transition');
-      } else {
-        // Scrolled down - harmony mode
+        setHasTriggeredTransition(true);
+        // Prevent actual page scroll by resetting to top
+        window.scrollTo(0, 0);
+        // After a brief moment, switch to harmony mode
+        setTimeout(() => setCurrentPhase('harmony'), 1000);
+      } else if (hasTriggeredTransition && scrollY > 100) {
+        // Normal scrolling behavior after transition
         setCurrentPhase('harmony');
       }
     };
@@ -194,7 +200,7 @@ export const ParticleWave: React.FC = () => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasTriggeredTransition]);
 
   // Determine if we're in dark mode
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
