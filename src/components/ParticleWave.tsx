@@ -222,23 +222,26 @@ export const ParticleWave: React.FC = () => {
             Das Gen-AI-Paradoxon
           </h1>
           
-          {/* Chaos text */}
-          <p 
-            className={`subheadline-text transition-opacity duration-1000 ${
-              currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            Ihre KI-Anwendungen spielen nicht zusammen
-          </p>
-          
-          {/* Harmony text */}
-          <p 
-            className={`subheadline-text transition-opacity duration-1000 ${
-              currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
-          </p>
+          {/* Text content with same positioning */}
+          <div className="relative">
+            {/* Chaos text */}
+            <p 
+              className={`subheadline-text transition-opacity duration-1000 ${
+                currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              Ihre KI-Anwendungen spielen nicht zusammen
+            </p>
+            
+            {/* Harmony text */}
+            <p 
+              className={`subheadline-text transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+                currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              Formen Sie Ihre KI-Anwendungen mit dem Agentic Layer<br />zu einer harmonischen Symphonie.
+            </p>
+          </div>
         </div>
       </div>
     </div>
