@@ -226,7 +226,7 @@ export const ParticleWave: React.FC = () => {
               }`}
             >
               <h1 className="headline-text mb-8">
-                Großartige Solisten, aber kein Orchester?
+                Großartige Solisten,<br />aber kein Orchester?
               </h1>
               <p className="subheadline-text">
                 Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
