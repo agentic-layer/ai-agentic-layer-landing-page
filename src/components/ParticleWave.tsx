@@ -175,39 +175,48 @@ export const ParticleWave: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleWheel = (e: WheelEvent) => {
       const scrollY = window.scrollY;
       
-      if (scrollY === 0 && !isTransitioning && !hasTriggeredTransition) {
-        // At very top and not transitioning - chaos mode
-        setCurrentPhase('chaos');
-      } else if (scrollY > 0 && !hasTriggeredTransition && !isTransitioning) {
-        // First scroll from top - trigger transition and prevent page scroll
+      if (scrollY === 0 && !hasTriggeredTransition && !isTransitioning && e.deltaY > 0) {
+        // At top and trying to scroll down - prevent scroll and trigger transition
+        e.preventDefault();
         setIsTransitioning(true);
         setCurrentPhase('transition');
-        // Prevent actual page scroll by resetting to top
-        window.scrollTo(0, 0);
         // After transition completes, enable normal scrolling
         setTimeout(() => {
           setCurrentPhase('harmony');
           setHasTriggeredTransition(true);
           setIsTransitioning(false);
         }, 1000);
-      } else if (hasTriggeredTransition && scrollY > 0) {
-        // Normal scrolling behavior after transition
-        setCurrentPhase('harmony');
-      } else if (scrollY === 0 && hasTriggeredTransition && !isTransitioning) {
-        // Scrolled back to top after transition - reset for next cycle
-        setCurrentPhase('chaos');
-        setHasTriggeredTransition(false);
       }
     };
 
-    // Set initial phase based on current scroll position
-    handleScroll();
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      if (scrollY === 0 && hasTriggeredTransition && !isTransitioning) {
+        // Scrolled back to top after transition - reset for next cycle
+        setCurrentPhase('chaos');
+        setHasTriggeredTransition(false);
+      } else if (hasTriggeredTransition && scrollY > 0) {
+        // Normal scrolling behavior after transition
+        setCurrentPhase('harmony');
+      }
+    };
+
+    // Set initial phase
+    if (window.scrollY === 0) {
+      setCurrentPhase('chaos');
+    }
     
+    window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [hasTriggeredTransition, isTransitioning]);
 
   // Determine if we're in dark mode
