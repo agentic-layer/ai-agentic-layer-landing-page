@@ -7,7 +7,7 @@ interface ParticleWaveProps {
   currentPhase: 'chaos' | 'harmony' | 'transition';
 }
 
-const PARTICLE_COUNT = 3000;
+const PARTICLE_COUNT = 1500;
 
 function Particles({ currentPhase }: ParticleWaveProps) {
   const mesh = useRef<THREE.Points>(null);
