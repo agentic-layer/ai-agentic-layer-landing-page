@@ -239,14 +239,21 @@ export const ParticleWave: React.FC = () => {
                 currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <h1 className="headline-text mb-8">
-                <span className="subheadline-text">agenticlayer.io</span><br />
-                <span className="block mt-8">
-                  Ihre KI.<br />
-                  Ihre Infrastruktur<br />
-                  Ihre Regeln.
-                </span>
-              </h1>
+              <div className="flex flex-col items-center">
+                <img 
+                  src="/lovable-uploads/31cfccbd-95f3-4eba-8494-b43f59ed96e3.png" 
+                  alt="Agentic Layer Logo" 
+                  className="w-16 h-16 mb-4"
+                />
+                <h1 className="headline-text mb-8 text-center">
+                  <span className="subheadline-text">agenticlayer.io</span><br />
+                  <span className="block mt-8">
+                    Ihre KI.<br />
+                    Ihre Infrastruktur<br />
+                    Ihre Regeln.
+                  </span>
+                </h1>
+              </div>
               <p className="subheadline-text">
                 Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
               </p>
