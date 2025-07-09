@@ -244,7 +244,7 @@ export const ParticleWave: React.FC = () => {
                   <img 
                     src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
                     alt="Agentic Layer Logo" 
-                    className="w-24 h-auto mx-auto mb-8"
+                    className="w-48 h-auto mx-auto mb-8"
                   />
                   <span className="block">
                     Ihre KI.<br />
