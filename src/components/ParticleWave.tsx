@@ -243,7 +243,7 @@ export const ParticleWave: React.FC = () => {
                 <img 
                   src="/lovable-uploads/31cfccbd-95f3-4eba-8494-b43f59ed96e3.png" 
                   alt="Agentic Layer Logo" 
-                  className="w-16 h-16 mb-4"
+                  className="w-16 h-16 mb-2"
                 />
                 <h1 className="headline-text mb-8 text-center">
                   <span className="subheadline-text">agenticlayer.io</span><br />
