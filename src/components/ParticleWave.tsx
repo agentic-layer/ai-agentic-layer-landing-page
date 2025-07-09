@@ -215,48 +215,45 @@ export const ParticleWave: React.FC = () => {
       </Canvas>
       
       {/* Text overlays */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center px-4 max-w-5xl space-y-8">
-          {/* Text content with conditional headlines and subheadlines */}
-          <div className="relative">
-            {/* Chaos mode - headline and subheadline */}
-            <div 
-              className={`transition-opacity duration-1000 ${
-                currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <h1 className="headline-text mb-8">
-                Großartige Solisten,<br />aber kein Orchester?
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Chaos mode content - centered */}
+        <div 
+          className={`flex items-center justify-center h-full transition-opacity duration-1000 ${
+            currentPhase === 'chaos' ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="text-center px-4 max-w-5xl space-y-8">
+            <h1 className="headline-text mb-8">
+              Großartige Solisten,<br />aber kein Orchester?
+            </h1>
+            <p className="subheadline-text">
+              Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
+            </p>
+          </div>
+        </div>
+        
+        {/* Harmony mode content - centered */}
+        <div 
+          className={`flex items-center justify-center h-full transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+            currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="text-center px-4 max-w-5xl space-y-8">
+            <div className="flex flex-col items-center">
+              <img 
+                src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
+                alt="Agentic Layer Logo" 
+                className="w-48 h-auto mx-auto mb-8"
+              />
+              <h1 className="headline-text mb-8 text-center">
+                Ihre KI.<br />
+                Ihre Infrastruktur<br />
+                Ihre Regeln.
               </h1>
-              <p className="subheadline-text">
-                Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
-              </p>
             </div>
-            
-            {/* Harmony mode - headline and subheadline */}
-            <div 
-              className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
-                currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <div className="flex flex-col items-center">
-                <h1 className="headline-text mb-8 text-center">
-                  <img 
-                    src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
-                    alt="Agentic Layer Logo" 
-                    className="w-48 h-auto mx-auto mb-8"
-                  />
-                  <span className="block">
-                    Ihre KI.<br />
-                    Ihre Infrastruktur<br />
-                    Ihre Regeln.
-                  </span>
-                </h1>
-              </div>
-              <p className="subheadline-text">
-                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
-              </p>
-            </div>
+            <p className="subheadline-text">
+              Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
+            </p>
           </div>
         </div>
       </div>
