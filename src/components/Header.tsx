@@ -7,7 +7,7 @@ const navigationItems = [
   { name: 'Vorteile', href: '#benefits' },
   { name: 'Architektur', href: '#architecture' },
   { name: 'Whitepaper', href: '#lead-magnet' },
-  { name: 'Agents', href: '#agents' },
+  
   { name: 'Open Source', href: '#open-source' },
   { name: 'Kontakt', href: '#contact' },
 ];
