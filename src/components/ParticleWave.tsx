@@ -246,8 +246,8 @@ export const ParticleWave: React.FC = () => {
                 className="w-48 h-auto mx-auto mb-8"
               />
               <h1 className="headline-text mb-8 text-center">
-                Orchestrieren Sie Ihre KI.<br />
-                Nach Ihren Regeln.
+                <span className="hidden md:inline">Orchestrieren Sie Ihre KI.<br />Nach Ihren Regeln.</span>
+                <span className="md:hidden">Orchestrieren<br />Sie Ihre KI.<br />Nach Ihren Regeln.</span>
               </h1>
             </div>
             <p className="subheadline-text">
