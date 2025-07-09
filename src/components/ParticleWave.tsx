@@ -241,7 +241,7 @@ export const ParticleWave: React.FC = () => {
           <div className="text-center px-4 max-w-5xl space-y-8">
             <div className="flex flex-col items-center">
               <img 
-                src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
+                src="/lovable-uploads/b65e98a0-a093-4a19-89e1-3152a8fd961c.png" 
                 alt="Agentic Layer Logo" 
                 className="w-48 h-auto mx-auto mb-8"
               />
