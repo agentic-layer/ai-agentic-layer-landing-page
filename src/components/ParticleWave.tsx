@@ -200,49 +200,21 @@ export const ParticleWave: React.FC = () => {
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
-    <div className="relative w-full h-full particle-wave flex flex-col">
-      {/* Content above animation in harmonic mode */}
-      {currentPhase === 'harmony' && (
-        <div className="flex-shrink-0 flex items-center justify-center py-8 pointer-events-none">
-          <div className="text-center px-4 max-w-5xl">
-            <div className="flex flex-col items-center">
-              <h1 className="headline-text mb-8 text-center">
-                <img 
-                  src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
-                  alt="Agentic Layer Logo" 
-                  className="w-48 h-auto mx-auto mb-8"
-                />
-                <span className="block">
-                  Ihre KI.<br />
-                  Ihre Infrastruktur<br />
-                  Ihre Regeln.
-                </span>
-              </h1>
-              <p className="subheadline-text">
-                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+    <div className="relative w-full h-full particle-wave">
+      <Canvas
+        camera={{ position: [0, 0, 12], fov: 60 }}
+        style={{ 
+          background: '#000000',
+          width: '100%',
+          height: '100%'
+        }}
+      >
+        <ambientLight intensity={0.3} />
+        <pointLight position={[10, 10, 10]} intensity={0.5} />
+        <Particles currentPhase={currentPhase} />
+      </Canvas>
       
-      {/* Particle animation */}
-      <div className="flex-1">
-        <Canvas
-          camera={{ position: [0, 0, 12], fov: 60 }}
-          style={{ 
-            background: '#000000',
-            width: '100%',
-            height: '100%'
-          }}
-        >
-          <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
-          <Particles currentPhase={currentPhase} />
-        </Canvas>
-      </div>
-      
-      {/* Text overlays for chaos and transition modes */}
+      {/* Text overlays */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center px-4 max-w-5xl space-y-8">
           {/* Text content with conditional headlines and subheadlines */}
@@ -258,6 +230,31 @@ export const ParticleWave: React.FC = () => {
               </h1>
               <p className="subheadline-text">
                 Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
+              </p>
+            </div>
+            
+            {/* Harmony mode - headline and subheadline */}
+            <div 
+              className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+                currentPhase === 'harmony' ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <div className="flex flex-col items-center">
+                <h1 className="headline-text mb-8 text-center">
+                  <img 
+                    src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
+                    alt="Agentic Layer Logo" 
+                    className="w-48 h-auto mx-auto mb-8"
+                  />
+                  <span className="block">
+                    Ihre KI.<br />
+                    Ihre Infrastruktur<br />
+                    Ihre Regeln.
+                  </span>
+                </h1>
+              </div>
+              <p className="subheadline-text">
+                Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
               </p>
             </div>
           </div>
