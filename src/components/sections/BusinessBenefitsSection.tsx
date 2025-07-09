@@ -25,8 +25,8 @@ const benefits = [
   },
   {
     icon: Infinity,
-    title: "Maximale Freiheit: Open Source & Agnostisch",
-    description: "Wir geben Ihnen die ultimative Freiheit und vermeiden jeden Vendor-Lock-in. Dies erreichen wir durch zwei Kernprinzipien: Unser Layer ist Open Source für volle Transparenz und agnostisch im Design, sodass Sie jederzeit die besten Clouds, Modelle und Frontends für Ihre Bedürfnisse frei wählen können."
+    title: "Open Source & Agnostisch",
+    description: "Kein Vendor-Lock-in. Unser Open-Source-Ansatz schafft volle Transparenz, während das agnostische Design die freie Wahl von Clouds, Modellen und Tools garantiert."
   },
   {
     icon: BadgeCheck,
