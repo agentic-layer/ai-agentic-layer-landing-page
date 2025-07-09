@@ -240,14 +240,13 @@ export const ParticleWave: React.FC = () => {
               }`}
             >
               <div className="flex flex-col items-center">
-                <img 
-                  src="/lovable-uploads/31cfccbd-95f3-4eba-8494-b43f59ed96e3.png" 
-                  alt="Agentic Layer Logo" 
-                  className="w-16 h-16"
-                />
                 <h1 className="headline-text mb-8 text-center">
-                  <span className="subheadline-text">agenticlayer.io</span><br />
-                  <span className="block mt-8">
+                  <img 
+                    src="/lovable-uploads/25ea7a0e-7142-47f5-8c8e-50e7c3bb3b0d.png" 
+                    alt="Agentic Layer Logo" 
+                    className="w-24 h-auto mx-auto mb-8"
+                  />
+                  <span className="block">
                     Ihre KI.<br />
                     Ihre Infrastruktur<br />
                     Ihre Regeln.
