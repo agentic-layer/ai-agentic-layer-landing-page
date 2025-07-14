@@ -30,7 +30,11 @@ export function Header() {
             <img 
               src="/lovable-uploads/8c53b83d-ced8-4714-ab18-e3bfec00cf1f.png" 
               alt="Agentic Layer Logo" 
-              className="h-6 w-auto"
+              style={{ 
+                height: '24px', 
+                width: 'auto',
+                imageRendering: 'crisp-edges'
+              }}
             />
           </button>
 
