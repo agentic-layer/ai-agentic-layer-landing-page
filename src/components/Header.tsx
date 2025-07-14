@@ -1,14 +1,11 @@
-import React from 'react';
-import { ThemeToggle } from './ThemeToggle';
-import { useTheme } from './ThemeProvider';
 
+import React from 'react';
+import { useTheme } from './ThemeProvider';
 
 const navigationItems = [
   { name: 'Vorteile', href: '#benefits' },
   { name: 'Architektur', href: '#architecture' },
-  
   { name: 'Open Source', href: '#open-source' },
-  { name: 'Kontakt', href: '#contact' },
 ];
 
 export function Header() {
@@ -37,7 +34,7 @@ export function Header() {
             />
           </button>
 
-          {/* Navigation and Theme Toggle */}
+          {/* Navigation and CTA Button */}
           <div className="flex items-center space-x-8 ml-auto">
             <nav className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item) => (
@@ -50,7 +47,12 @@ export function Header() {
                 </button>
               ))}
             </nav>
-            <ThemeToggle />
+            <button
+              onClick={() => scrollToSection('#contact')}
+              className="px-6 py-2 rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 transition-all duration-200"
+            >
+              Kontakt
+            </button>
           </div>
         </div>
       </div>
