@@ -1,6 +1,4 @@
 
-
-
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
@@ -29,7 +27,7 @@ const features = [{
 }];
 
 export function ArchitectureSection() {
-  return <section id="architecture" className="py-20 section-padding bg-muted/30 dark:bg-muted">
+  return <section id="architecture" className="py-20 section-padding bg-black text-white">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
@@ -47,7 +45,7 @@ export function ArchitectureSection() {
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Unsere Architektur für souveräne KI-Orchestrierung
             </h3>
-            <p className="text-muted-foreground leading-relaxed md:text-center lg:text-left">
+            <p className="text-gray-300 leading-relaxed md:text-center lg:text-left">
               Unsere Architektur ist auf maximale Souveränität, Sicherheit und Interoperabilität ausgelegt. 
               Im Zentrum steht der modulare souveräne Agentic Layer, der als zentrales Nervensystem für Ihre 
               KI-Workforce fungiert. Er orchestriert, kontrolliert und sichert alle Agenten-Interaktionen in 
@@ -55,8 +53,8 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <div className="aspect-square bg-muted/50 border-2 border-muted-foreground/20 hover:border-muted-foreground/40 transition-colors flex items-center justify-center">
-              <p className="text-muted-foreground text-center">
+            <div className="aspect-square bg-gray-900 border-2 border-gray-700 hover:border-gray-500 transition-colors flex items-center justify-center rounded-lg shadow-sm">
+              <p className="text-gray-400 text-center">
                 System-Architektur-Skizze<br />
                 (Diagramm wird hier eingefügt)
               </p>
@@ -71,12 +69,12 @@ export function ArchitectureSection() {
             
             <div className="space-y-3">
               {features.map((feature, index) => <Collapsible key={index}>
-                  <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left border border-muted-foreground/20 hover:border-muted-foreground/40 hover:bg-accent transition-colors">
+                  <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left bg-gray-900 border border-gray-700 hover:border-gray-500 hover:bg-gray-800 transition-colors rounded-lg shadow-sm">
                     <span className="font-medium">{feature.title}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 border-x border-b border-muted-foreground/20 data-[state=open]:animate-fade-in">
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                  <CollapsibleContent className="p-6 bg-gray-900 border-x border-b border-gray-700 data-[state=open]:animate-fade-in rounded-b-lg">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </CollapsibleContent>
@@ -87,5 +85,3 @@ export function ArchitectureSection() {
       </div>
     </section>;
 }
-
-
