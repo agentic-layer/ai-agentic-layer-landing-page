@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -52,7 +53,7 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <Card className="bg-white text-black border-0 shadow-lg">
+            <Card className="border-2 hover:border-primary/20 transition-colors">
               <CardContent className="aspect-square flex items-center justify-center">
                 <p className="text-muted-foreground text-center">
                   System-Architektur-Skizze<br />
@@ -71,8 +72,8 @@ export function ArchitectureSection() {
             <Accordion type="multiple" className="space-y-3">
               {features.map((feature, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="border-0">
-                  <Card className="bg-white text-black border-0 shadow-lg">
-                    <AccordionTrigger className="flex w-full items-center justify-between p-6 text-left hover:no-underline">
+                  <Card className="border-2 hover:border-primary/20 transition-colors">
+                    <AccordionTrigger className="flex w-full items-center justify-between p-6 text-left hover:no-underline text-foreground">
                       <span className="font-medium">{feature.title}</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
