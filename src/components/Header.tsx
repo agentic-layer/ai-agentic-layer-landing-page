@@ -6,7 +6,6 @@ import { useTheme } from './ThemeProvider';
 const navigationItems = [
   { name: 'Vorteile', href: '#benefits' },
   { name: 'Architektur', href: '#architecture' },
-  { name: 'Whitepaper', href: '#lead-magnet' },
   
   { name: 'Open Source', href: '#open-source' },
   { name: 'Kontakt', href: '#contact' },

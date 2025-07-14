@@ -5,7 +5,6 @@ import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BusinessBenefitsSection } from '@/components/sections/BusinessBenefitsSection';
 import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
-import { LeadMagnetSection } from '@/components/sections/LeadMagnetSection';
 
 import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { CTASection } from '@/components/sections/CTASection';
@@ -19,7 +18,6 @@ const Index = () => {
         <HeroSection />
         <BusinessBenefitsSection />
         <ArchitectureSection />
-        <LeadMagnetSection />
         
         <OpenSourceSection />
         <CTASection />
