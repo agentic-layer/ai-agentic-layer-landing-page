@@ -24,7 +24,7 @@ export function OpenSourceSection() {
         <div className="text-center mb-12">
           <Button size="lg" className="text-lg px-8 py-4">
             <Github className="mr-2 h-5 w-5" />
-            Zum GitHub-Repository
+            stay tuned
           </Button>
         </div>
 
