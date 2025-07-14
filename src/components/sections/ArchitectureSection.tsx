@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronDown } from 'lucide-react';
 
 const features = [{
@@ -53,12 +54,14 @@ export function ArchitectureSection() {
             </p>
             
             {/* Architecture Diagram Placeholder */}
-            <div className="aspect-square bg-gray-900 border-2 border-gray-700 hover:border-gray-500 transition-colors flex items-center justify-center rounded-lg shadow-sm">
-              <p className="text-gray-400 text-center">
-                System-Architektur-Skizze<br />
-                (Diagramm wird hier eingefügt)
-              </p>
-            </div>
+            <Card className="border-2 hover:border-primary/20 transition-colors">
+              <CardContent className="aspect-square flex items-center justify-center">
+                <p className="text-muted-foreground text-center">
+                  System-Architektur-Skizze<br />
+                  (Diagramm wird hier eingefügt)
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Right Column - Features */}
@@ -68,17 +71,21 @@ export function ArchitectureSection() {
             </h3>
             
             <div className="space-y-3">
-              {features.map((feature, index) => <Collapsible key={index}>
-                  <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left bg-gray-900 border border-gray-700 hover:border-gray-500 hover:bg-gray-800 transition-colors rounded-lg shadow-sm">
-                    <span className="font-medium">{feature.title}</span>
-                    <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="p-6 bg-gray-900 border-x border-b border-gray-700 data-[state=open]:animate-fade-in rounded-b-lg">
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </CollapsibleContent>
-                </Collapsible>)}
+              {features.map((feature, index) => (
+                <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
+                  <Collapsible>
+                    <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left">
+                      <span className="font-medium">{feature.title}</span>
+                      <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="px-6 pb-6">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </CollapsibleContent>
+                  </Collapsible>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
