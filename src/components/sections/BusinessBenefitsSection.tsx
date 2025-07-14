@@ -15,23 +15,23 @@ const DirigentenStabIcon = () => (
 const benefits = [
   {
     icon: Shield,
-    title: "Souveränität & Kontrolle",
-    description: "Behalten Sie die volle Hoheit über Ihre Daten, Modelle und Infrastruktur. Betrieb in Ihrer Cloud oder On-Premise – Sie entscheiden."
+    title: "Dein Playground, Deine Regeln.",
+    description: "Du hast die volle Hoheit über deine Daten, Modelle und die Infra – egal ob Cloud oder On-Prem."
   },
   {
     icon: DirigentenStabIcon,
-    title: "Intelligente Orchestrierung",
-    description: "Transformieren Sie isolierte KI-Aufrufe in koordinierte, unternehmensweite Prozesse. Unser Layer verteilt, steuert und überwacht Ihre gesamte Agenten-Workforce."
+    title: "Smart orchestriert, effizient skaliert.",
+    description: "Verbinde isolierte KI-Aufrufe zu nahtlosen, unternehmensweiten Prozessen. Unser Layer kümmert sich um Verteilung, Steuerung und Überwachung deiner gesamten Agenten-Workforce."
   },
   {
     icon: Infinity,
-    title: "Open Source & Agnostisch",
+    title: "Open & Agnostic: Deine Freiheit.",
     description: "Kein Vendor-Lock-in. Unser Open-Source-Ansatz schafft volle Transparenz, während das agnostische Design die freie Wahl von Clouds, Modellen und Tools garantiert."
   },
   {
     icon: BadgeCheck,
-    title: "Compliance by Design",
-    description: "Erfüllen Sie mühelos die Anforderungen von EU AI Act und DSGVO durch integrierte Governance, Transparenz und Audit-Fähigkeit."
+    title: "Audit-Ready & DSGVO-Smart.",
+    description: "EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber."
   }
 ];
 
