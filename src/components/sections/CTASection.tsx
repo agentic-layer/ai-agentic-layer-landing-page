@@ -29,7 +29,13 @@ export function CTASection() {
             Der Weg zur souveränen KI<br className="md:hidden" /> beginnt hier.<br />
             Wählen Sie Ihren passenden nächsten Schritt.
           </p>
-          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.</p>
+          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
+            Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.
+            <br /><br />
+            Sneak Peek: Unser Kollege Mario-Leander Reimer hält auf der CLC seinen spannenden Workshop „Architektur und Aufbau einer Cloud-nativen AI-Plattform". Dieser bietet eine praktische Schritt-für-Schritt-Anleitung für das Design und den Aufbau von KI-Plattformen, sowohl lokal als auch in der Public Cloud.
+            <br /><br />
+            Jetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
