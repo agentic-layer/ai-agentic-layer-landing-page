@@ -49,7 +49,7 @@ export function Header() {
             </nav>
             <button
               onClick={() => scrollToSection('#contact')}
-              className="px-6 py-2 rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 transition-all duration-200"
+              className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
             >
               Kontakt
             </button>
