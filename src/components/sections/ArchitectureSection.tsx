@@ -5,25 +5,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const features = [{
   title: "Souveräner Betrieb (BYOC & On-Premise)",
-  description: "Behalten Sie die 100%ige Kontrolle über Ihre KI-Workloads. Unser Layer läuft in Ihrer bevorzugten Cloud-Umgebung oder komplett autark in Ihrem eigenen Rechenzentrum für maximale Datensouveränität."
+  description: "Der Agentic Layer ermöglicht den vollständigen Betrieb von KI-Workloads in der vom Kunden bevorzugten Cloud-Umgebung (Bring Your Own Cloud) oder autark im eigenen Rechenzentrum. Dies gewährleistet 100%ige Kontrolle und maximale Datensouveränität über die gesamte KI-Infrastruktur."
 }, {
   title: "Zentrale Governance & Agent Catalog",
-  description: "Verhindern Sie unkontrollierten Wildwuchs (\"Agent Sprawl\"). Unsere zentrale Governance stellt sicher, dass alle Agenten nach Ihren Standards entwickelt, freigegeben und betrieben werden."
+  description: "Eine zentrale Governance-Schicht verhindert unkontrollierten \"Agent Sprawl\". Sie stellt sicher, dass alle Agenten konsistent nach definierten Standards entwickelt, freigegeben und betrieben werden können. Der integrierte Agent Catalog dient zur Verwaltung und Organisation der Agenten-Workforce."
 }, {
   title: "Agnostischer Model Router",
-  description: "Nutzen Sie für jede Aufgabe das beste Werkzeug. Unser Model Router wählt dynamisch das passende Sprachmodell aus – von schnellen, schlanken Modellen für Routineaufgaben bis zu mächtigen, spezialisierten Modellen für komplexe Analysen."
+  description: "Der Model Router ermöglicht die dynamische Auswahl des optimalen KI-Modells für jede spezifische Aufgabe. Er routet Anfragen intelligent zu passenden Modellen, von schnellen Modellen für Routineaufgaben bis zu spezialisierten Modellen für komplexe Analysen. Dies sichert maximale Flexibilität bei der Modellnutzung."
 }, {
   title: "Umfassende Observability & Audit-Logs",
-  description: "Schaffen Sie Transparenz und Vertrauen in Ihre KI-Prozesse. Mit lückenlosen Audit-Logs und End-to-End-Tracing können Sie jede Entscheidung eines Agenten nachvollziehen und erklären."
+  description: "Das System bietet tiefe Einblicke in KI-Prozesse durch umfassende Observability-Funktionen. Lückenlose Audit-Logs und End-to-End-Tracing ermöglichen die vollständige Nachvollziehbarkeit und Erklärbarkeit jeder einzelnen Agentenentscheidung, was Transparenz und Vertrauen schafft."
 }, {
   title: "Multi-Framework Agent Runtime",
-  description: "Verkürzen Sie die Entwicklungszeit signifikant. Ihr Team muss sich nicht in ein proprietäres System einarbeiten, sondern kann sofort mit vertrauten Technologien und Frameworks produktiv sein."
+  description: "Die Agent Runtime unterstützt den Betrieb von KI-Agenten, die mit verschiedenen Technologien und Frameworks entwickelt wurden. Dies reduziert die Einarbeitungszeit und ermöglicht Teams, sofort mit vertrauten Werkzeugen produktiv zu sein, wodurch die Entwicklungszeit signifikant verkürzt wird."
 }, {
   title: "Integrierte Agent Testbench",
-  description: "Stellen Sie die Qualität und Zuverlässigkeit Ihrer Agenten vor dem Go-Live sicher. Unsere Testbench ermöglicht standardisierte Tests von Verhalten, Performance und Sicherheit."
+  description: "Eine integrierte Testumgebung ermöglicht die systematische Validierung von Agenten vor dem produktiven Einsatz. Die Testbench unterstützt standardisierte Tests für das Verhalten, die Performance und die Sicherheit der Agenten, um deren Qualität und Zuverlässigkeit sicherzustellen."
 }, {
   title: "Offene Standards für Zukunftssicherheit",
-  description: "Investieren Sie in eine zukunftssichere, offene Architektur statt in eine geschlossene Blackbox. Unser Bekenntnis zu Standards wie A2A und MCP schützt Sie vor Vendor-Lock-in."
+  description: "Das System basiert auf einer offenen Architektur und verpflichtet sich zu Industriestandards wie A2A (Agent-to-Agent Communication) und MCP (Multi-Agent Communication Protocol). Dies schützt vor Vendor-Lock-in und gewährleistet eine zukunftssichere, flexible und erweiterbare Infrastruktur."
 }];
 
 export function ArchitectureSection() {
@@ -31,27 +31,27 @@ export function ArchitectureSection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
-            Der Agentic Layer
+            So funktioniert der Agentic Layer
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Ein offenes Fundament für Ihre souveräne KI-Workforce
+            Das technische Rückgrat für smarte Workloads.
           </p>
-          
+
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Architecture */}
           <div className="space-y-6">
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
-              Unsere Architektur für souveräne KI-Orchestrierung
+              Architektur Blueprint
             </h3>
             <p className="text-gray-300 leading-relaxed md:text-center lg:text-left">
-              Unsere Architektur ist auf maximale Souveränität, Sicherheit und Interoperabilität ausgelegt. 
-              Im Zentrum steht der modulare souveräne Agentic Layer, der als zentrales Nervensystem für Ihre 
-              KI-Workforce fungiert. Er orchestriert, kontrolliert und sichert alle Agenten-Interaktionen in 
-              Ihrer bestehenden IT-Landschaft.
+              Du baust smarte Agenten? Wir liefern dir das Fundament. Unsere Architektur ist auf maximale Souveränität,
+              Sicherheit und nahtlose Interoperabilität ausgelegt. Der Agentic Layer fungiert als zentrales Nervensystem
+              deiner KI-Workforce: Er ist modular aufgebaut und bietet die notwendigen Abstraktionen, um deine Agenten
+              zu orchestrieren, zu kontrollieren und sicher in deiner bestehenden IT-Landschaft zu integrieren.
             </p>
-            
+
             {/* Architecture Diagram Placeholder */}
             <Card className="border-2 hover:border-primary/20 transition-colors">
               <CardContent className="aspect-square flex items-center justify-center">
@@ -68,7 +68,7 @@ export function ArchitectureSection() {
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Technische Merkmale & Eigenschaften
             </h3>
-            
+
             <Accordion type="multiple" className="space-y-3">
               {features.map((feature, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="border-0">
