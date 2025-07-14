@@ -41,11 +41,12 @@ export function BusinessBenefitsSection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
-            Ihre Brücke zur souveränen KI-Orchestrierung
+            Deine Brücke zur souveränen KI-Orchestrierung
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Wir geben Ihnen die Kontrolle, Sicherheit und Flexibilität, um das volle Potenzial 
-            von Agentic AI in Ihrem Unternehmen zu entfesseln.
+            Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln kannst.
+            <br/>
+            <span className="font-medium">Kein Boilerplate, keine Kopfschmerzen.</span>
           </p>
         </div>
 
