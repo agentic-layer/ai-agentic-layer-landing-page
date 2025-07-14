@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,7 +23,7 @@ export function CTASection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
-            Werden Sie Teil des Orchesters
+            Agentic AI erleben?
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
             Der Weg zur souveränen KI<br className="md:hidden" /> beginnt hier.<br />
