@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,7 +26,8 @@ export function CTASection() {
             Agentic AI erleben?
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.
+            Der Weg zur souveränen KI<br className="md:hidden" /> beginnt hier.<br />
+            Wählen Sie Ihren passenden nächsten Schritt.
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">Bereit, Ihre erste Symphonie zu komponieren? Um das volle Potenzial von Agentic AI zu heben, braucht es mehr als nur Technologie – es braucht die richtige Strategie. Wir sind Ihr Sparringspartner, um die lukrativsten Anwendungsfälle zu identifizieren und eine Roadmap zu entwickeln, die echten Geschäftswert schafft. Aber auch die beste Strategie ist wertlos ohne einen Partner, der sie umsetzen kann. 
 
