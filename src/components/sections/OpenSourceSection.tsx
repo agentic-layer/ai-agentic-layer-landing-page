@@ -6,23 +6,27 @@ export function OpenSourceSection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
           <h2 className="headline-text">
-            Keine Blackbox. Keine Geheimnisse.<br />
+            Keine Blackbox.<br />
+            Keine Geheimnisse.<br />
             Nur brillanter Code.
           </h2>
-          <p className="subheadline-text">Der Agentic Layer ist Open Source</p>
+          <p className="subheadline-text">Der Agentic Layer ist Open Source.</p>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Wir glauben, dass die Zukunft der Enterprise AI offen sein muss. Deshalb ist unser Sovereign 
-            Agentic Layer vollständig Open Source. Das bedeutet für Sie nicht nur die Freiheit von jeglichem 
-            Vendor-Lock-in, sondern auch ein Höchstmaß an Transparenz, Sicherheit und Flexibilität. Schauen 
-            Sie unter die Haube, passen Sie den Code an Ihre Bedürfnisse an oder werden Sie Teil unserer 
-            wachsenden Community.
+            Wir sind der Überzeugung, dass die Zukunft von Enterprise AI auf Offenheit basiert. Unser Agentic
+            Layer ist daher Open Source. Dies eliminiert Vendor-Lock-in und schafft ein Höchstmaß an
+            Transparenz, Betriebssicherheit und architektonischer
+            Flexibilität. Schau selbst unter die Haube, passe den Code an deine Bedürfnisse an oder bring dich in
+            unserer wachsenden Community ein.
+            <p>
+              <span className="font-semibold">Du hast die Kontrolle.</span>
+            </p>
           </p>
         </div>
 
         <div className="text-center mb-12">
           <Button size="lg" className="text-lg px-8 py-4">
             <Github className="mr-2 h-5 w-5" />
-            stay tuned
+            GitHub Repo-Launch in Kürze!
           </Button>
         </div>
 
