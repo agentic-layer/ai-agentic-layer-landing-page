@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -43,13 +44,11 @@ export function CTASection() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">Verfolgen Sie unsere Mission</CardTitle>
+              <CardTitle className="text-lg font-medium">Verfolge unsere Mission</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 flex-1 flex flex-col">
               <p className="text-muted-foreground text-sm flex-1">
-                Sie finden das Thema spannend, sind aber noch nicht bereit für den tiefen Einstieg? 
-                Tragen Sie sich ein und wir informieren Sie gezielt über wichtige Projekt-Meilensteine, 
-                wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
+                Kein Spam. Nur relevante Entwicklungen rund um den Agentic Layer. Versprochen!
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
                 <Input
