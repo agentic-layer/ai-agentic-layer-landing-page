@@ -224,10 +224,10 @@ export const ParticleWave: React.FC = () => {
         >
           <div className="text-center px-4 max-w-5xl space-y-8">
             <h1 className="headline-text mb-8">
-              Großartige Solisten,<br />aber kein Orchester?
+              Runter vom PoC,<br />Rauf auf die Produktiv-Pipeline!
             </h1>
             <p className="subheadline-text">
-              Ihre KI-Anwendungen bringen noch keine messbaren Mehrwerte.
+              Deine Agenten brauchen mehr als nur ein Dockerfile.
             </p>
           </div>
         </div>
@@ -246,12 +246,12 @@ export const ParticleWave: React.FC = () => {
                 className="w-48 h-auto mx-auto mb-8"
               />
               <h1 className="headline-text mb-8 text-center">
-                <span className="hidden md:inline">Orchestrieren Sie Ihre KI.<br />Nach Ihren Regeln.</span>
-                <span className="md:hidden">Orchestrieren<br />Sie Ihre KI.<br />Nach Ihren Regeln.</span>
+                <span className="hidden md:inline">Meet the Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span>
+                <span className="md:hidden">Meet the<br />Agentic Layer.<br />Your Control Plane  for Intelligent Workloads.</span>
               </h1>
             </div>
             <p className="subheadline-text">
-              Entfesseln Sie das Potenzial autonomer Agenten mit dem souveränen Open-Source Layer, der Ihnen die volle Kontrolle<br className="md:hidden" /> über Daten, Prozesse und Compliance gibt.
+              Verwandle isolierte KI-Agenten in eine Enterprise-grade Workforce.
             </p>
           </div>
         </div>
