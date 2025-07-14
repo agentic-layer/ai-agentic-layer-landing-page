@@ -28,7 +28,7 @@ export function Header() {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img 
-              src="/lovable-uploads/c1bbfb6c-740b-49a2-bba0-b5e5ca442f01.png" 
+              src="/lovable-uploads/e62fe8e9-60ee-4739-b1c7-01de095296f2.png" 
               alt="Agentic Layer Logo" 
               className="h-8 w-auto"
             />
