@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
-
 export function OpenSourceSection() {
-  return (
-    <section id="open-source" className="py-20 section-padding bg-muted/30 dark:bg-muted">
+  return <section id="open-source" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
           <h2 className="headline-text">
@@ -29,20 +26,7 @@ export function OpenSourceSection() {
         </div>
 
         {/* Open Source Technology Logos */}
-        <div className="text-center space-y-6">
-          <p className="text-sm text-muted-foreground uppercase tracking-wider">
-            Aufbauend auf bewährten Open-Source-Technologien
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Kubernetes</div>
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Docker</div>
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Python</div>
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">TypeScript</div>
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">Redis</div>
-            <div className="px-4 py-2 border border-border dark:border-foreground/40 text-sm">PostgreSQL</div>
-          </div>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 }
