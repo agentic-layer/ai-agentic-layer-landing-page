@@ -1,3 +1,4 @@
+
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTheme } from './ThemeProvider';
@@ -224,7 +225,7 @@ export const ParticleWave: React.FC = () => {
         >
           <div className="text-center px-4 max-w-5xl space-y-8">
             <h1 className="headline-text mb-8">
-              Runter vom PoC,<br />Rauf auf die<br />Produktiv-Pipeline!
+              Runter vom POC,<br />Rauf auf die<br />Produktiv-Pipeline!
             </h1>
             <p className="subheadline-text">
               Deine Agenten brauchen mehr als nur ein Dockerfile.
