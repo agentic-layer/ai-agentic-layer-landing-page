@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
@@ -5,6 +6,7 @@ export function OpenSourceSection() {
   return <section id="open-source" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-12">
+          <p className="subheadline-text">Der Agentic Layer ist Open Source</p>
           <h2 className="headline-text">
             Keine Blackbox. Keine Geheimnisse.<br />
             Nur brillanter Code.
