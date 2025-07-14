@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTheme } from './ThemeProvider';
@@ -242,7 +241,7 @@ export const ParticleWave: React.FC = () => {
           <div className="text-center px-4 max-w-5xl space-y-8">
             <div className="flex flex-col items-center">
               <img 
-                src="/lovable-uploads/b65e98a0-a093-4a19-89e1-3152a8fd961c.png" 
+                src="/lovable-uploads/6050fd06-5bd1-4f78-beea-90ca317fc481.png" 
                 alt="Agentic Layer Logo" 
                 className="w-48 h-auto mx-auto mb-8"
               />
