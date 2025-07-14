@@ -1,9 +1,10 @@
 
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Github, Calendar, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export function CTASection() {
@@ -38,55 +39,8 @@ export function CTASection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Column 1 - GitHub */}
-          <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                <Github className="w-6 h-6" />
-              </div>
-              <CardTitle className="text-lg font-medium">
-                Explore the Code
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 flex-1 flex flex-col">
-              <p className="text-muted-foreground text-sm flex-1">
-                Unser Agentic Layer ist Open Source. Verfolgen Sie die Entwicklung, bringen Sie sich ein 
-                und werden Sie Teil der Community.
-              </p>
-              <Button className="w-full mt-auto">
-                <span className="hidden lg:inline">Zum GitHub-Repository</span>
-                <span className="lg:hidden">GitHub-Repository</span>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Column 2 - Expert Consultation */}
-          <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                <Calendar className="w-6 h-6" />
-              </div>
-              <CardTitle className="text-lg font-medium">
-                Von der Strategie zur Umsetzung
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 flex-1 flex flex-col">
-              <p className="text-muted-foreground text-sm flex-1">
-                Egal, ob Sie das strategische Potenzial für Ihr Unternehmen bewerten wollen oder bereits 
-                ein konkretes Projektvorhaben haben: Buchen Sie eine kostenlose, unverbindliche Session. 
-                Sprechen Sie mit unseren Gründern und Architekten über Ihre Ziele oder Ihre spezifische 
-                technische Herausforderung.
-              </p>
-              <Button className="w-full mt-auto">
-                <span className="hidden lg:inline">Gespräch mit Experten buchen</span>
-                <span className="lg:hidden">Gespräch buchen</span>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Column 3 - Newsletter */}
-          <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col">
+        <div className="flex justify-center">
+          <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col max-w-md w-full">
             <CardHeader>
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
@@ -108,8 +62,7 @@ export function CTASection() {
                   required
                 />
                 <Button type="submit" className="w-full">
-                  <span className="hidden lg:inline">Über Meilensteine informieren</span>
-                  <span className="lg:hidden">Newsletter</span>
+                  Zum Newsletter anmelden
                 </Button>
               </form>
             </CardContent>
@@ -119,3 +72,4 @@ export function CTASection() {
     </section>
   );
 }
+
