@@ -244,7 +244,7 @@ export const ParticleWave: React.FC = () => {
               <img 
                 src="/lovable-uploads/6050fd06-5bd1-4f78-beea-90ca317fc481.png" 
                 alt="Agentic Layer Logo" 
-                className="w-48 h-auto mx-auto"
+                className="w-44 h-auto mx-auto"
               />
               <h1 className="headline-text text-center">
                 <span className="hidden md:inline">Meet the Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span>
