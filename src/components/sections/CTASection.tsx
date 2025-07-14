@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,7 +49,7 @@ export function CTASection() {
             </CardHeader>
             <CardContent className="space-y-4 flex-1 flex flex-col">
               <p className="text-muted-foreground text-sm flex-1">
-                Kein Spam. Nur relevante Entwicklungen rund um den Agentic Layer. Versprochen!
+                Melde dich zu unserem Newsletter an und wir informieren dich gezielt über wichtige Projekt-Meilensteine, wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
                 <Input
@@ -69,3 +70,4 @@ export function CTASection() {
     </section>
   );
 }
+
