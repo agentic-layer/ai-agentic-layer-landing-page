@@ -76,9 +76,9 @@ export function ArchitectureSection() {
                   <Collapsible>
                     <CollapsibleTrigger className="flex w-full items-center justify-between p-6 text-left">
                       <span className="font-medium">{feature.title}</span>
-                      <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
+                      <ChevronDown className="h-4 w-4 transition-transform duration-300 ease-in-out data-[state=open]:rotate-180" />
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="px-6 pb-6">
+                    <CollapsibleContent className="px-6 pb-6 overflow-hidden transition-all duration-300 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                       <p className="text-muted-foreground text-sm leading-relaxed">
                         {feature.description}
                       </p>
