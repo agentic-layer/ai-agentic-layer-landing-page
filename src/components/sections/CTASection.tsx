@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,8 +27,7 @@ export function CTASection() {
             Agentic AI erleben?
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Der Weg zur souveränen KI<br className="md:hidden" /> beginnt hier.<br />
-            Wählen Sie Ihren passenden nächsten Schritt.
+            Zum Newsletter anmelden und mit Glück Konferenz-Tickets gewinnen.
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
             Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.
