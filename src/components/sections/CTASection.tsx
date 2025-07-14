@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,7 +20,7 @@ export function CTASection() {
   };
 
   return (
-    <section id="contact" className="py-20 section-padding bg-muted/30 dark:bg-muted">
+    <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
