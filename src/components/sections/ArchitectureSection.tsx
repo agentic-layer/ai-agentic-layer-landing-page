@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,7 +26,8 @@ const features = [{
 }];
 
 export function ArchitectureSection() {
-  return <section id="architecture" className="py-20 section-padding bg-black text-white">
+  return (
+    <section id="architecture" className="py-20 section-padding bg-black text-white">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16">
           <h2 className="headline-text">
@@ -36,7 +36,6 @@ export function ArchitectureSection() {
           <p className="subheadline-text max-w-4xl mx-auto">
             Das technische Rückgrat für smarte Workloads.
           </p>
-
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -52,13 +51,14 @@ export function ArchitectureSection() {
               zu orchestrieren, zu kontrollieren und sicher in deiner bestehenden IT-Landschaft zu integrieren.
             </p>
 
-            {/* Architecture Diagram Placeholder */}
+            {/* Architecture Diagram */}
             <Card className="border-2 hover:border-primary/20 transition-colors">
-              <CardContent className="aspect-square flex items-center justify-center">
-                <p className="text-muted-foreground text-center">
-                  System-Architektur-Skizze<br />
-                  (Diagramm wird hier eingefügt)
-                </p>
+              <CardContent className="aspect-square flex items-center justify-center p-4">
+                <img 
+                  src="/lovable-uploads/8b06b861-d6c3-4e54-9301-75bd73ec2187.png" 
+                  alt="Agentic Layer System-Architektur Diagramm mit Spacers, Agentic Workforce und Controls Komponenten"
+                  className="w-full h-full object-contain rounded-lg"
+                />
               </CardContent>
             </Card>
           </div>
@@ -88,5 +88,6 @@ export function ArchitectureSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
