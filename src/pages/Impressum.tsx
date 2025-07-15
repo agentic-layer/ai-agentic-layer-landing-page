@@ -74,12 +74,6 @@ const Impressum = () => {
             <p className="text-sm mb-2">
               © 2024 Agentic Layer. Alle Rechte vorbehalten.
             </p>
-            <Link 
-              to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline"
-            >
-              Impressum
-            </Link>
           </div>
         </footer>
       </div>
