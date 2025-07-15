@@ -26,7 +26,7 @@ const Index = () => {
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
             <p className="text-sm mb-2">
-              © 2024 Agentic Layer. Alle Rechte vorbehalten.
+              © 2025 Agentic Layer. Alle Rechte vorbehalten.
             </p>
             <Link 
               to="/impressum" 
