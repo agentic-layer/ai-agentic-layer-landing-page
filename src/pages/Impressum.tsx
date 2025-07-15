@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
-import { ArrowLeft } from 'lucide-react';
 
 const Impressum = () => {
   return (
@@ -13,14 +12,6 @@ const Impressum = () => {
         
         <section className="pt-24 pb-16 section-padding">
           <div className="container-width">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-12"
-            >
-              <ArrowLeft size={20} />
-              Zurück zur Startseite
-            </Link>
-            
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="headline-text mb-16">Impressum</h1>
               
