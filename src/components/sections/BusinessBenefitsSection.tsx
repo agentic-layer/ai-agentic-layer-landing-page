@@ -46,7 +46,7 @@ export function BusinessBenefitsSection() {
           <p className="subheadline-text max-w-4xl mx-auto">
             Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln kannst.
             <br/>
-            <span className="font-medium">Kein Boilerplate, keine Kopfschmerzen.</span>
+            Kein Boilerplate, keine Kopfschmerzen.
           </p>
         </div>
 

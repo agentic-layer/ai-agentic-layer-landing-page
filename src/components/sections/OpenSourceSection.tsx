@@ -18,7 +18,7 @@ export function OpenSourceSection() {
             Flexibilität. Schau selbst unter die Haube, passe den Code an deine Bedürfnisse an oder bring dich in
             unserer wachsenden Community ein.
             <p>
-              <span className="font-semibold">Du hast die Kontrolle.</span>
+              Du hast die Kontrolle.
             </p>
           </p>
         </div>
