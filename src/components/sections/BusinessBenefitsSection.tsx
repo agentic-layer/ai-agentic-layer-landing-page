@@ -25,12 +25,12 @@ const benefits = [
   },
   {
     icon: Infinity,
-    title: "Open & Agnostic: Deine Freiheit.",
+    title: "Offen & Agnostisch: Deine Freiheit.",
     description: "Kein Vendor-Lock-in. Unser Open-Source-Ansatz schafft volle Transparenz, während das agnostische Design die freie Wahl von Clouds, Modellen und Tools garantiert."
   },
   {
     icon: BadgeCheck,
-    title: "Audit-Ready & DSGVO-Smart.",
+    title: "Audit-Ready & DSGVO-Konform.",
     description: "EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber."
   }
 ];
