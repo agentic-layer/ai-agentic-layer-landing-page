@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -45,7 +44,7 @@ export function ArchitectureSection() {
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Architektur Blueprint
             </h3>
-            <p className="text-gray-300 leading-relaxed md:text-center lg:text-left">
+            <p className="text-muted-foreground leading-relaxed md:text-center lg:text-left">
               Du baust smarte Agenten? Wir liefern dir das Fundament. Unsere Architektur ist auf maximale Souveränität,
               Sicherheit und nahtlose Interoperabilität ausgelegt. Der Agentic Layer fungiert als zentrales Nervensystem
               deiner KI-Workforce: Er ist modular aufgebaut und bietet die notwendigen Abstraktionen, um deine Agenten
