@@ -20,7 +20,7 @@ const Impressum = () => {
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="headline-text mb-16">Impressum</h1>
               
-              <div className="space-y-12 text-left max-w-2xl mx-auto">
+              <div className="space-y-12 text-center max-w-2xl mx-auto">
                 <div>
                   <h2 className="subheadline-text mb-4">QAware GmbH</h2>
                   <div className="text-lg text-muted-foreground space-y-1">
