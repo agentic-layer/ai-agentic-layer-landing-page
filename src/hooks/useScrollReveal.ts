@@ -7,8 +7,8 @@ interface UseScrollRevealOptions {
   delay?: number;
 }
 
-export const useScrollReveal = (options: UseScrollRevealOptions = {}) => {
-  const ref = useRef<HTMLElement>(null);
+export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options: UseScrollRevealOptions = {}) => {
+  const ref = useRef<T>(null);
   const {
     threshold = 0.1,
     rootMargin = '0px 0px -50px 0px',
