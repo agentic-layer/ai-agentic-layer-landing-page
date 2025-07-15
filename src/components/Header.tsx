@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -13,6 +13,19 @@ export function Header() {
   const { theme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
+  
+  // Handle scrolling to sections when navigating with hash
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      // Small delay to ensure the page has loaded
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.pathname, location.hash]);
   
   const scrollToSection = (href: string) => {
     if (location.pathname === '/') {
