@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useTheme } from './ThemeProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const navigationItems = [
   { name: 'Vorteile', href: '#benefits' },
@@ -10,11 +11,45 @@ const navigationItems = [
 
 export function Header() {
   const { theme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
   
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      // If we're on the index page, scroll to the section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to index page with hash
+      navigate(`/${href}`);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      // If we're on the index page, scroll to hero
+      const element = document.querySelector('#hero');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to index page
+      navigate('/');
+    }
+  };
+
+  const handleContactClick = () => {
+    if (location.pathname === '/') {
+      // If we're on the index page, scroll to contact
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to index page with contact hash
+      navigate('/#contact');
     }
   };
 
@@ -24,7 +59,7 @@ export function Header() {
         <div className="flex items-center h-16">
           {/* Logo */}
           <button 
-            onClick={() => scrollToSection('#hero')}
+            onClick={handleLogoClick}
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img 
@@ -48,7 +83,7 @@ export function Header() {
               ))}
             </nav>
             <button
-              onClick={() => scrollToSection('#contact')}
+              onClick={handleContactClick}
               className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
             >
               Kontakt
