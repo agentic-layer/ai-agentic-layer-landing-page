@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -55,8 +56,8 @@ export function ArchitectureSection() {
             <Card className="border-2 hover:border-primary/20 transition-colors">
               <CardContent className="aspect-square flex items-center justify-center p-4">
                 <img 
-                  src="/lovable-uploads/8b06b861-d6c3-4e54-9301-75bd73ec2187.png" 
-                  alt="Agentic Layer System-Architektur Diagramm mit Spacers, Agentic Workforce und Controls Komponenten"
+                  src="/lovable-uploads/8398cee5-521b-4d31-be58-7e9f14bea3c9.png" 
+                  alt="Agentic Layer System-Architektur mit Spacers (Agent Runtime, Model Router, Agent Exposition), Agentic Workforce (Agents & Connectors) und Controls (Agent Testbench, Agent Observability, Agent Catalog)"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </CardContent>
