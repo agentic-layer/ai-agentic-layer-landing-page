@@ -2,6 +2,7 @@
 import React from 'react';
 import { Shield, Infinity, BadgeCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 // Custom Dirigentenstab icon as SVG
 const DirigentenStabIcon = () => (
@@ -36,10 +37,13 @@ const benefits = [
 ];
 
 export function BusinessBenefitsSection() {
+  const headerRef = useScrollReveal();
+  const cardsRef = useScrollReveal({ delay: 200 });
+
   return (
     <section id="benefits" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
-        <div className="text-center space-y-8 mb-16">
+        <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
             Deine Brücke zur souveränen KI-Orchestrierung
           </h2>
@@ -50,7 +54,7 @@ export function BusinessBenefitsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" ref={cardsRef}>
           {benefits.map((benefit, index) => (
             <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
               <CardHeader>

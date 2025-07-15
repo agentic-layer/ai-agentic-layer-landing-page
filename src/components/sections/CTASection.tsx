@@ -1,15 +1,17 @@
 
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export function CTASection() {
   const [email, setEmail] = useState('');
   const { toast } = useToast();
+  const headerRef = useScrollReveal();
+  const cardRef = useScrollReveal({ delay: 200 });
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ export function CTASection() {
   return (
     <section id="contact" className="py-20 section-padding">
       <div className="container-width">
-        <div className="text-center space-y-8 mb-16">
+        <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
             Agentic AI erleben?
           </h2>
@@ -39,7 +41,7 @@ export function CTASection() {
           </p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center" ref={cardRef}>
           <Card className="border-2 hover:border-primary/20 transition-colors flex flex-col max-w-md w-full">
             <CardHeader>
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -70,4 +72,3 @@ export function CTASection() {
     </section>
   );
 }
-
