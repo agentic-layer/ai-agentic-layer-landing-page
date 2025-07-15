@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const features = [{
   title: "Souveräner Betrieb (BYOC & On-Premise)",
@@ -26,10 +27,14 @@ const features = [{
 }];
 
 export function ArchitectureSection() {
+  const headerRef = useScrollReveal();
+  const leftColumnRef = useScrollReveal({ delay: 200 });
+  const rightColumnRef = useScrollReveal({ delay: 400 });
+
   return (
     <section id="architecture" className="py-20 section-padding bg-black text-white">
       <div className="container-width">
-        <div className="text-center space-y-8 mb-16">
+        <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
             So funktioniert der Agentic Layer
           </h2>
@@ -40,7 +45,7 @@ export function ArchitectureSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Architecture */}
-          <div className="space-y-6">
+          <div className="space-y-6" ref={leftColumnRef}>
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Architektur Blueprint
             </h3>
@@ -64,7 +69,7 @@ export function ArchitectureSection() {
           </div>
 
           {/* Right Column - Features */}
-          <div className="space-y-6">
+          <div className="space-y-6" ref={rightColumnRef}>
             <h3 className="text-2xl font-medium md:text-center lg:text-left">
               Technische Merkmale & Eigenschaften
             </h3>
