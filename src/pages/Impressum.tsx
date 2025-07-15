@@ -78,7 +78,7 @@ const Impressum = () => {
           <div className="container-width text-center text-muted-foreground">
             <Link 
               to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline block mb-2"
+              className="text-sm hover:text-primary transition-colors underline block mb-4"
             >
               Impressum
             </Link>
