@@ -2,63 +2,95 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { Header } from '@/components/Header';
 import { ArrowLeft } from 'lucide-react';
 
 const Impressum = () => {
   return (
     <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
-        <div className="container-width section-padding py-12">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
-          >
-            <ArrowLeft size={20} />
-            Zurück zur Startseite
-          </Link>
-          
-          <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold mb-8">Impressum</h1>
+        <Header />
+        
+        <section className="pt-24 pb-16 section-padding">
+          <div className="container-width">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-12"
+            >
+              <ArrowLeft size={20} />
+              Zurück zur Startseite
+            </Link>
             
-            <div className="space-y-6 text-muted-foreground">
-              <div>
-                <h2 className="text-foreground font-semibold mb-2">QAware GmbH</h2>
-                <p>Aschauer Straße 30</p>
-                <p>81549 München</p>
-                <p>Deutschland</p>
-              </div>
+            <div className="text-center max-w-4xl mx-auto">
+              <h1 className="headline-text mb-16">Impressum</h1>
               
-              <div>
-                <p>+49 89 232315-0</p>
-                <p>info@qaware.de</p>
-              </div>
-              
-              <div>
-                <h2 className="text-foreground font-semibold mb-2">Geschäftsführer</h2>
-                <p>Dr. Josef Adersberger</p>
-                <p>Mario-Leander Reimer</p>
-                <p>Michael Rohleder</p>
-                <p>Michael Stehnken</p>
-              </div>
-              
-              <div>
-                <h2 className="text-foreground font-semibold mb-2">Handelsregister</h2>
-                <p>Registergericht: München</p>
-                <p>Registernummer: HRB 163761</p>
-              </div>
-              
-              <div>
-                <h2 className="text-foreground font-semibold mb-2">Umsatzsteueridentifikations-Nummer gemäss § 27 A Umsatzsteuergesetz</h2>
-                <p>DE250622388</p>
-              </div>
-              
-              <div>
-                <h2 className="text-foreground font-semibold mb-2">Inhaltlich verantwortlicher gemäss § 6 MDSTV</h2>
-                <p>Dr. Josef Adersberger</p>
+              <div className="space-y-12 text-left max-w-2xl mx-auto">
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-foreground">QAware GmbH</h2>
+                  <div className="subheadline-text space-y-1">
+                    <p>Aschauer Straße 30</p>
+                    <p>81549 München</p>
+                    <p>Deutschland</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="subheadline-text space-y-1">
+                    <p>+49 89 232315-0</p>
+                    <p>info@qaware.de</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-foreground">Geschäftsführer</h2>
+                  <div className="subheadline-text space-y-1">
+                    <p>Dr. Josef Adersberger</p>
+                    <p>Mario-Leander Reimer</p>
+                    <p>Michael Rohleder</p>
+                    <p>Michael Stehnken</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-foreground">Handelsregister</h2>
+                  <div className="subheadline-text space-y-1">
+                    <p>Registergericht: München</p>
+                    <p>Registernummer: HRB 163761</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-foreground">Umsatzsteueridentifikations-Nummer gemäss § 27 A Umsatzsteuergesetz</h2>
+                  <div className="subheadline-text">
+                    <p>DE250622388</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-foreground">Inhaltlich verantwortlicher gemäss § 6 MDSTV</h2>
+                  <div className="subheadline-text">
+                    <p>Dr. Josef Adersberger</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+        
+        {/* Footer */}
+        <footer className="py-12 section-padding border-t border-border">
+          <div className="container-width text-center text-muted-foreground">
+            <p className="text-sm mb-2">
+              © 2024 Agentic Layer. Alle Rechte vorbehalten.
+            </p>
+            <Link 
+              to="/impressum" 
+              className="text-sm hover:text-primary transition-colors underline"
+            >
+              Impressum
+            </Link>
+          </div>
+        </footer>
       </div>
     </ThemeProvider>
   );
