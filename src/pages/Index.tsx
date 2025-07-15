@@ -25,15 +25,15 @@ const Index = () => {
         {/* Footer */}
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
-            <p className="text-sm mb-2">
-              © 2025 Agentic Layer. Alle Rechte vorbehalten.
-            </p>
             <Link 
               to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline"
+              className="text-sm hover:text-primary transition-colors underline block mb-2"
             >
               Impressum
             </Link>
+            <p className="text-sm">
+              © 2025 Agentic Layer. Alle Rechte vorbehalten.
+            </p>
           </div>
         </footer>
       </div>
