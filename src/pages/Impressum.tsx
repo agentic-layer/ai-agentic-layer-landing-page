@@ -77,7 +77,7 @@ const Impressum = () => {
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
             <img 
-              src="/lovable-uploads/1dd5e3ad-bde6-4adb-8298-52901a1cb9a2.png" 
+              src="/lovable-uploads/58eb2ee7-87ce-4461-be5a-f98009ee1ebe.png" 
               alt="Powered by QAware" 
               className="mx-auto mb-8 opacity-70"
             />
