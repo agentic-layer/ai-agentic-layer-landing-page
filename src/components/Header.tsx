@@ -102,8 +102,8 @@ export function Header() {
               >
                 Kontakt
               </button>
-              <button className="p-2 rounded-full bg-white text-black hover:bg-gray-100 transition-all duration-200">
-                <Globe className="h-4 w-4" />
+              <button className="text-white hover:opacity-80 transition-opacity">
+                <Globe className="h-5 w-5" />
               </button>
             </div>
           </div>
