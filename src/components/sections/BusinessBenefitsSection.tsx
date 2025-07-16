@@ -17,23 +17,23 @@ const DirigentenStabIcon = () => (
 const getBenefits = (t: any) => [
   {
     icon: Shield,
-    title: t('benefits.0.title'),
-    description: t('benefits.0.description')
+    title: t('cards.sovereignty.title'),
+    description: t('cards.sovereignty.description')
   },
   {
     icon: DirigentenStabIcon,
-    title: t('benefits.1.title'),
-    description: t('benefits.1.description')
+    title: t('cards.orchestration.title'),
+    description: t('cards.orchestration.description')
   },
   {
     icon: Infinity,
-    title: t('benefits.2.title'),
-    description: t('benefits.2.description')
+    title: t('cards.openness.title'),
+    description: t('cards.openness.description')
   },
   {
     icon: BadgeCheck,
-    title: t('benefits.3.title'),
-    description: t('benefits.3.description')
+    title: t('cards.compliance.title'),
+    description: t('cards.compliance.description')
   }
 ];
 
@@ -51,6 +51,8 @@ export function BusinessBenefitsSection() {
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
             {t('subtitle')}
+            <br/>
+            {t('subtitle2')}
           </p>
         </div>
 

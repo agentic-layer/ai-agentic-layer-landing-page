@@ -52,7 +52,7 @@ export function ArchitectureSection() {
             </h3>
 
             <Accordion type="multiple" className="space-y-3">
-              {(t('features.items', { returnObjects: true }) as Array<{ title: string; description: string }>).map((feature, index) => (
+              {Object.values(t('features.items', { returnObjects: true }) as Record<string, { title: string; description: string }>).map((feature, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="border-0">
                   <Card className="border-2 hover:border-primary/20 transition-colors">
                     <AccordionTrigger className="flex w-full items-center justify-between p-6 text-left hover:no-underline text-foreground">
