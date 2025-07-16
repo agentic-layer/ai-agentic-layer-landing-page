@@ -1,0 +1,16 @@
+{
+  "title": "Experience Agentic AI?",
+  "subtitle": "Subscribe to our newsletter and<br />win conference tickets with a bit of luck.",
+  "description": "With your newsletter subscription, you not only stay up-to-date but also have the chance to win tickets for top tech conferences like the KI Navigator or CLC. We look forward to further discussions about Agentic AI with you at our booth or in our workshops.",
+  "workshop": "Sneak Peek: Mario-Leander Reimer, CTO of QAware, will hold his exciting workshop \"Architecture and Setup of a Cloud-native AI Platform\" at CLC. This provides a practical step-by-step guide for designing and building AI platforms, both locally and in the public cloud.",
+  "signup": "Sign up now, secure exclusive insights, and maybe be there live soon!",
+  "contact": {
+    "title": "Get in Touch with Us",
+    "description": "The Agentic Layer team looks forward to hearing from you!<br /><br />Write to us about how we can help you on your journey to the Agentic Layer.",
+    "button": "Write Email"
+  },
+  "toast": {
+    "title": "Successfully registered!",
+    "description": "You will receive updates on our most important milestones."
+  }
+}

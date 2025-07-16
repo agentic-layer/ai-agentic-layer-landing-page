@@ -1,0 +1,23 @@
+{
+  "title": "Your Bridge to Sovereign AI Orchestration",
+  "subtitle": "We give you the control, security, and flexibility to unleash the full potential of Agentic AI in your enterprise.",
+  "subtitle2": "No boilerplate, no headaches.",
+  "cards": {
+    "sovereignty": {
+      "title": "Your Playground, Your Rules.",
+      "description": "You have full sovereignty over your data, models, and infrastructure – whether cloud or on-premises."
+    },
+    "orchestration": {
+      "title": "Smart Orchestration, Efficient Scaling.",
+      "description": "Connect isolated AI calls into seamless, enterprise-wide processes. Our layer handles distribution, control, and monitoring of your entire agent workforce."
+    },
+    "openness": {
+      "title": "Open & Agnostic: Your Freedom.",
+      "description": "No vendor lock-in. Our open-source approach creates full transparency, while the agnostic design guarantees free choice of clouds, models, and tools."
+    },
+    "compliance": {
+      "title": "Audit-Ready & GDPR-Compliant.",
+      "description": "EU AI Act? GDPR? No problem. We've built in governance, transparency, and audit capabilities from the ground up. So your agents stay not only smart but also compliant."
+    }
+  }
+}

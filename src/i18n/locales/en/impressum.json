@@ -1,0 +1,33 @@
+{
+  "title": "Legal Notice",
+  "company": "QAware GmbH",
+  "address": {
+    "street": "Aschauer Straße 30",
+    "city": "81549 Munich",
+    "country": "Germany"
+  },
+  "phone": "+49 89 232315-0",
+  "email": "info@qaware.de",
+  "management": {
+    "title": "Managing Directors",
+    "names": [
+      "Dr. Josef Adersberger",
+      "Mario-Leander Reimer",
+      "Michael Rohleder",
+      "Michael Stehnken"
+    ]
+  },
+  "register": {
+    "title": "Commercial Register",
+    "court": "Register Court: Munich",
+    "number": "Register Number: HRB 163761"
+  },
+  "vat": {
+    "title": "VAT Identification Number according to § 27 A VAT Act",
+    "number": "DE250622388"
+  },
+  "responsible": {
+    "title": "Content Responsible according to § 6 MDSTV",
+    "name": "Dr. Josef Adersberger"
+  }
+}
