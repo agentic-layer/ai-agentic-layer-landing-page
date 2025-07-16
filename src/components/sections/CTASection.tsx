@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -50,7 +51,7 @@ export function CTASection() {
               <CardTitle className="text-lg font-medium">Nimm Kontakt mit uns auf</CardTitle>
               
               {/* Two-column layout below headline */}
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="flex justify-center">
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
