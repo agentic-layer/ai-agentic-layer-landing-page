@@ -25,6 +25,14 @@ export function CTASection() {
     });
     setEmail('');
   };
+
+  const handleEmailClick = () => {
+    const emailAddress = 'agenticlayer@qaware.de';
+    const subject = 'Hello Agentic Layer';
+    const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}`;
+    window.open(mailtoUrl, '_self');
+  };
+
   return <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
@@ -63,9 +71,7 @@ export function CTASection() {
                   Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
-              <form onSubmit={handleNewsletterSubmit} className="mt-6">
-                <Button type="submit" className="w-full">E-Mail schreiben</Button>
-              </form>
+              <Button onClick={handleEmailClick} className="w-full mt-6">E-Mail schreiben</Button>
             </CardContent>
           </Card>
         </div>
