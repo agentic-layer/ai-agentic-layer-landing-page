@@ -55,7 +55,7 @@ export function CTASection() {
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
                 <div className="flex items-start">
-                  <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
+                  <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich auf deine Kontaktaufnahme!
                   <br /><br />
                   Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
