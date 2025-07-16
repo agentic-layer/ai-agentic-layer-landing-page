@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { LanguageSelector } from './LanguageSelector';
 
 const navigationItems = [
-  { name: 'Vorteile', href: '#benefits' },
-  { name: 'Architektur', href: '#architecture' },
-  { name: 'Open Source', href: '#open-source' },
+  { name: 'nav.benefits', href: '#benefits' },
+  { name: 'nav.architecture', href: '#architecture' },
+  { name: 'nav.openSource', href: '#open-source' },
 ];
 
 export function Header() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -81,8 +84,8 @@ export function Header() {
             />
           </button>
 
-          {/* Navigation and CTA Button */}
-          <div className="flex items-center space-x-8 ml-auto">
+          {/* Navigation, Language Selector and CTA Button */}
+          <div className="flex items-center space-x-4 ml-auto">
             <nav className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <button
@@ -90,15 +93,16 @@ export function Header() {
                   onClick={() => scrollToSection(item.href)}
                   className="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
                 >
-                  {item.name}
+                  {t(item.name)}
                 </button>
               ))}
             </nav>
+            <LanguageSelector />
             <button
               onClick={handleContactClick}
               className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
             >
-              Kontakt
+              {t('nav.contact')}
             </button>
           </div>
         </div>

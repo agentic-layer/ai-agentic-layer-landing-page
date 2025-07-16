@@ -1,22 +1,28 @@
 
 import React from 'react';
-import { ParticleWave } from '@/components/ParticleWave';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { ParticleWave } from '../ParticleWave';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function HeroSection() {
-  const animationRef = useScrollReveal({ delay: 200 });
-
+  const { t } = useLanguage();
+  
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center py-20 pt-32">
-      {/* Text content - centered with section padding */}
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <ParticleWave />
       
-      
-      {/* Dots Animation - replacing video */}
-      <div className="mt-16 section-padding">
-        <div className="container-width">
-          <div className="relative w-full aspect-[9/16] md:aspect-[16/9]" ref={animationRef}>
-            <ParticleWave />
-          </div>
+      <div className="relative z-10 container-width section-padding text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="headline-text mb-6">
+            {t('hero.title')}
+          </h1>
+          
+          <p className="subheadline-text mb-12 max-w-3xl mx-auto">
+            {t('hero.subtitle')}
+          </p>
+          
+          <button className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105">
+            {t('hero.cta')}
+          </button>
         </div>
       </div>
     </section>
