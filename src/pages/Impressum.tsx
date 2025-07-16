@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -76,7 +75,7 @@ const Impressum = () => {
         {/* Footer */}
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width">
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-8">
               <img 
                 src="/lovable-uploads/cd0e88ce-c4e8-4412-acc2-42cbb367df70.png" 
                 alt="Powered by QAware" 
