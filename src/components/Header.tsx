@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -89,7 +88,7 @@ export function Header() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
                 >
                   {item.name}
                 </button>
