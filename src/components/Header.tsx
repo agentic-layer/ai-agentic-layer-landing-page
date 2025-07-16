@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Globe } from 'lucide-react';
 
 const navigationItems = [
   { name: 'Vorteile', href: '#benefits' },
@@ -94,12 +95,17 @@ export function Header() {
                 </button>
               ))}
             </nav>
-            <button
-              onClick={handleContactClick}
-              className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
-            >
-              Kontakt
-            </button>
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={handleContactClick}
+                className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
+              >
+                Kontakt
+              </button>
+              <button className="p-2 rounded-full bg-white text-black hover:bg-gray-100 transition-all duration-200">
+                <Globe className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
