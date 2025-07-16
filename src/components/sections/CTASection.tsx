@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,13 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const headerRef = useScrollReveal();
-  const cardRef = useScrollReveal({ delay: 200 });
-
+  const cardRef = useScrollReveal({
+    delay: 200
+  });
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -21,9 +22,7 @@ export function CTASection() {
     });
     setEmail('');
   };
-
-  return (
-    <section id="contact" className="py-20 section-padding">
+  return <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
@@ -55,9 +54,9 @@ export function CTASection() {
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-32 h-40 object-cover rounded-lg" />
                 </div>
                 <div className="flex items-center">
-                  <p className="text-sm text-muted-foreground">
-                    Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
-                  </p>
+                  <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
+
+Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
             </CardHeader>
@@ -69,6 +68,5 @@ export function CTASection() {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
