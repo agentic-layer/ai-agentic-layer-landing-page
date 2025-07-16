@@ -79,11 +79,11 @@ const Impressum = () => {
             <img 
               src="/lovable-uploads/58eb2ee7-87ce-4461-be5a-f98009ee1ebe.png" 
               alt="Powered by QAware" 
-              className="mx-auto mb-4 opacity-70"
+              className="mx-auto mb-8 opacity-70"
             />
             <Link 
               to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline block mb-4"
+              className="text-sm hover:text-primary transition-colors underline block mb-8"
             >
               Impressum
             </Link>
