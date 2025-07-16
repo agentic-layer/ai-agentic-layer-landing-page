@@ -30,12 +30,20 @@ const Index = () => {
               alt="Powered by QAware" 
               className="mx-auto mb-8 opacity-70"
             />
-            <Link 
-              to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline block mb-8"
-            >
-              Impressum
-            </Link>
+            <div className="flex justify-center space-x-8 mb-8">
+              <Link 
+                to="/impressum" 
+                className="text-sm hover:text-primary transition-colors underline"
+              >
+                Impressum
+              </Link>
+              <Link 
+                to="/datenschutz" 
+                className="text-sm hover:text-primary transition-colors underline"
+              >
+                Datenschutz
+              </Link>
+            </div>
             <p className="text-sm">
               © 2025 Agentic Layer. Alle Rechte vorbehalten.
             </p>
