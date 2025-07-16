@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 export function CTASection() {
   const [email, setEmail] = useState('');
   const {
@@ -55,10 +54,10 @@ export function CTASection() {
                 <div className="flex justify-center">
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-start">
                   <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
-
-Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
+                  <br /><br />
+                  Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
             </CardHeader>
@@ -72,4 +71,3 @@ Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.
       </div>
     </section>;
 }
-
