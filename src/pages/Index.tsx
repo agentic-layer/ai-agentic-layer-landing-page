@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
+import { useTranslation } from 'react-i18next';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BusinessBenefitsSection } from '@/components/sections/BusinessBenefitsSection';
 import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
@@ -10,6 +11,8 @@ import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { CTASection } from '@/components/sections/CTASection';
 
 const Index = () => {
+  const { t } = useTranslation('common');
+  
   return (
     <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
@@ -34,10 +37,10 @@ const Index = () => {
               to="/impressum" 
               className="text-sm hover:text-primary transition-colors block mb-8 no-underline"
             >
-              Impressum
+              {t('footer.impressum')}
             </Link>
             <p className="text-sm">
-              © 2025 Agentic Layer.
+              {t('footer.copyright')}
             </p>
           </div>
         </footer>

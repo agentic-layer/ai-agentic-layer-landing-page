@@ -3,6 +3,7 @@ import React from 'react';
 import { Shield, Infinity, BadgeCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useTranslation } from 'react-i18next';
 
 // Custom Dirigentenstab icon as SVG
 const DirigentenStabIcon = () => (
@@ -13,49 +14,48 @@ const DirigentenStabIcon = () => (
   </svg>
 );
 
-const benefits = [
+const getBenefits = (t: any) => [
   {
     icon: Shield,
-    title: "Dein Playground, Deine Regeln.",
-    description: "Du hast die volle Hoheit über deine Daten, Modelle und die Infra – egal ob Cloud oder On-Prem."
+    title: t('benefits.0.title'),
+    description: t('benefits.0.description')
   },
   {
     icon: DirigentenStabIcon,
-    title: "Smart orchestriert, effizient skaliert.",
-    description: "Verbinde isolierte KI-Aufrufe zu nahtlosen, unternehmensweiten Prozessen. Unser Layer kümmert sich um Verteilung, Steuerung und Überwachung deiner gesamten Agenten-Workforce."
+    title: t('benefits.1.title'),
+    description: t('benefits.1.description')
   },
   {
     icon: Infinity,
-    title: "Offen & Agnostisch: Deine Freiheit.",
-    description: "Kein Vendor-Lock-in. Unser Open-Source-Ansatz schafft volle Transparenz, während das agnostische Design die freie Wahl von Clouds, Modellen und Tools garantiert."
+    title: t('benefits.2.title'),
+    description: t('benefits.2.description')
   },
   {
     icon: BadgeCheck,
-    title: "Audit-Ready & DSGVO-Konform.",
-    description: "EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber."
+    title: t('benefits.3.title'),
+    description: t('benefits.3.description')
   }
 ];
 
 export function BusinessBenefitsSection() {
   const headerRef = useScrollReveal();
   const cardsRef = useScrollReveal({ delay: 200 });
+  const { t } = useTranslation('benefits');
 
   return (
     <section id="benefits" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
-            Deine Brücke zur souveränen KI-Orchestrierung
+            {t('title')}
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln kannst.
-            <br/>
-            Kein Boilerplate, keine Kopfschmerzen.
+            {t('subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" ref={cardsRef}>
-          {benefits.map((benefit, index) => (
+          {getBenefits(t).map((benefit, index) => (
             <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
