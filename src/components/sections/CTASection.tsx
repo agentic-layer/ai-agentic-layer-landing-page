@@ -54,9 +54,7 @@ export function CTASection() {
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
                 <Input type="email" placeholder="Ihre E-Mail-Adresse" value={email} onChange={e => setEmail(e.target.value)} required />
-                <Button type="submit" className="w-full">
-                  Zum Newsletter anmelden
-                </Button>
+                <Button type="submit" className="w-full">E-Mail schreiben</Button>
               </form>
             </CardContent>
           </Card>
