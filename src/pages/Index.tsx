@@ -32,12 +32,12 @@ const Index = () => {
             />
             <Link 
               to="/impressum" 
-              className="text-sm hover:text-primary transition-colors block mb-8"
+              className="text-sm hover:text-primary transition-colors block mb-8 no-underline"
             >
               Impressum
             </Link>
             <p className="text-sm">
-              © 2025 Agentic Layer.<br />Alle Rechte vorbehalten.
+              © 2025 Agentic Layer.
             </p>
           </div>
         </footer>
