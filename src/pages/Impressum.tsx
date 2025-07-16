@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -79,7 +78,7 @@ const Impressum = () => {
             <img 
               src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" 
               alt="Powered by QAware" 
-              className="mx-auto mb-8 opacity-70 w-32"
+              className="mx-auto mb-8 opacity-70 w-[200px]"
             />
             <Link 
               to="/impressum" 
