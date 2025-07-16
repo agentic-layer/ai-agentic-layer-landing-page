@@ -26,7 +26,7 @@ const Index = () => {
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
             <img 
-              src="/lovable-uploads/cd0e88ce-c4e8-4412-acc2-42cbb367df70.png" 
+              src="/lovable-uploads/58eb2ee7-87ce-4461-be5a-f98009ee1ebe.png" 
               alt="Powered by QAware" 
               className="mx-auto mb-4 opacity-70"
             />
