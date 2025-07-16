@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -51,7 +52,7 @@ export function CTASection() {
               {/* Two-column layout below headline */}
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="flex justify-center">
-                  <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-32 h-40 object-cover rounded-lg" />
+                  <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full h-40 object-cover rounded-lg" />
                 </div>
                 <div className="flex items-center">
                   <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
