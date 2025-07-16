@@ -37,7 +37,7 @@ const Index = () => {
               Impressum
             </Link>
             <p className="text-sm">
-              © 2025 Agentic Layer. Alle Rechte vorbehalten.
+              © 2025 Agentic Layer.<br />Alle Rechte vorbehalten.
             </p>
           </div>
         </footer>

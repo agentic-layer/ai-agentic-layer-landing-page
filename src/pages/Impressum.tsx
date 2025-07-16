@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -88,7 +87,7 @@ const Impressum = () => {
               Impressum
             </Link>
             <p className="text-sm">
-              © 2025 Agentic Layer. Alle Rechte vorbehalten.
+              © 2025 Agentic Layer.<br />Alle Rechte vorbehalten.
             </p>
           </div>
         </footer>
