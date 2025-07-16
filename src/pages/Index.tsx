@@ -24,21 +24,19 @@ const Index = () => {
         
         {/* Footer */}
         <footer className="py-12 section-padding border-t border-border">
-          <div className="container-width">
-            <div className="flex justify-between items-center mb-8">
-              <img 
-                src="/lovable-uploads/cd0e88ce-c4e8-4412-acc2-42cbb367df70.png" 
-                alt="Powered by QAware" 
-                className="opacity-70"
-              />
-              <Link 
-                to="/impressum" 
-                className="text-sm hover:text-primary transition-colors underline text-muted-foreground"
-              >
-                Impressum
-              </Link>
-            </div>
-            <p className="text-sm text-center text-muted-foreground">
+          <div className="container-width text-center text-muted-foreground">
+            <img 
+              src="/lovable-uploads/cd0e88ce-c4e8-4412-acc2-42cbb367df70.png" 
+              alt="Powered by QAware" 
+              className="mx-auto mb-4 opacity-70"
+            />
+            <Link 
+              to="/impressum" 
+              className="text-sm hover:text-primary transition-colors underline block mb-4"
+            >
+              Impressum
+            </Link>
+            <p className="text-sm">
               © 2025 Agentic Layer. Alle Rechte vorbehalten.
             </p>
           </div>
