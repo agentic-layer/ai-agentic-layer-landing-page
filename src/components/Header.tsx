@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { LanguageSelector } from './LanguageSelector';
 import { Globe } from 'lucide-react';
 
 const navigationItems = [
@@ -102,9 +103,7 @@ export function Header() {
               >
                 Kontakt
               </button>
-              <button className="text-white hover:opacity-80 transition-opacity">
-                <Globe className="h-5 w-5" />
-              </button>
+              <LanguageSelector />
             </div>
           </div>
         </div>
