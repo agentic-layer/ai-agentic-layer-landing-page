@@ -7,19 +7,21 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { useTranslation } from 'react-i18next';
 
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const headerRef = useScrollReveal();
-  const cardRef = useScrollReveal({ delay: 200 });
-  const { t } = useTranslation('cta');
+  const cardRef = useScrollReveal({
+    delay: 200
+  });
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: t('toast.title'),
-      description: t('toast.description')
+      title: "Erfolgreich angemeldet!",
+      description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen."
     });
     setEmail('');
   };
@@ -35,13 +37,17 @@ export function CTASection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
-            {t('title')}
+            Agentic AI erleben?
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            {t('subtitle')}
+            Zum Newsletter anmelden und<br />mit etwas Glück Konferenz-Tickets gewinnen.
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
-            {t('description')}
+            Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.
+            <br /><br />
+            Sneak Peek: Mario-Leander Reimer, CTO der QAware, hält auf der CLC seinen spannenden Workshop „Architektur und Aufbau einer Cloud-nativen AI-Plattform". Dieser bietet eine praktische Schritt-für-Schritt-Anleitung für das Design und den Aufbau von KI-Plattformen, sowohl lokal als auch in der Public Cloud.
+            <br /><br />
+            Jetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!
           </p>
         </div>
 
@@ -51,7 +57,7 @@ export function CTASection() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">{t('contact.title')}</CardTitle>
+              <CardTitle className="text-lg font-medium">Nimm Kontakt mit uns auf</CardTitle>
             </CardHeader>
             <CardContent>
               {/* Two-column layout below headline */}
@@ -60,12 +66,12 @@ export function CTASection() {
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
                 <div className="flex items-start">
-                  <p className="text-sm text-muted-foreground">
-                    {t('contact.description')}
-                  </p>
+                  <p className="text-sm text-muted-foreground">Das Agentic Layer Team freut sich auf deine Kontaktaufnahme!
+                  <br /><br />
+                  Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
-              <Button onClick={handleEmailClick} className="w-full mt-6">{t('contact.button')}</Button>
+              <Button onClick={handleEmailClick} className="w-full mt-6">E-Mail schreiben</Button>
             </CardContent>
           </Card>
         </div>
