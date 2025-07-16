@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -5,15 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const headerRef = useScrollReveal();
-  const cardRef = useScrollReveal({
-    delay: 200
-  });
+  const cardRef = useScrollReveal({ delay: 200 });
+
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -22,7 +21,9 @@ export function CTASection() {
     });
     setEmail('');
   };
-  return <section id="contact" className="py-20 section-padding">
+
+  return (
+    <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
@@ -47,18 +48,41 @@ export function CTASection() {
                 <Mail className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">Nimm Kontakt mit uns auf</CardTitle>
+              
+              {/* Two-column layout below headline */}
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="flex justify-center">
+                  <img 
+                    src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" 
+                    alt="Team member" 
+                    className="w-20 h-20 rounded-full object-cover"
+                  />
+                </div>
+                <div className="flex items-center">
+                  <p className="text-sm text-muted-foreground">
+                    Das Agentic Layer Team freut sich über deine Kontaktaufnahme!
+                  </p>
+                </div>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4 flex-1 flex flex-col">
               <p className="text-muted-foreground text-sm flex-1">
                 Melde dich zu unserem Newsletter an und wir informieren dich gezielt über wichtige Projekt-Meilensteine, wie den Launch unserer Public Beta oder kommende Live-Demos. Kein Spam, nur die wichtigen Updates.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
-                <Input type="email" placeholder="Ihre E-Mail-Adresse" value={email} onChange={e => setEmail(e.target.value)} required />
+                <Input 
+                  type="email" 
+                  placeholder="Ihre E-Mail-Adresse" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                  required 
+                />
                 <Button type="submit" className="w-full">E-Mail schreiben</Button>
               </form>
             </CardContent>
           </Card>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
