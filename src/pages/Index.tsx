@@ -28,7 +28,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/cd0e88ce-c4e8-4412-acc2-42cbb367df70.png" 
               alt="Powered by QAware" 
-              className="mx-auto mb-4 h-8 opacity-70"
+              className="mx-auto mb-4 opacity-70"
             />
             <Link 
               to="/impressum" 
