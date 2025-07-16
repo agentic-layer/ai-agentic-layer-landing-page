@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -49,9 +50,10 @@ export function CTASection() {
                 <Mail className="w-6 h-6" />
               </div>
               <CardTitle className="text-lg font-medium">Nimm Kontakt mit uns auf</CardTitle>
-              
+            </CardHeader>
+            <CardContent>
               {/* Two-column layout below headline */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="flex justify-center">
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
@@ -61,9 +63,7 @@ export function CTASection() {
                   Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-4 flex-1 flex flex-col">
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3 mt-auto">
+              <form onSubmit={handleNewsletterSubmit} className="mt-6">
                 <Button type="submit" className="w-full">E-Mail schreiben</Button>
               </form>
             </CardContent>
@@ -72,3 +72,4 @@ export function CTASection() {
       </div>
     </section>;
 }
+
