@@ -83,7 +83,7 @@ const Impressum = () => {
             />
             <Link 
               to="/impressum" 
-              className="text-sm hover:text-primary transition-colors underline block mb-8"
+              className="text-sm hover:text-primary transition-colors block mb-8"
             >
               Impressum
             </Link>
