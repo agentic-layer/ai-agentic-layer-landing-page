@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTheme } from './ThemeProvider';
@@ -226,9 +225,10 @@ export const ParticleWave: React.FC = () => {
           }`}
         >
           <div className="text-center px-4 max-w-5xl space-y-8">
-            <h1 className="headline-text mb-8">
-              {t('particle.chaos.title')}
-            </h1>
+            <h1 
+              className="headline-text mb-8"
+              dangerouslySetInnerHTML={{ __html: t('particle.chaos.title') }}
+            />
             <p className="subheadline-text">
               {t('particle.chaos.subtitle')}
             </p>
@@ -248,9 +248,10 @@ export const ParticleWave: React.FC = () => {
                 alt="Agentic Layer Logo" 
                 className="w-44 h-auto mx-auto"
               />
-              <h1 className="headline-text text-center">
-                {t('particle.harmony.title')}
-              </h1>
+              <h1 
+                className="headline-text text-center"
+                dangerouslySetInnerHTML={{ __html: t('particle.harmony.title') }}
+              />
               <p className="subheadline-text">
                 {t('particle.harmony.subtitle')}
               </p>
