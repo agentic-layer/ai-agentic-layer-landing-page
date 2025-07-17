@@ -25,7 +25,7 @@ export function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="text-white hover:opacity-80 transition-opacity">
+        <button className="text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-0">
           <Globe className="h-5 w-5" />
         </button>
       </DropdownMenuTrigger>
