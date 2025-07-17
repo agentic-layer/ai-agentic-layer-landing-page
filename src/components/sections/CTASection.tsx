@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-
 export function CTASection() {
   const [email, setEmail] = useState('');
   const {
@@ -25,14 +22,12 @@ export function CTASection() {
     });
     setEmail('');
   };
-
   const handleEmailClick = () => {
     const emailAddress = 'agenticlayer@qaware.de';
     const subject = 'Hello Agentic Layer';
     const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}`;
     window.open(mailtoUrl, '_self');
   };
-
   return <section id="contact" className="py-20 section-padding">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
@@ -57,7 +52,7 @@ export function CTASection() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">Nimm Kontakt mit uns auf</CardTitle>
+              <CardTitle className="text-lg font-medium">Hast du weitere Fragen?</CardTitle>
             </CardHeader>
             <CardContent>
               {/* Two-column layout below headline */}
@@ -78,4 +73,3 @@ export function CTASection() {
       </div>
     </section>;
 }
-
