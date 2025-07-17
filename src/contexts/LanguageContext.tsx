@@ -39,7 +39,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // Business Benefits Section
       'benefits.title': 'Deine Brücke zur souveränen KI-Orchestrierung',
-      'benefits.subtitle': 'Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln\nkannst.\nKein Boilerplate, keine Kopfschmerzen.',
+      'benefits.subtitle': 'Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln kannst.\nKein Boilerplate, keine Kopfschmerzen.',
       'benefits.playground.title': 'Dein Playground, Deine Regeln.',
       'benefits.playground.description': 'Du hast die volle Hoheit über deine Daten, Modelle und die Infra – egal ob Cloud oder On-Prem.',
       'benefits.orchestrated.title': 'Smart orchestriert, effizient skaliert.',
@@ -91,7 +91,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // Business Benefits Section
       'benefits.title': 'Your Bridge to Sovereign AI Orchestration',
-      'benefits.subtitle': 'We give you the control, security, and flexibility to unleash\nthe full potential of Agentic AI in your enterprise.\nNo boilerplate, no headaches.',
+      'benefits.subtitle': 'We give you the control, security, and flexibility to unleash the full potential of Agentic AI in your enterprise.\nNo boilerplate, no headaches.',
       'benefits.playground.title': 'Your Playground, Your Rules.',
       'benefits.playground.description': 'You have full sovereignty over your data, models, and infrastructure – whether cloud or on-premises.',
       'benefits.orchestrated.title': 'Smart Orchestrated, Efficiently Scaled.',
