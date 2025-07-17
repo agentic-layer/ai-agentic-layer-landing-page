@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Shield, Infinity, BadgeCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -14,30 +13,44 @@ const DirigentenStabIcon = () => (
   </svg>
 );
 
+const benefits = [
+  {
+    icon: Shield,
+    title: "Dein Playground, Deine Regeln.",
+    description: "Du hast die volle Hoheit über deine Daten, Modelle und die Infra – egal ob Cloud oder On-Prem."
+  },
+  {
+    icon: DirigentenStabIcon,
+    title: "Smart orchestriert, effizient skaliert.",
+    description: "Verbinde isolierte KI-Aufrufe zu nahtlosen, unternehmensweiten Prozessen. Unser Layer kümmert sich um Verteilung, Steuerung und Überwachung deiner gesamten Agenten-Workforce."
+  },
+  {
+    icon: Infinity,
+    title: "Offen & Agnostisch: Deine Freiheit.",
+    description: "Kein Vendor-Lock-in. Unser Open-Source-Ansatz schafft volle Transparenz, während das agnostische Design die freie Wahl von Clouds, Modellen und Tools garantiert."
+  },
+  {
+    icon: BadgeCheck,
+    title: "Audit-Ready & DSGVO-Konform.",
+    description: "EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber."
+  }
+];
 
 export function BusinessBenefitsSection() {
   const headerRef = useScrollReveal();
   const cardsRef = useScrollReveal({ delay: 200 });
-  const { t } = useTranslation('benefits');
-
-  const benefitsData = t('benefits', { returnObjects: true }) as Array<{title: string, description: string}>;
-  const icons = [Shield, DirigentenStabIcon, Infinity, BadgeCheck, DirigentenStabIcon, Shield];
-  
-  const benefits = benefitsData.map((benefit, index) => ({
-    icon: icons[index],
-    title: benefit.title,
-    description: benefit.description
-  }));
 
   return (
     <section id="benefits" className="py-20 section-padding bg-muted/30 dark:bg-muted">
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
-            {t('title')}
+            Deine Brücke zur souveränen KI-Orchestrierung
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
-            {t('subtitle')}
+            Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln kannst.
+            <br/>
+            Kein Boilerplate, keine Kopfschmerzen.
           </p>
         </div>
 

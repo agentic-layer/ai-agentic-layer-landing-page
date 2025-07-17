@@ -1,21 +1,19 @@
 import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { LanguageSelector } from './LanguageSelector';
 import { Globe } from 'lucide-react';
+
+const navigationItems = [
+  { name: 'Vorteile', href: '#benefits' },
+  { name: 'Architektur', href: '#architecture' },
+  { name: 'Open Source', href: '#open-source' },
+];
 
 export function Header() {
   const { theme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation('common');
-
-  const navigationItems = [
-    { name: t('nav.benefits'), href: '#benefits' },
-    { name: t('nav.architecture'), href: '#architecture' },
-    { name: t('nav.open_source'), href: '#open-source' },
-  ];
   
   // Handle scrolling to sections when navigating with hash
   useEffect(() => {
@@ -103,7 +101,7 @@ export function Header() {
                 onClick={handleContactClick}
                 className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
               >
-                {t('nav.contact')}
+                Kontakt
               </button>
               <LanguageSelector />
             </div>

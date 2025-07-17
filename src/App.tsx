@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
-import "./i18n";
 
 const queryClient = new QueryClient();
 

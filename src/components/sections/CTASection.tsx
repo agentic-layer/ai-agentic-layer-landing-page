@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,10 +7,13 @@ import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 export function CTASection() {
   const [email, setEmail] = useState('');
-  const { toast } = useToast();
-  const { t } = useTranslation('cta');
+  const {
+    toast
+  } = useToast();
   const headerRef = useScrollReveal();
-  const cardRef = useScrollReveal({ delay: 200 });
+  const cardRef = useScrollReveal({
+    delay: 200
+  });
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -30,10 +32,17 @@ export function CTASection() {
       <div className="container-width">
         <div className="text-center space-y-8 mb-16" ref={headerRef}>
           <h2 className="headline-text">
-            {t('title')}
+            Agentic AI erleben?
           </h2>
-          <p className="text-xl max-w-4xl mx-auto leading-relaxed opacity-90">
-            {t('description')}
+          <p className="subheadline-text max-w-4xl mx-auto">
+            Jetzt scannen lassen, zum Newsletter anmelden und<br />mit etwas Glück Konferenz-Tickets gewinnen.
+          </p>
+          <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
+            Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.
+            <br /><br />
+            Sneak Peek: Mario-Leander Reimer, CTO der QAware, hält auf der CLC seinen spannenden Workshop „Architektur und Aufbau einer Cloud-nativen AI-Plattform". Dieser bietet eine praktische Schritt-für-Schritt-Anleitung für das Design und den Aufbau von KI-Plattformen, sowohl lokal als auch in der Public Cloud.
+            <br /><br />
+            Jetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!
           </p>
         </div>
 
@@ -57,7 +66,7 @@ export function CTASection() {
                   Schreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.</p>
                 </div>
               </div>
-              <Button onClick={handleEmailClick} className="w-full mt-6">{t('cta_button')}</Button>
+              <Button onClick={handleEmailClick} className="w-full mt-6">E-Mail schreiben</Button>
             </CardContent>
           </Card>
         </div>

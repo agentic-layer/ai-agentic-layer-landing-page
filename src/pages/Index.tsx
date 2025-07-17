@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -11,8 +10,6 @@ import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { CTASection } from '@/components/sections/CTASection';
 
 const Index = () => {
-  const { t } = useTranslation('common');
-
   return (
     <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
@@ -37,7 +34,7 @@ const Index = () => {
               to="/impressum" 
               className="text-sm hover:text-primary transition-colors block mb-8 no-underline"
             >
-              {t('footer.imprint')}
+              Impressum
             </Link>
             <p className="text-sm">
               © 2025 Agentic Layer.
