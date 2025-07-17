@@ -19,9 +19,9 @@ export function OpenSourceSection() {
           <p className="subheadline-text">{t('subtitle')}</p>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             {t('description')}
-            <p>
-              {t('empowerment')}
-            </p>
+          </p>
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
+            {t('empowerment')}
           </p>
         </div>
 

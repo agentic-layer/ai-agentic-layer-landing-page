@@ -20,28 +20,14 @@ export function BusinessBenefitsSection() {
   const cardsRef = useScrollReveal({ delay: 200 });
   const { t } = useTranslation('benefits');
 
-  const benefits = [
-    {
-      icon: Shield,
-      title: t('benefits.0.title'),
-      description: t('benefits.0.description')
-    },
-    {
-      icon: DirigentenStabIcon,
-      title: t('benefits.1.title'),
-      description: t('benefits.1.description')
-    },
-    {
-      icon: Infinity,
-      title: t('benefits.2.title'),
-      description: t('benefits.2.description')
-    },
-    {
-      icon: BadgeCheck,
-      title: t('benefits.3.title'),
-      description: t('benefits.3.description')
-    }
-  ];
+  const benefitsData = t('benefits', { returnObjects: true }) as Array<{title: string, description: string}>;
+  const icons = [Shield, DirigentenStabIcon, Infinity, BadgeCheck, DirigentenStabIcon, Shield];
+  
+  const benefits = benefitsData.map((benefit, index) => ({
+    icon: icons[index],
+    title: benefit.title,
+    description: benefit.description
+  }));
 
   return (
     <section id="benefits" className="py-20 section-padding bg-muted/30 dark:bg-muted">
