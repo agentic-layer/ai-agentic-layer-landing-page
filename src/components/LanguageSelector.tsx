@@ -1,24 +1,24 @@
 
-import React, { useState } from 'react';
-import { Globe, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState('Deutsch');
+  const { language, setLanguage } = useLanguage();
 
   const languages = [
     { label: 'Deutsch', value: 'de' },
     { label: 'English', value: 'en' },
   ];
 
-  const handleLanguageChange = (language: string, value: string) => {
-    setSelectedLanguage(language);
-    // TODO: Implement actual language switching logic
+  const handleLanguageChange = (value: 'de' | 'en') => {
+    setLanguage(value);
     console.log('Language changed to:', value);
   };
 
@@ -29,14 +29,16 @@ export function LanguageSelector() {
           <Globe className="h-5 w-5" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-background border border-border">
-        {languages.map((language) => (
+      <DropdownMenuContent align="end" className="bg-background border border-border z-50">
+        {languages.map((lang) => (
           <DropdownMenuItem
-            key={language.value}
-            onClick={() => handleLanguageChange(language.label, language.value)}
-            className="cursor-pointer hover:bg-accent"
+            key={lang.value}
+            onClick={() => handleLanguageChange(lang.value as 'de' | 'en')}
+            className={`cursor-pointer hover:bg-accent ${
+              language === lang.value ? 'bg-accent' : ''
+            }`}
           >
-            {language.label}
+            {lang.label}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

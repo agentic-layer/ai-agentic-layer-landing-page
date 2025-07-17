@@ -2,19 +2,20 @@ import React, { useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LanguageSelector } from './LanguageSelector';
-import { Globe } from 'lucide-react';
-
-const navigationItems = [
-  { name: 'Vorteile', href: '#benefits' },
-  { name: 'Architektur', href: '#architecture' },
-  { name: 'Open Source', href: '#open-source' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Header() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   
+  const navigationItems = [
+    { name: t('nav.benefits'), href: '#benefits' },
+    { name: t('nav.architecture'), href: '#architecture' },
+    { name: t('nav.openSource'), href: '#open-source' },
+  ];
+
   // Handle scrolling to sections when navigating with hash
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
@@ -30,39 +31,33 @@ export function Header() {
   
   const scrollToSection = (href: string) => {
     if (location.pathname === '/') {
-      // If we're on the index page, scroll to the section
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If we're on another page, navigate to index page with hash
       navigate(`/${href}`);
     }
   };
 
   const handleLogoClick = () => {
     if (location.pathname === '/') {
-      // If we're on the index page, scroll to hero
       const element = document.querySelector('#hero');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If we're on another page, navigate to index page
       navigate('/');
     }
   };
 
   const handleContactClick = () => {
     if (location.pathname === '/') {
-      // If we're on the index page, scroll to contact
       const element = document.querySelector('#contact');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If we're on another page, navigate to index page with contact hash
       navigate('/#contact');
     }
   };
@@ -101,7 +96,7 @@ export function Header() {
                 onClick={handleContactClick}
                 className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
               >
-                Kontakt
+                {t('nav.contact')}
               </button>
               <LanguageSelector />
             </div>
