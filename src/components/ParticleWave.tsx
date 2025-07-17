@@ -2,6 +2,7 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTheme } from './ThemeProvider';
+import { useLanguage } from '@/contexts/LanguageContext';
 import * as THREE from 'three';
 
 interface ParticleWaveProps {
@@ -170,6 +171,7 @@ function Particles({ currentPhase }: ParticleWaveProps) {
 
 export const ParticleWave: React.FC = () => {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'harmony' | 'transition'>('chaos');
   const [startTime] = useState(() => Date.now());
 
@@ -225,10 +227,10 @@ export const ParticleWave: React.FC = () => {
         >
           <div className="text-center px-4 max-w-5xl space-y-8">
             <h1 className="headline-text mb-8">
-              Runter vom PoC,<br />Rauf auf die Produktiv-Pipeline!
+              {t('particle.chaos.title')}
             </h1>
             <p className="subheadline-text">
-              Deine Agenten brauchen mehr als nur ein Dockerfile.
+              {t('particle.chaos.subtitle')}
             </p>
           </div>
         </div>
@@ -247,11 +249,10 @@ export const ParticleWave: React.FC = () => {
                 className="w-44 h-auto mx-auto"
               />
               <h1 className="headline-text text-center">
-                <span className="hidden md:inline">Meet the Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span>
-                <span className="md:hidden">Meet the<br />Agentic Layer.<br />Your Control Plane  for Intelligent Workloads.</span>
+                {t('particle.harmony.title')}
               </h1>
               <p className="subheadline-text">
-                Verwandle isolierte KI-Agenten in eine Enterprise-grade Workforce.
+                {t('particle.harmony.subtitle')}
               </p>
             </div>
           </div>

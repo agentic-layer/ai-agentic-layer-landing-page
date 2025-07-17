@@ -20,6 +20,12 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   const translations = {
     de: {
+      // Particle Animation
+      'particle.chaos.title': 'Runter vom PoC,<br />Rauf auf die Produktiv-Pipeline!',
+      'particle.chaos.subtitle': 'Deine Agenten brauchen mehr als nur ein Dockerfile.',
+      'particle.harmony.title': '<span class="hidden md:inline">Meet the Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span><span class="md:hidden">Meet the<br />Agentic Layer.<br />Your Control Plane  for Intelligent Workloads.</span>',
+      'particle.harmony.subtitle': 'Verwandle isolierte KI-Agenten in eine Enterprise-grade Workforce.',
+
       // Navigation
       'nav.benefits': 'Vorteile',
       'nav.architecture': 'Architektur',
@@ -66,6 +72,12 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'cta.card.button': 'E-Mail schreiben',
     },
     en: {
+      // Particle Animation
+      'particle.chaos.title': 'From PoC to Production Pipeline!',
+      'particle.chaos.subtitle': 'Your agents need more than just a Dockerfile.',
+      'particle.harmony.title': '<span class="hidden md:inline">Meet the Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span><span class="md:hidden">Meet the<br />Agentic Layer.<br />Your Control Plane for Intelligent Workloads.</span>',
+      'particle.harmony.subtitle': 'Transform isolated AI agents into an enterprise-grade workforce.',
+
       // Navigation
       'nav.benefits': 'Benefits',
       'nav.architecture': 'Architecture',
