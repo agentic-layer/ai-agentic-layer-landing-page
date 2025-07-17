@@ -1,0 +1,30 @@
+{
+  "title": "Die Business Benefits des Agentic Layers",
+  "subtitle": "Enterprise-KI, die wirklich funktioniert",
+  "benefits": [
+    {
+      "title": "Intelligente Prozessautomatisierung",
+      "description": "Komplexe Geschäftsprozesse werden durch KI-Agenten vollständig automatisiert, die kontextuelle Entscheidungen treffen und sich an verändernde Anforderungen anpassen."
+    },
+    {
+      "title": "Nahtlose System-Integration",
+      "description": "Der Agentic Layer verbindet sich mühelos mit bestehenden Enterprise-Systemen und schafft eine einheitliche, intelligente Arbeitsumgebung ohne Medienbrüche."
+    },
+    {
+      "title": "Skalierbare Enterprise-Architektur",
+      "description": "Von einzelnen Abteilungen bis hin zu globalen Organisationen – unsere Lösung wächst mit deinen Anforderungen und bleibt dabei performant und sicher."
+    },
+    {
+      "title": "Adaptive Lernfähigkeit",
+      "description": "KI-Agenten lernen kontinuierlich aus Unternehmensinteraktionen und verbessern ihre Leistung automatisch, ohne manuelle Nachkonfiguration."
+    },
+    {
+      "title": "Dirigenten-Orchestrierung",
+      "description": "Ein zentraler Agent koordiniert alle anderen Agenten wie ein Dirigent sein Orchester – für perfekte Harmonie in komplexen Arbeitsabläufen."
+    },
+    {
+      "title": "Zero-Trust Security Framework",
+      "description": "Jeder Agent operiert in einer sicheren, isolierten Umgebung mit granularen Berechtigungen und kontinuierlicher Überwachung aller Aktivitäten."
+    }
+  ]
+}

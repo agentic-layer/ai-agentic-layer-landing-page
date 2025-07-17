@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
-import { Globe, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,17 +10,15 @@ import {
 } from './ui/dropdown-menu';
 
 export function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState('Deutsch');
+  const { i18n } = useTranslation();
 
   const languages = [
     { label: 'Deutsch', value: 'de' },
     { label: 'English', value: 'en' },
   ];
 
-  const handleLanguageChange = (language: string, value: string) => {
-    setSelectedLanguage(language);
-    // TODO: Implement actual language switching logic
-    console.log('Language changed to:', value);
+  const handleLanguageChange = (value: string) => {
+    i18n.changeLanguage(value);
   };
 
   return (
@@ -33,7 +32,7 @@ export function LanguageSelector() {
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.value}
-            onClick={() => handleLanguageChange(language.label, language.value)}
+            onClick={() => handleLanguageChange(language.value)}
             className="cursor-pointer hover:bg-accent"
           >
             {language.label}

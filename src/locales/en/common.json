@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "agentic_layer": "Agentic Layer",
+    "benefits": "Benefits",
+    "architecture": "Architecture",
+    "open_source": "Open Source",
+    "contact": "Contact",
+    "imprint": "Imprint"
+  },
+  "footer": {
+    "headquarters": "Headquarters",
+    "hamburg": "Hamburg",
+    "address": "Osterstraße 124",
+    "postal": "20255 Hamburg",
+    "management": "Management",
+    "management_names": "Christian Aichner & Florian Rappl",
+    "contact": "Contact",
+    "email": "info@smapiot.com",
+    "phone": "+49 (0) 431 99 74 10 12",
+    "legal": "Legal",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "follow_us": "Follow us",
+    "all_rights_reserved": "All rights reserved.",
+    "powered_by": "Powered by",
+    "made_with": "Made with"
+  }
+}

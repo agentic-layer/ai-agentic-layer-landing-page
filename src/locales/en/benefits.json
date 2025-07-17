@@ -1,0 +1,30 @@
+{
+  "title": "The Business Benefits of the Agentic Layer",
+  "subtitle": "Enterprise AI that really works",
+  "benefits": [
+    {
+      "title": "Intelligent Process Automation",
+      "description": "Complex business processes are fully automated by AI agents that make contextual decisions and adapt to changing requirements."
+    },
+    {
+      "title": "Seamless System Integration",
+      "description": "The Agentic Layer connects effortlessly with existing enterprise systems and creates a unified, intelligent work environment without media breaks."
+    },
+    {
+      "title": "Scalable Enterprise Architecture",
+      "description": "From individual departments to global organizations – our solution grows with your requirements while remaining performant and secure."
+    },
+    {
+      "title": "Adaptive Learning Capability",
+      "description": "AI agents continuously learn from enterprise interactions and automatically improve their performance without manual reconfiguration."
+    },
+    {
+      "title": "Conductor Orchestration",
+      "description": "A central agent coordinates all other agents like a conductor leads an orchestra – for perfect harmony in complex workflows."
+    },
+    {
+      "title": "Zero-Trust Security Framework",
+      "description": "Each agent operates in a secure, isolated environment with granular permissions and continuous monitoring of all activities."
+    }
+  ]
+}
