@@ -81,12 +81,20 @@ const Impressum = () => {
               alt="Powered by QAware" 
               className="mx-auto mb-8 opacity-70 w-[240px]"
             />
-            <Link 
-              to="/impressum" 
-              className="text-sm hover:text-primary transition-colors block mb-8 no-underline"
-            >
-              Impressum
-            </Link>
+            <div className="flex justify-center space-x-6 mb-8">
+              <Link 
+                to="/impressum" 
+                className="text-sm hover:text-primary transition-colors no-underline"
+              >
+                Impressum
+              </Link>
+              <Link 
+                to="/datenschutz" 
+                className="text-sm hover:text-primary transition-colors no-underline"
+              >
+                Datenschutz
+              </Link>
+            </div>
             <p className="text-sm">
               © 2025 Agentic Layer.
             </p>
