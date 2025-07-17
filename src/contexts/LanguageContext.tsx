@@ -58,8 +58,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // Open Source Section
       'opensource.title': 'Keine Blackbox.\nKeine Geheimnisse.\nNur brillanter Code.',
-      'opensource.subtitle': 'Der Agentic Layer ist Open Source.',
-      'opensource.description': 'Wir sind der Überzeugung, dass die Zukunft von Enterprise AI auf Offenheit basiert. Unser Agentic Layer ist daher Open Source. Dies eliminiert Vendor-Lock-in und schafft ein Höchstmaß an Transparenz, Betriebssicherheit und architektonischer Flexibilität. Schau selbst unter die Haube, passe den Code an deine Bedürfnisse an oder bring dich in unserer wachsenden Community ein.',
+      'opensource.subtitle': 'Der Agentic Layer wird Open Source sein.',
+      'opensource.description': 'Wir bauen gerade die erste Version des Agentic Layers und sind der Überzeugung, dass die Zukunft von Enterprise AI auf Offenheit basiert. Unser Agentic Layer ist daher Open Source. Dies eliminiert Vendor-Lock-in und schafft ein Höchstmaß an Transparenz, Betriebssicherheit und architektonischer Flexibilität. Schau selbst unter die Haube, passe den Code an deine Bedürfnisse an oder bring dich in unserer wachsenden Community ein.',
       'opensource.control': 'Du hast die Kontrolle.',
       'opensource.button': 'GitHub Repo-Launch in Kürze!',
 
@@ -191,8 +191,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // Open Source Section
       'opensource.title': 'No Black Box.\nNo Secrets.\nJust Brilliant Code.',
-      'opensource.subtitle': 'The Agentic Layer is Open Source.',
-      'opensource.description': 'We believe that the future of Enterprise AI is built on openness. Our Agentic Layer is therefore open source. This eliminates vendor lock-in and creates maximum transparency, operational security, and architectural flexibility. Look under the hood yourself, adapt the code to your needs, or contribute to our growing community.',
+      'opensource.subtitle': 'The Agentic Layer is going to be Open Source.',
+      'opensource.description': 'We are currently building the first version of the Agentic Layer and believe that the future of Enterprise AI is built on openness. Our Agentic Layer is therefore open source. This eliminates vendor lock-in and creates maximum transparency, operational security, and architectural flexibility. Look under the hood yourself, adapt the code to your needs, or contribute to our growing community.',
       'opensource.control': 'You are in control.',
       'opensource.button': 'GitHub Repo Launch Coming Soon!',
 
