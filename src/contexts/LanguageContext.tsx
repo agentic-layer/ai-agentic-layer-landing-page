@@ -50,7 +50,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'benefits.audit.description': 'EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber.',
 
       // Architecture Section
-      'architecture.title': 'So funktioniert der Agentic Layer',
+      'architecture.title': 'So wird der Agentic Layer funktionieren',
       'architecture.subtitle': 'Das technische Rückgrat für smarte Workloads.',
       'architecture.blueprint.title': 'Architektur Blueprint',
       'architecture.blueprint.description': 'Du baust smarte Agenten? Wir liefern dir das Fundament. Unsere Architektur ist auf maximale Souveränität, Sicherheit und nahtlose Interoperabilität ausgelegt. Der Agentic Layer fungiert als zentrales Nervensystem deiner KI-Workforce: Er ist modular aufgebaut und bietet die notwendigen Abstraktionen, um deine Agenten zu orchestrieren, zu kontrollieren und sicher in deiner bestehenden IT-Landschaft zu integrieren.',
@@ -183,7 +183,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'benefits.audit.description': 'EU AI Act? GDPR? No problem. We have built governance, transparency, and audit capability from the ground up. Your agents stay not only smart but also compliant.',
 
       // Architecture Section
-      'architecture.title': 'How the Agentic Layer Works',
+      'architecture.title': 'How the Agentic Layer is going to work',
       'architecture.subtitle': 'The technical backbone for smart workloads.',
       'architecture.blueprint.title': 'Architecture Blueprint',
       'architecture.blueprint.description': 'Building smart agents? We provide the foundation. Our architecture is designed for maximum sovereignty, security, and seamless interoperability. The Agentic Layer serves as the central nervous system of your AI workforce: It is modularly built and offers the necessary abstractions to orchestrate, control, and securely integrate your agents into your existing IT landscape.',
