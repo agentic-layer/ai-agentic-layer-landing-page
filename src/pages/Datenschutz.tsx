@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -37,7 +36,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.definitions.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">1. {t('datenschutz.definitions.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.definitions.intro')}</p>
                     <p>{t('datenschutz.definitions.purpose')}</p>
