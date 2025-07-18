@@ -102,7 +102,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.controller_info.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">2. {t('datenschutz.controller_info.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
                     <p>{t('datenschutz.controller_info.intro')}</p>
                     <p className="font-semibold text-foreground">QAware GmbH</p>
@@ -116,7 +116,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.dpo_info.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">3. {t('datenschutz.dpo_info.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
                     <p>{t('datenschutz.dpo_info.intro')}</p>
                     <p className="font-semibold text-foreground">Prof. Dr. Reiner Hüttl</p>
@@ -132,7 +132,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.cookies.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">4. {t('datenschutz.cookies.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.cookies.intro')}</p>
                     <p>{t('datenschutz.cookies.explanation')}</p>
@@ -143,7 +143,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.general_data.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">5. {t('datenschutz.general_data.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.general_data.collection')}</p>
                     <p>{t('datenschutz.general_data.usage')}</p>
@@ -152,7 +152,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.deletion.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">6. {t('datenschutz.deletion.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.deletion.routine')}</p>
                     <p>{t('datenschutz.deletion.conditions')}</p>
@@ -160,7 +160,7 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.rights.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">7. {t('datenschutz.rights.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-6">
                     <div>
                       <p className="font-semibold text-foreground">{t('datenschutz.rights.confirmation.title')}</p>
@@ -210,42 +210,42 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.applications.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">8. {t('datenschutz.applications.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.applications.content')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.legal_basis.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">9. {t('datenschutz.legal_basis.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.legal_basis.content')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.legitimate_interests.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">10. {t('datenschutz.legitimate_interests.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.legitimate_interests.content')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.storage_duration.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">11. {t('datenschutz.storage_duration.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.storage_duration.content')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.data_provision.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">12. {t('datenschutz.data_provision.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.data_provision.content')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.automated_decisions.title')}</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">13. {t('datenschutz.automated_decisions.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
                     <p>{t('datenschutz.automated_decisions.content')}</p>
                   </div>
