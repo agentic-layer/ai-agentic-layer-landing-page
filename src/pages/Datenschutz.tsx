@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const Datenschutz = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <ThemeProvider defaultTheme="dark">
+  return <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
         <Header />
         
@@ -131,16 +130,7 @@ const Datenschutz = () => {
                   </div>
                 </div>
                 
-                <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.cookies.title')}</h2>
-                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-                    <p>{t('datenschutz.cookies.intro')}</p>
-                    <p>{t('datenschutz.cookies.explanation')}</p>
-                    <p>{t('datenschutz.cookies.usage')}</p>
-                    <p>{t('datenschutz.cookies.optimization')}</p>
-                    <p>{t('datenschutz.cookies.control')}</p>
-                  </div>
-                </div>
+                
                 
                 <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.general_data.title')}</h2>
@@ -258,22 +248,12 @@ const Datenschutz = () => {
         {/* Footer */}
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
-            <img 
-              src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" 
-              alt="Powered by QAware" 
-              className="mx-auto mb-8 opacity-70 w-[240px]"
-            />
+            <img src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" alt="Powered by QAware" className="mx-auto mb-8 opacity-70 w-[240px]" />
             <div className="flex justify-center space-x-6 mb-8">
-              <Link 
-                to="/impressum" 
-                className="text-sm hover:text-primary transition-colors no-underline"
-              >
+              <Link to="/impressum" className="text-sm hover:text-primary transition-colors no-underline">
                 Impressum
               </Link>
-              <Link 
-                to="/datenschutz" 
-                className="text-sm hover:text-primary transition-colors no-underline"
-              >
+              <Link to="/datenschutz" className="text-sm hover:text-primary transition-colors no-underline">
                 Datenschutz
               </Link>
             </div>
@@ -283,8 +263,6 @@ const Datenschutz = () => {
           </div>
         </footer>
       </div>
-    </ThemeProvider>
-  );
+    </ThemeProvider>;
 };
-
 export default Datenschutz;
