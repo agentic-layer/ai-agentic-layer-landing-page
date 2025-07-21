@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
+
 const Datenschutz = () => {
   const {
     t
@@ -130,14 +131,13 @@ const Datenschutz = () => {
                   </div>
                 </div>
                 
-                
-                
                 <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.general_data.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.general_data.collection')}</p>
                     <p>{t('datenschutz.general_data.usage')}</p>
                     <p>{t('datenschutz.general_data.analysis')}</p>
+                    <p>Unsere Webseite verwendet ausschließlich technisch notwendige Cookies. Diese Cookies sind erforderlich, um den Betrieb und die grundlegenden Funktionen dieser Website sicherzustellen (z. B. zur Darstellung der Seite, zur Speicherung Ihrer Spracheinstellungen oder zur sicheren Nutzung von Formularen). Die Speicherung dieser Cookies erfolgt auf Grundlage von § 25 Abs. 2 Nr. 2 TDDDG. Eine Einwilligung ist hierfür nicht erforderlich, da die Cookies ausschließlich der Bereitstellung eines von Ihnen ausdrücklich gewünschten Telemediendienstes dienen. Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse), da die technisch erforderliche Verarbeitung zur Sicherstellung der Funktionsfähigkeit dieser Webseite notwendig ist.</p>
                   </div>
                 </div>
                 
@@ -265,4 +265,5 @@ const Datenschutz = () => {
       </div>
     </ThemeProvider>;
 };
+
 export default Datenschutz;
