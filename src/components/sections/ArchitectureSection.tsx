@@ -101,7 +101,7 @@ export function ArchitectureSection() {
             <Card className="border-2 hover:border-primary/20 transition-colors">
               <CardContent className="aspect-[3/4] flex items-center justify-center p-4">
                 <img 
-                  src="/lovable-uploads/188f8005-7ac4-4bd6-ac4b-918181447250.png" 
+                  src="/lovable-uploads/28fa06cb-ad61-46de-982d-29820de57952.png" 
                   alt="Agentic Layer System-Architektur mit Spacers (Agent Runtime, Model Router, Agent Exposition), Agentic Workforce (Agents & Connectors) und Controls (Agent Testbench, Agent Observability, Agent Catalog)"
                   className="w-full h-full object-contain rounded-lg"
                 />
