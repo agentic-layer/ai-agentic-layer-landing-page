@@ -85,7 +85,7 @@ export function Header() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                  className="text-base font-medium text-foreground hover:opacity-80 transition-opacity"
                 >
                   {item.name}
                 </button>

@@ -70,7 +70,7 @@ export function CTASection() {
                   <img src="/lovable-uploads/177aaf0a-da67-4298-a8d4-3ce33d908677.png" alt="Team member" className="w-full object-contain rounded-lg" />
                 </div>
                 <div className="flex items-start">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     {t('cta.card.description').split('\n\n').map((paragraph, index) => (
                       <React.Fragment key={index}>
                         {paragraph}

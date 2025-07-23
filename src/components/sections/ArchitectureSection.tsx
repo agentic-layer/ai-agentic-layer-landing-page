@@ -122,7 +122,7 @@ export function ArchitectureSection() {
                       <span className="font-medium">{getFeatureText(feature.titleKey)}</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {getFeatureDescription(feature.descriptionKey)}
                       </p>
                     </AccordionContent>

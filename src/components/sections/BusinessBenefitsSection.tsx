@@ -71,7 +71,7 @@ export function BusinessBenefitsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-base leading-relaxed">
                   {benefit.description}
                 </p>
               </CardContent>
