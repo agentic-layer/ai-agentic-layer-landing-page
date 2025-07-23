@@ -42,7 +42,7 @@ export function LanguageSelector() {
             key={lang.value}
             onClick={() => handleLanguageChange(lang.value as 'de' | 'en')}
             className={`cursor-pointer hover:bg-accent ${
-              language === lang.value ? 'bg-accent' : ''
+              language === lang.value ? 'bg-white text-black' : ''
             }`}
             role="menuitem"
           >
