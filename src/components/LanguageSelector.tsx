@@ -30,7 +30,7 @@ export function LanguageSelector() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button 
-          className="text-white hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          className="text-white hover:opacity-80 transition-opacity focus:outline-none"
           aria-label="Sprache auswählen"
         >
           <Globe className="h-5 w-5" />
