@@ -20,6 +20,10 @@ export function LanguageSelector() {
   const handleLanguageChange = (value: 'de' | 'en') => {
     setLanguage(value);
     console.log('Language changed to:', value);
+    // Remove focus from the trigger button after language change
+    setTimeout(() => {
+      (document.activeElement as HTMLElement)?.blur();
+    }, 0);
   };
 
   return (
