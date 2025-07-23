@@ -256,6 +256,9 @@ const Datenschutz = () => {
               <Link to="/datenschutz" className="text-sm hover:text-primary transition-colors no-underline">
                 Datenschutz
               </Link>
+              <Link to="/accessibility" className="text-sm hover:text-primary transition-colors no-underline">
+                Barrierefreiheit
+              </Link>
             </div>
             <p className="text-sm">
               © 2025 Agentic Layer.
