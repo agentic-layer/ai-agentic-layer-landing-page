@@ -63,13 +63,14 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container-width section-padding">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border" role="banner">
+      <nav role="navigation" aria-label="Main navigation" className="container-width section-padding">
         <div className="flex items-center h-16">
           {/* Logo */}
           <button 
             onClick={handleLogoClick}
             className="flex items-center hover:opacity-80 transition-opacity"
+            aria-label="Agentic Layer Homepage"
           >
             <img 
               src="/lovable-uploads/378aa675-aad2-4802-be01-51844c0d41ef.png" 
@@ -95,6 +96,7 @@ export function Header() {
               <button
                 onClick={handleContactClick}
                 className="px-6 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-100 transition-all duration-200"
+                aria-label="Contact us"
               >
                 {t('nav.contact')}
               </button>
@@ -102,7 +104,7 @@ export function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

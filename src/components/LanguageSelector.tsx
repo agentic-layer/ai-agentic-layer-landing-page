@@ -25,7 +25,10 @@ export function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-0">
+        <button 
+          className="text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label="Sprache auswählen"
+        >
           <Globe className="h-5 w-5" />
         </button>
       </DropdownMenuTrigger>
@@ -37,6 +40,7 @@ export function LanguageSelector() {
             className={`cursor-pointer hover:bg-accent ${
               language === lang.value ? 'bg-accent' : ''
             }`}
+            role="menuitem"
           >
             {lang.label}
           </DropdownMenuItem>

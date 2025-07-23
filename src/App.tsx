@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import Accessibility from "./pages/Accessibility";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/accessibility" element={<Accessibility />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
