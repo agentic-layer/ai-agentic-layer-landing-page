@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Accessibility = () => {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -20,81 +20,81 @@ const Accessibility = () => {
         <section className="pt-24 pb-16 section-padding">
           <div className="container-width">
             <div className="max-w-4xl mx-auto">
-              <h1 className="headline-text mb-16 text-left">Barrierefreiheitserklärung</h1>
+              <h1 className="headline-text mb-16 text-left">{t('accessibility.title')}</h1>
               
               <div className="space-y-8 text-left">
                 <div className="text-lg text-muted-foreground leading-relaxed">
-                  <p>Die QAware GmbH verpflichtet sich, ihre Webseite für alle Menschen zugänglich zu machen, einschließlich Personen mit Behinderungen. Wir arbeiten kontinuierlich daran, die Barrierefreiheit und Benutzerfreundlichkeit unserer Webseite zu verbessern und halten uns an die entsprechenden Standards für Barrierefreiheit.</p>
+                  <p>{t('accessibility.intro')}</p>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Standards für Barrierefreiheit</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.standards.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
-                    <p>Diese Webseite ist darauf ausgelegt, den Web Content Accessibility Guidelines (WCAG) 2.1 auf Level AA zu entsprechen, wie sie vom World Wide Web Consortium (W3C) definiert wurden. Diese Richtlinien erläutern, wie man Webinhalte für Menschen mit einer breiten Palette von Behinderungen zugänglicher macht.</p>
+                    <p>{t('accessibility.standards.content')}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Erfüllungsgrad</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.compliance.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-                    <p>Wir haben die folgenden Barrierefreiheitsmerkmale implementiert:</p>
+                    <p>{t('accessibility.compliance.intro')}</p>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Semantische HTML-Struktur für Screenreader</span>
+                        <span>{t('accessibility.compliance.semantic')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Tastaturnavigation für alle interaktiven Elemente</span>
+                        <span>{t('accessibility.compliance.keyboard')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Ausreichende Farbkontraste (mindestens 4.5:1)</span>
+                        <span>{t('accessibility.compliance.contrast')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Alternative Texte für Bilder</span>
+                        <span>{t('accessibility.compliance.alt')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>ARIA-Labels und Landmarks für bessere Navigation</span>
+                        <span>{t('accessibility.compliance.aria')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Skip-Navigation Links</span>
+                        <span>{t('accessibility.compliance.skip')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Fokussierbare Elemente mit sichtbaren Fokusindikatoren</span>
+                        <span>{t('accessibility.compliance.focus')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Sprachauswahl mit Barrierefreiheit</span>
+                        <span>{t('accessibility.compliance.language')}</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Bekannte Einschränkungen</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.limitations.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
-                    <p>Trotz unserer Bemühungen können einige Teile der Webseite nicht vollständig barrierefrei sein oder es können temporäre Barrierefreiheitsprobleme auftreten. Wir arbeiten kontinuierlich daran, diese Probleme zu identifizieren und zu beheben.</p>
+                    <p>{t('accessibility.limitations.content')}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Feedback und Kontakt</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.feedback.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
-                    <p>Ihre Rückmeldungen zu Barrierefreiheitsproblemen sind uns wichtig. Wenn Sie auf Barrierefreiheitsprobleme stoßen oder Verbesserungsvorschläge haben, kontaktieren Sie uns bitte:</p>
+                    <p>{t('accessibility.feedback.content')}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Barrierefreiheit-Kontakt</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.contact.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
-                    <p>E-Mail: agenticlayer@qaware.de</p>
-                    <p>Telefon: +49 89 232315-0</p>
-                    <p className="mt-4">Postanschrift:</p>
+                    <p>{t('accessibility.contact.email')}</p>
+                    <p>{t('accessibility.contact.phone')}</p>
+                    <p className="mt-4">{t('accessibility.contact.address')}</p>
                     <p className="font-semibold text-foreground">QAware GmbH</p>
                     <p>Aschauer Straße 32</p>
                     <p>81549 München</p>
@@ -103,46 +103,46 @@ const Accessibility = () => {
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Durchsetzungsverfahren</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.enforcement.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed">
-                    <p>Falls Sie mit unserer Antwort auf Ihr Barrierefreiheits-Feedback nicht zufrieden sind, können Sie sich an die zuständige Durchsetzungsstelle wenden. In Deutschland ist dies die Schlichtungsstelle nach dem Behindertengleichstellungsgesetz bei der Beauftragten der Bundesregierung für die Belange von Menschen mit Behinderungen.</p>
+                    <p>{t('accessibility.enforcement.content')}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Technische Informationen</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.technical.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-                    <p>Diese Webseite wurde mit modernen Webtechnologien entwickelt und nutzt:</p>
+                    <p>{t('accessibility.technical.intro')}</p>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>React mit TypeScript für robuste Benutzeroberflächen</span>
+                        <span>{t('accessibility.technical.react')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Semantic HTML5 für strukturierte Inhalte</span>
+                        <span>{t('accessibility.technical.html')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>CSS mit Fokus auf Barrierefreiheit</span>
+                        <span>{t('accessibility.technical.css')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>ARIA-Standards für erweiterte Screenreader-Unterstützung</span>
+                        <span>{t('accessibility.technical.aria')}</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary mr-3 mt-1">•</span>
-                        <span>Responsive Design für alle Gerätegrößen</span>
+                        <span>{t('accessibility.technical.responsive')}</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">Datum dieser Erklärung</h2>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('accessibility.date.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
-                    <p>Diese Barrierefreiheitserklärung wurde erstellt am: 22. Juli 2025</p>
-                    <p>Letzte Aktualisierung: 22. Juli 2025</p>
+                    <p>{t('accessibility.date.created')}</p>
+                    <p>{t('accessibility.date.updated')}</p>
                   </div>
                 </div>
               </div>

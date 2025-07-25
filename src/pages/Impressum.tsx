@@ -3,8 +3,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Impressum = () => {
+  const { t } = useLanguage();
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,55 +19,50 @@ const Impressum = () => {
         
         <section className="pt-24 pb-16 section-padding">
           <div className="container-width">
-            <div className="text-center max-w-4xl mx-auto">
-              <h1 className="headline-text mb-16">Impressum</h1>
+            <div className="max-w-4xl mx-auto">
+              <h1 className="headline-text mb-16 text-left">{t('impressum.title')}</h1>
               
-              <div className="space-y-12 text-center max-w-2xl mx-auto">
+              <div className="space-y-8 text-left">
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground">QAware GmbH</h2>
-                  <div className="text-lg text-muted-foreground space-y-1">
-                    <p>Aschauer Straße 30</p>
-                    <p>81549 München</p>
-                    <p>Deutschland</p>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('impressum.company.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
+                    <p className="font-semibold text-foreground">{t('impressum.company.name')}</p>
+                    <p>{t('impressum.company.address')}</p>
+                    <p>{t('impressum.company.city')}</p>
+                    <p>{t('impressum.company.country')}</p>
+                    <p>{t('impressum.company.phone')}</p>
+                    <p>{t('impressum.company.email')}</p>
+                    <p>{t('impressum.company.website')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <div className="text-lg text-muted-foreground space-y-1">
-                    <p>+49 89 232315-0</p>
-                    <p>info@qaware.de</p>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('impressum.management.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed">
+                    <p>{t('impressum.management.directors')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground">Geschäftsführer</h2>
-                  <div className="text-lg text-muted-foreground space-y-1">
-                    <p>Dr. Josef Adersberger</p>
-                    <p>Mario-Leander Reimer</p>
-                    <p>Michael Rohleder</p>
-                    <p>Michael Stehnken</p>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('impressum.register.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
+                    <p>{t('impressum.register.court')}</p>
+                    <p>{t('impressum.register.number')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground">Handelsregister</h2>
-                  <div className="text-lg text-muted-foreground space-y-1">
-                    <p>Registergericht: München</p>
-                    <p>Registernummer: HRB 163761</p>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('impressum.vat.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed">
+                    <p>{t('impressum.vat.number')}</p>
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground">Umsatzsteueridentifikations-Nummer gemäss § 27 A Umsatzsteuergesetz</h2>
-                  <div className="text-lg text-muted-foreground">
-                    <p>DE250622388</p>
-                  </div>
-                </div>
-                
-                <div>
-                  <h2 className="subheadline-text mb-4 text-foreground">Inhaltlich verantwortlicher gemäss § 6 MDSTV</h2>
-                  <div className="text-lg text-muted-foreground">
-                    <p>Dr. Josef Adersberger</p>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('impressum.content.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
+                    <p className="font-semibold text-foreground">{t('impressum.content.person')}</p>
+                    <p>{t('impressum.content.address')}</p>
                   </div>
                 </div>
               </div>
@@ -74,33 +71,35 @@ const Impressum = () => {
         </section>
         
         {/* Footer */}
-        <footer className="py-12 section-padding border-t border-border">
+        <footer role="contentinfo" className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
             <img 
               src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" 
               alt="Powered by QAware" 
               className="mx-auto mb-8 opacity-70 w-[240px]"
             />
-            <div className="flex justify-center space-x-6 mb-8">
-              <Link 
-                to="/impressum" 
-                className="text-sm hover:text-primary transition-colors no-underline"
-              >
-                Impressum
-              </Link>
-              <Link 
-                to="/datenschutz" 
-                className="text-sm hover:text-primary transition-colors no-underline"
-              >
-                Datenschutz
-              </Link>
-              <Link 
-                to="/accessibility" 
-                className="text-sm hover:text-primary transition-colors no-underline"
-              >
-                Barrierefreiheit
-              </Link>
-            </div>
+            <nav aria-label="Footer navigation">
+              <div className="flex justify-center space-x-6 mb-8">
+                <Link 
+                  to="/impressum" 
+                  className="text-sm hover:text-primary transition-colors no-underline"
+                >
+                  Impressum
+                </Link>
+                <Link 
+                  to="/datenschutz" 
+                  className="text-sm hover:text-primary transition-colors no-underline"
+                >
+                  Datenschutz
+                </Link>
+                <Link 
+                  to="/accessibility" 
+                  className="text-sm hover:text-primary transition-colors no-underline"
+                >
+                  Barrierefreiheit
+                </Link>
+              </div>
+            </nav>
             <p className="text-sm">
               © 2025 Agentic Layer.
             </p>
