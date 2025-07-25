@@ -51,12 +51,12 @@ export function CTASection() {
               <React.Fragment key={index}>
                 {paragraph.includes('Architektur und Aufbau einer Cloud-nativen AI-Plattform') ? (
                   <>
-                    {paragraph.split('Architektur und Aufbau einer Cloud-nativen AI-Plattform').map((part, partIndex) => (
+                    {paragraph.split('„Architektur und Aufbau einer Cloud-nativen AI-Plattform"').map((part, partIndex) => (
                       <React.Fragment key={partIndex}>
                         {part}
                         {partIndex === 0 && (
                           <>
-                            Architektur und Aufbau einer Cloud-nativen AI-Plattform
+                            „Architektur und Aufbau einer Cloud-nativen AI-Plattform"
                             <a 
                               href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
                               target="_blank" 
