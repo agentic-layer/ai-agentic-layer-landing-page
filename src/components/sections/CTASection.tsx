@@ -68,10 +68,10 @@ export function CTASection() {
                                 href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-block ml-1 text-primary hover:text-primary/80 transition-colors"
+                                className="inline text-primary hover:text-primary/80 transition-colors"
                                 aria-label="Workshop Details öffnen"
                               >
-                                <ExternalLink className="w-4 h-4" />
+                                <ExternalLink className="w-4 h-4 inline" />
                               </a>
                             </>
                           )}
@@ -90,10 +90,10 @@ export function CTASection() {
                                 href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-block ml-1 text-primary hover:text-primary/80 transition-colors"
+                                className="inline text-primary hover:text-primary/80 transition-colors"
                                 aria-label="Open workshop details"
                               >
-                                <ExternalLink className="w-4 h-4" />
+                                <ExternalLink className="w-4 h-4 inline" />
                               </a>
                             </>
                           )}
