@@ -92,7 +92,7 @@ const Accessibility = () => {
                 <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">Barrierefreiheit-Kontakt</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-2">
-                    <p>E-Mail: accessibility@qaware.de</p>
+                    <p>E-Mail: agenticlayer@qaware.de</p>
                     <p>Telefon: +49 89 232315-0</p>
                     <p className="mt-4">Postanschrift:</p>
                     <p className="font-semibold text-foreground">QAware GmbH</p>
