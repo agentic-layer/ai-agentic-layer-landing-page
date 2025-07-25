@@ -47,36 +47,66 @@ export function CTASection() {
             ))}
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
-            {t('cta.description').split('\n\n').map((paragraph, index) => (
-              <React.Fragment key={index}>
-                {paragraph.includes('Architektur und Aufbau einer Cloud-nativen AI-Plattform') ? (
-                  <>
-                    {paragraph.split('„Architektur und Aufbau einer Cloud-nativen AI-Plattform"').map((part, partIndex) => (
-                      <React.Fragment key={partIndex}>
-                        {part}
-                        {partIndex === 0 && (
-                          <>
-                            „Architektur und Aufbau einer Cloud-nativen AI-Plattform"
-                            <a 
-                              href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-block ml-1 text-primary hover:text-primary/80 transition-colors"
-                              aria-label="Workshop Details öffnen"
-                            >
-                              <ExternalLink className="w-4 h-4" />
-                            </a>
-                          </>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </>
-                ) : (
-                  paragraph
-                )}
-                {index < t('cta.description').split('\n\n').length - 1 && <><br /><br /></>}
-              </React.Fragment>
-            ))}
+            {t('cta.description').split('\n\n').map((paragraph, index) => {
+              const germanText = '„Architektur und Aufbau einer Cloud-nativen AI-Plattform"';
+              const englishText = '"Architecture and Construction of a Cloud-native AI Platform"';
+              
+              const hasGermanText = paragraph.includes('Architektur und Aufbau einer Cloud-nativen AI-Plattform');
+              const hasEnglishText = paragraph.includes('Architecture and Construction of a Cloud-native AI Platform');
+              
+              return (
+                <React.Fragment key={index}>
+                  {hasGermanText ? (
+                    <>
+                      {paragraph.split(germanText).map((part, partIndex) => (
+                        <React.Fragment key={partIndex}>
+                          {part}
+                          {partIndex === 0 && (
+                            <>
+                              {germanText}
+                              <a 
+                                href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-block ml-1 text-primary hover:text-primary/80 transition-colors"
+                                aria-label="Workshop Details öffnen"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            </>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </>
+                  ) : hasEnglishText ? (
+                    <>
+                      {paragraph.split(englishText).map((part, partIndex) => (
+                        <React.Fragment key={partIndex}>
+                          {part}
+                          {partIndex === 0 && (
+                            <>
+                              {englishText}
+                              <a 
+                                href="https://clc-conference.eu/veranstaltung-84098-0-architektur-und-aufbau-einer-cloud-nativen-ai-plattform.html" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-block ml-1 text-primary hover:text-primary/80 transition-colors"
+                                aria-label="Open workshop details"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            </>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                  {index < t('cta.description').split('\n\n').length - 1 && <><br /><br /></>}
+                </React.Fragment>
+              );
+            })}
           </p>
         </div>
 
