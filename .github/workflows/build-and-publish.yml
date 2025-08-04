@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies and build application
         run: |
           npm ci    # Install dependencies from package-lock.json (faster and more reliable than npm install)
-          npm run build # Run the build script defined in package.json
+          npm run build -- --base=/ai-agentic-layer-landing-page/ # Run the build script defined in package.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
