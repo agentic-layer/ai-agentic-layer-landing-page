@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getAssetUrl } from '../utils/assetHelper';
 
 const Impressum = () => {
   const { t } = useLanguage();
@@ -74,7 +75,7 @@ const Impressum = () => {
         <footer role="contentinfo" className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
             <img 
-              src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" 
+              src={getAssetUrl('lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png')} 
               alt="Powered by QAware" 
               className="mx-auto mb-8 opacity-70 w-[240px]"
             />
