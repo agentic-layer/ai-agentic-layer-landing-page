@@ -1,0 +1,53 @@
+# Build and Publish Workflow
+# 
+# This GitHub Actions workflow builds the landing page application and deploys it to GitHub Pages.
+# It can be triggered manually through the GitHub Actions interface.
+#
+# Prerequisites:
+# - Repository must have GitHub Pages enabled with "Deploy from a branch" set to "gh-pages"
+# - The build process should output files to the ./dist directory
+# - package.json must include a "build" script that generates the production build
+#
+# Workflow steps:
+# 1. Checkout the repository code
+# 2. Setup Node.js environment with specified version and npm cache
+# 3. Install dependencies and build the application
+# 4. Deploy the built files to GitHub Pages via the gh-pages branch
+
+name: Build and Publish to GitHub Pages
+
+on:
+  workflow_dispatch: # Allows manual triggering from GitHub Actions UI
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Required to push to the gh-pages branch
+
+    steps:
+      - name: Checkout repository
+        uses: 'actions/checkout@v4'
+        # Fetches the latest code from the repository
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.3.0' # Use Node.js version 24.3.0 for consistency
+          cache: 'npm'           # Cache npm dependencies for faster builds
+
+      - name: Install dependencies and build application
+        run: |
+          npm ci    # Install dependencies from package-lock.json (faster and more reliable than npm install)
+          npm run build # Run the build script defined in package.json
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Built-in token with necessary permissions
+          publish_dir: ./dist                        # Directory containing the built website files
+          # The action will automatically create/update the gh-pages branch
+
+
+
