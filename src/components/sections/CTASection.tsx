@@ -7,6 +7,7 @@ import { Mail, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
+import {getAssetUrl} from "@/utils/assetHelper.ts";
 
 export function CTASection() {
   const [email, setEmail] = useState('');
@@ -121,7 +122,7 @@ export function CTASection() {
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex justify-center">
-                  <img src="/lovable-uploads/2a921e7d-d3cb-4b7a-8a0c-1a092ec3375f.png" alt="Team member" className="w-full object-contain rounded-lg" />
+                  <img src={getAssetUrl('lovable-uploads/2a921e7d-d3cb-4b7a-8a0c-1a092ec3375f.png" alt="Team member" className="w-full object-contain rounded-lg')} />
                 </div>
                 <div className="flex items-start">
                   <p className="text-base text-muted-foreground">

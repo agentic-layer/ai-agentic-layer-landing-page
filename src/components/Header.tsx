@@ -3,13 +3,14 @@ import { useTheme } from './ThemeProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LanguageSelector } from './LanguageSelector';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getAssetUrl } from '../utils/assetHelper';
 
 export function Header() {
   const { theme } = useTheme();
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const navigationItems = [
     { name: t('nav.benefits'), href: '#benefits' },
     { name: t('nav.architecture'), href: '#architecture' },
@@ -73,7 +74,7 @@ export function Header() {
             aria-label="Agentic Layer Homepage"
           >
             <img 
-              src="/lovable-uploads/378aa675-aad2-4802-be01-51844c0d41ef.png" 
+              src={getAssetUrl('lovable-uploads/378aa675-aad2-4802-be01-51844c0d41ef.png')}
               alt="Agentic Layer Logo" 
               className="h-6 w-auto"
             />

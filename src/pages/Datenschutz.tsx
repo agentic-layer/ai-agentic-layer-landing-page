@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
+import {getAssetUrl} from "@/utils/assetHelper.ts";
 
 const Datenschutz = () => {
   const {
@@ -248,7 +249,7 @@ const Datenschutz = () => {
         {/* Footer */}
         <footer className="py-12 section-padding border-t border-border">
           <div className="container-width text-center text-muted-foreground">
-            <img src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" alt="Powered by QAware" className="mx-auto mb-8 opacity-70 w-[240px]" />
+            <img src={getAssetUrl('lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png')} alt="Powered by QAware" className="mx-auto mb-8 opacity-70 w-[240px]" />
             <div className="flex justify-center space-x-6 mb-8">
               <Link to="/impressum" className="text-sm hover:text-primary transition-colors no-underline">
                 Impressum
