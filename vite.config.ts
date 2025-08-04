@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => ({
       ignored: ['**/node_modules/**', '**/dist/**', '**/.git/**'],
     },
   },
+  base: '/ai-agentic-layer-landing-page/',
   plugins: [
     react(),
     mode === 'development' &&
