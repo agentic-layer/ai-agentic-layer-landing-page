@@ -50,7 +50,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'benefits.audit.description': 'EU AI Act? DSGVO? Kein Thema. Wir haben Governance, Transparenz und Audit-Fähigkeit von Grund auf eingebaut. So bleiben deine Agenten nicht nur smart, sondern auch sauber.',
 
       // Architecture Section
-      'architecture.title': 'Agentic Layer. Das technische Rückgrat für smarte Workloads.',
+      'architecture.title': 'So wird der Agentic Layer funktionieren',
       'architecture.subtitle': 'Das technische Rückgrat für smarte Workloads.',
       'architecture.blueprint.title': 'Architektur Blueprint',
       'architecture.blueprint.description': 'Du baust smarte Agenten? Wir liefern dir das Fundament. Unsere Architektur ist auf maximale Souveränität, Sicherheit und nahtlose Interoperabilität ausgelegt. Der Agentic Layer fungiert als zentrales Nervensystem deiner KI-Workforce: Er ist modular aufgebaut und bietet die notwendigen Abstraktionen, um deine Agenten zu orchestrieren, zu kontrollieren und sicher in deiner bestehenden IT-Landschaft zu integrieren.',
