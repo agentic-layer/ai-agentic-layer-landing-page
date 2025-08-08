@@ -2,7 +2,6 @@ import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useTheme } from './ThemeProvider';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { getAssetUrl } from '../utils/assetHelper';
 import * as THREE from 'three';
 
 interface ParticleWaveProps {
@@ -245,7 +244,7 @@ export const ParticleWave: React.FC = () => {
           <div className="text-center px-4 max-w-5xl">
             <div className="flex flex-col items-center space-y-8">
               <img 
-                src={getAssetUrl('lovable-uploads/6050fd06-5bd1-4f78-beea-90ca317fc481.png')} 
+                src="/lovable-uploads/6050fd06-5bd1-4f78-beea-90ca317fc481.png" 
                 alt="Agentic Layer Logo" 
                 className="w-44 h-auto mx-auto"
               />

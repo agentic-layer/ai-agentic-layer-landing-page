@@ -4,7 +4,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { getAssetUrl } from '../../utils/assetHelper';
 
 const featuresData = [
   {
@@ -102,7 +101,7 @@ export function ArchitectureSection() {
             <Card className="border-2 hover:border-primary/20 transition-colors">
               <CardContent className="p-6">
                 <img 
-                  src={getAssetUrl('lovable-uploads/3c52a752-ab48-4d07-b9a7-c3c673c578c9.png')} 
+                  src="/lovable-uploads/3c52a752-ab48-4d07-b9a7-c3c673c578c9.png" 
                   alt="Agentic Layer System-Architektur mit Spacers (Agent Runtime, Model Router, Agent Exposition), Agentic Workforce (Agents & Connectors) und Controls (Agent Testbench, Agent Observability, Agent Catalog)"
                   className="w-full h-auto object-contain rounded-lg"
                 />
