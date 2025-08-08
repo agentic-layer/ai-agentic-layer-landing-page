@@ -39,15 +39,16 @@ jobs:
 
       - name: Install dependencies and build application
         run: |
-          npm ci    # Install dependencies from package-lock.json (faster and more reliable than npm install)
-          npm run build # Run the build script defined in package.json
+           npm ci                 # Install dependencies from package-lock.json (faster and more reliable than npm install)
+           npm run build          # Run the build script defined in package.json
 
+     # The action will automatically create/update the gh-pages branch
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Built-in token with necessary permissions
           publish_dir: ./dist                        # Directory containing the built website files
-          # The action will automatically create/update the gh-pages branch
+          cname: agenticlayer.io
 
 
 
