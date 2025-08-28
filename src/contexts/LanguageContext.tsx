@@ -65,8 +65,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // CTA Section
       'cta.title': 'Agentic AI erleben?',
-      'cta.subtitle': 'Jetzt scannen lassen, zum Newsletter anmelden und\nmit etwas Glück Konferenz-Tickets gewinnen.',
-      'cta.description': 'Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen. Wir freuen uns, wenn wir uns an unserem Stand oder in unseren Workshops weiter über das Thema Agentic AI mit dir austauschen können.\n\nSneak Peek: Mario-Leander Reimer, CTO der QAware, hält auf der CLC seinen spannenden Workshop „Architektur und Aufbau einer Cloud-nativen AI-Plattform". Dieser bietet eine praktische Schritt-für-Schritt-Anleitung für das Design und den Aufbau von KI-Plattformen, sowohl lokal als auch in der Public Cloud.\n\nJetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!',
+      'cta.subtitle': 'Zum Newsletter anmelden und\nmit etwas Glück Konferenz-Tickets gewinnen.',
+      'cta.description': 'Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen.\n\nJetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!',
       'cta.card.title': 'Hast du weitere Fragen?',
       'cta.card.description': 'Das Agentic Layer Team freut sich auf deine Kontaktaufnahme!\n\nSchreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.',
       'cta.card.button': 'E-Mail schreiben',

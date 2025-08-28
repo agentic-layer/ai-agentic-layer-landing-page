@@ -15,13 +15,31 @@ export function CTASection() {
   const cardRef = useScrollReveal({ delay: 200 });
   const { t } = useLanguage();
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Erfolgreich angemeldet!",
-      description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen."
-    });
-    setEmail('');
+    
+    try {
+      const formData = new FormData();
+      formData.append('email', email);
+      
+      await fetch('https://2e53ot.share-eu1.hsforms.com/2NIg3nFb0RW-eME7k_H6QGA', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+      
+      toast({
+        title: "Erfolgreich angemeldet!",
+        description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen."
+      });
+      setEmail('');
+    } catch (error) {
+      toast({
+        title: "Fehler bei der Anmeldung",
+        description: "Bitte versuchen Sie es später erneut.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleEmailClick = () => {
@@ -116,25 +134,28 @@ export function CTASection() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">{t('cta.card.title')}</CardTitle>
+              <CardTitle className="text-lg font-medium">Newsletter Anmeldung</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex justify-center">
-                  <img src="/lovable-uploads/2a921e7d-d3cb-4b7a-8a0c-1a092ec3375f.png" alt="Team member" className="w-full object-contain rounded-lg" />
+              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    E-Mail-Adresse
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="deine@email.de"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full"
+                  />
                 </div>
-                <div className="flex items-start">
-                  <p className="text-base text-muted-foreground">
-                    {t('cta.card.description').split('\n\n').map((paragraph, index) => (
-                      <React.Fragment key={index}>
-                        {paragraph}
-                        {index < t('cta.card.description').split('\n\n').length - 1 && <><br /><br /></>}
-                      </React.Fragment>
-                    ))}
-                  </p>
-                </div>
-              </div>
-              <Button onClick={handleEmailClick} className="w-full mt-6">{t('cta.card.button')}</Button>
+                <Button type="submit" className="w-full">
+                  Zum Newsletter anmelden
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>
