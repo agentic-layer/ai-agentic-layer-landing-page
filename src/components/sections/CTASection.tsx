@@ -71,6 +71,49 @@ export function CTASection() {
                 timeoutRef.current = null;
               }
               
+              // Apply direct styles to override HubSpot's inline styles
+              setTimeout(() => {
+                const formContainer = document.querySelector(`#${formId}`);
+                if (formContainer) {
+                  // Apply Inter font and remove border radius from all form elements
+                  const allElements = formContainer.querySelectorAll('*');
+                  allElements.forEach((el: Element) => {
+                    const element = el as HTMLElement;
+                    element.style.fontFamily = 'Inter, sans-serif';
+                    element.style.borderRadius = '0';
+                  });
+                  
+                  // Style labels
+                  const labels = formContainer.querySelectorAll('label, .hs-form-required');
+                  labels.forEach((label: Element) => {
+                    const labelEl = label as HTMLElement;
+                    labelEl.style.color = 'hsl(var(--muted-foreground))';
+                    labelEl.style.fontFamily = 'Inter, sans-serif';
+                  });
+                  
+                  // Style input fields
+                  const inputs = formContainer.querySelectorAll('input[type="email"], input[type="text"]');
+                  inputs.forEach((input: Element) => {
+                    const inputEl = input as HTMLElement;
+                    inputEl.style.backgroundColor = 'hsl(var(--muted))';
+                    inputEl.style.borderRadius = '0';
+                    inputEl.style.color = 'hsl(var(--foreground))';
+                    inputEl.style.fontFamily = 'Inter, sans-serif';
+                  });
+                  
+                  // Style submit button
+                  const submitBtn = formContainer.querySelector('input[type="submit"]');
+                  if (submitBtn) {
+                    const btnEl = submitBtn as HTMLElement;
+                    btnEl.style.backgroundColor = 'hsl(var(--background))';
+                    btnEl.style.color = 'hsl(var(--foreground))';
+                    btnEl.style.border = '1px solid hsl(var(--input))';
+                    btnEl.style.borderRadius = '0';
+                    btnEl.style.fontFamily = 'Inter, sans-serif';
+                  }
+                }
+              }, 100);
+              
               // Ensure the form stays inside its container
               const formElement = document.querySelector(`#${formId} .hbspt-form`);
               if (formElement) {

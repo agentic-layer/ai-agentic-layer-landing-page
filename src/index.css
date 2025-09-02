@@ -159,29 +159,44 @@ All colors MUST be HSL.
     position: relative !important;
   }
 
+  /* HubSpot Form Styling - Using !important to override inline styles */
   .hubspot-form {
     @apply w-full;
+    font-family: 'Inter', sans-serif !important;
   }
 
   .hubspot-form .hs-form {
     @apply space-y-6;
+    font-family: 'Inter', sans-serif !important;
   }
 
   .hubspot-form .hs-form-field {
     @apply space-y-2;
   }
 
-  .hubspot-form .hs-form-field label {
+  .hubspot-form .hs-form-field label,
+  .hubspot-form .hs-form-field .hs-form-required {
     @apply block text-sm font-medium text-muted-foreground mb-2;
+    font-family: 'Inter', sans-serif !important;
+    color: hsl(var(--muted-foreground)) !important;
   }
 
   .hubspot-form .hs-form-field input[type="email"],
   .hubspot-form .hs-form-field input[type="text"] {
     @apply flex h-12 w-full border border-input bg-muted px-4 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: 0 !important;
+    background-color: hsl(var(--muted)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
   .hubspot-form .hs-form-field input[type="submit"] {
     @apply inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background text-foreground border border-input hover:bg-accent hover:text-accent-foreground h-12 px-6 py-3 w-full mt-4;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: 0 !important;
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    border: 1px solid hsl(var(--input)) !important;
   }
 
   .hubspot-form .hs-error-msgs {
@@ -205,15 +220,24 @@ All colors MUST be HSL.
     @apply text-muted-foreground/70;
   }
 
-  /* HubSpot specific selectors for dynamic elements */
+  /* HubSpot specific selectors for dynamic elements with !important */
   .hubspot-form .hs_email input,
   .hubspot-form .hs_firstname input,
   .hubspot-form .hs_lastname input {
     @apply flex h-12 w-full border border-input bg-muted px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: 0 !important;
+    background-color: hsl(var(--muted)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
   .hubspot-form .hs_submit input {
     @apply inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background text-foreground border border-input hover:bg-accent hover:text-accent-foreground h-12 px-6 py-3 w-full mt-4 cursor-pointer;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: 0 !important;
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    border: 1px solid hsl(var(--input)) !important;
   }
 
   /* HubSpot fieldset and legend styling */
