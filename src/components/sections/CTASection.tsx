@@ -29,11 +29,10 @@ export function CTASection() {
   const { t } = useLanguage();
   const formRef = useRef<HTMLDivElement>(null);
   const formCreatedRef = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [formStatus, setFormStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
     // Prevent creating multiple forms
     if (formCreatedRef.current) {
       return;
@@ -66,6 +65,12 @@ export function CTASection() {
               console.log('HubSpot form ready');
               setFormStatus('loaded');
               
+              // Clear the timeout when form loads successfully
+              if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = null;
+              }
+              
               // Ensure the form stays inside its container
               const formElement = document.querySelector(`#${formId} .hbspt-form`);
               if (formElement) {
@@ -83,6 +88,10 @@ export function CTASection() {
           console.error('Error creating HubSpot form:', error);
           formCreatedRef.current = false;
           setFormStatus('error');
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+          }
         }
       } else if (!window.hbspt || !formRef.current) {
         console.warn('HubSpot script not ready or form container not found', {
@@ -90,6 +99,10 @@ export function CTASection() {
           formRef: !!formRef.current
         });
         setFormStatus('error');
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
       }
     };
 
@@ -112,22 +125,25 @@ export function CTASection() {
       script.onerror = () => {
         console.error('Failed to load HubSpot script');
         setFormStatus('error');
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
       };
       
       document.head.appendChild(script);
     }
 
     // Set a timeout to show error if form doesn't load
-    timeoutId = setTimeout(() => {
-      if (formStatus === 'loading') {
-        console.warn('HubSpot form loading timeout');
-        setFormStatus('error');
-      }
+    timeoutRef.current = setTimeout(() => {
+      console.warn('HubSpot form loading timeout');
+      setFormStatus('error');
     }, 15000);
     
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
       // Clear form container on cleanup
       if (formRef.current) {
@@ -136,7 +152,7 @@ export function CTASection() {
       }
       formCreatedRef.current = false;
     };
-  }, []); // Remove formStatus dependency to prevent re-runs
+  }, []);
 
   return (
     <section id="contact" className="py-20 section-padding">
