@@ -15,6 +15,8 @@ declare global {
           formId: string;
           region: string;
           target?: HTMLElement;
+          onFormReady?: () => void;
+          onFormSubmit?: () => void;
         }) => void;
       };
     };
@@ -26,32 +28,79 @@ export function CTASection() {
   const cardRef = useScrollReveal({ delay: 200 });
   const { t } = useLanguage();
   const formRef = useRef<HTMLDivElement>(null);
+  const [formStatus, setFormStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
 
   useEffect(() => {
-    // Load HubSpot script
-    const script1 = document.createElement('script');
-    script1.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
-    script1.charset = 'utf-8';
-    script1.type = 'text/javascript';
+    let timeoutId: NodeJS.Timeout;
     
-    script1.onload = () => {
-      // Create HubSpot form after script loads
+    // Check if script already exists
+    const existingScript = document.querySelector('script[src*="js-eu1.hsforms.net"]');
+    
+    const createForm = () => {
       if (window.hbspt && formRef.current) {
-        window.hbspt.forms.create({
-          portalId: "144685037",
-          formId: "44da64ea-4f9c-4474-a43d-9295a414e89d",
-          region: "eu1",
-          target: formRef.current
-        });
+        console.log('Creating HubSpot form...');
+        try {
+          window.hbspt.forms.create({
+            portalId: "144685037",
+            formId: "44da64ea-4f9c-4474-a43d-9295a414e89d",
+            region: "eu1",
+            target: formRef.current,
+            onFormReady: () => {
+              console.log('HubSpot form ready');
+              setFormStatus('loaded');
+            },
+            onFormSubmit: () => {
+              console.log('HubSpot form submitted');
+            }
+          });
+        } catch (error) {
+          console.error('Error creating HubSpot form:', error);
+          setFormStatus('error');
+        }
+      } else {
+        console.warn('HubSpot script not ready or form container not found');
+        setFormStatus('error');
       }
     };
-    
-    document.head.appendChild(script1);
+
+    if (existingScript && window.hbspt) {
+      // Script already loaded
+      createForm();
+    } else {
+      // Load HubSpot script
+      const script = document.createElement('script');
+      script.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
+      script.charset = 'utf-8';
+      script.type = 'text/javascript';
+      
+      script.onload = () => {
+        console.log('HubSpot script loaded');
+        // Wait a bit for the script to initialize
+        setTimeout(createForm, 100);
+      };
+      
+      script.onerror = () => {
+        console.error('Failed to load HubSpot script');
+        setFormStatus('error');
+      };
+      
+      document.head.appendChild(script);
+    }
+
+    // Set a timeout to show error if form doesn't load
+    timeoutId = setTimeout(() => {
+      if (formStatus === 'loading') {
+        console.warn('HubSpot form loading timeout');
+        setFormStatus('error');
+      }
+    }, 10000);
     
     return () => {
-      document.head.removeChild(script1);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
     };
-  }, []);
+  }, [formStatus]);
 
   return (
     <section id="contact" className="py-20 section-padding">
@@ -141,7 +190,29 @@ export function CTASection() {
               <CardTitle className="text-lg font-medium">Newsletter Anmeldung</CardTitle>
             </CardHeader>
             <CardContent>
-              <div ref={formRef} className="hubspot-form" />
+              {formStatus === 'loading' && (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                  <span className="ml-2 text-sm text-muted-foreground">Newsletter-Formular wird geladen...</span>
+                </div>
+              )}
+              {formStatus === 'error' && (
+                <div className="text-center py-4">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Das Formular konnte nicht geladen werden. Bitte kontaktieren Sie uns direkt:
+                  </p>
+                  <a 
+                    href="mailto:contact@example.com" 
+                    className="text-primary hover:text-primary/80 transition-colors"
+                  >
+                    contact@example.com
+                  </a>
+                </div>
+              )}
+              <div 
+                ref={formRef} 
+                className={`hubspot-form ${formStatus === 'loaded' ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} 
+              />
             </CardContent>
           </Card>
         </div>

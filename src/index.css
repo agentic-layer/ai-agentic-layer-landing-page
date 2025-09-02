@@ -185,4 +185,42 @@ All colors MUST be HSL.
   .hubspot-form .hs-form-field input::placeholder {
     @apply text-muted-foreground/70;
   }
+
+  /* HubSpot specific selectors for dynamic elements */
+  .hubspot-form .hs_email input,
+  .hubspot-form .hs_firstname input,
+  .hubspot-form .hs_lastname input {
+    @apply flex h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+  }
+
+  .hubspot-form .hs_submit input {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-6 py-3 w-full mt-4 cursor-pointer border-0;
+  }
+
+  /* HubSpot fieldset and legend styling */
+  .hubspot-form fieldset {
+    @apply border-0 p-0 m-0;
+  }
+
+  .hubspot-form legend {
+    @apply text-sm font-medium text-foreground mb-4;
+  }
+
+  /* Privacy and legal text styling */
+  .hubspot-form .hs-richtext {
+    @apply text-xs text-muted-foreground mt-4;
+  }
+
+  .hubspot-form .hs-richtext a {
+    @apply text-primary hover:text-primary/80 transition-colors underline;
+  }
+
+  /* Form loading and success states */
+  .hubspot-form .hs-loading {
+    @apply opacity-50;
+  }
+
+  .hubspot-form .submitted-message {
+    @apply text-center text-sm text-muted-foreground py-4;
+  }
 }
