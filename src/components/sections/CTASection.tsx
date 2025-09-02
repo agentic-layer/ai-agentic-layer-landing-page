@@ -212,16 +212,25 @@ export function CTASection() {
               </div>
               <CardTitle className="text-lg font-medium">Newsletter Anmeldung</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative">
+              <div 
+                ref={formRef} 
+                className="hubspot-form-container"
+                style={{ 
+                  minHeight: '200px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              />
               {formStatus === 'loading' && (
-                <div className="flex items-center justify-center py-8">
+                <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
                   <span className="ml-2 text-sm text-muted-foreground">Newsletter-Formular wird geladen...</span>
                 </div>
               )}
               {formStatus === 'error' && (
-                <div className="text-center py-4">
-                  <p className="text-sm text-muted-foreground mb-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
+                  <p className="text-sm text-muted-foreground mb-4 text-center">
                     Das Formular konnte nicht geladen werden. Bitte kontaktieren Sie uns direkt:
                   </p>
                   <a 
@@ -232,10 +241,6 @@ export function CTASection() {
                   </a>
                 </div>
               )}
-              <div 
-                ref={formRef} 
-                className={`hubspot-form ${formStatus === 'loaded' ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} 
-              />
             </CardContent>
           </Card>
         </div>

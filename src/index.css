@@ -140,6 +140,25 @@ All colors MUST be HSL.
   }
 
   /* HubSpot form styling */
+  .hubspot-form-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    contain: layout style;
+  }
+
+  .hubspot-form-container * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hubspot-form-container .hbspt-form {
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+
   .hubspot-form {
     @apply w-full;
   }
