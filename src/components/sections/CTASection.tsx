@@ -28,17 +28,29 @@ export function CTASection() {
   const cardRef = useScrollReveal({ delay: 200 });
   const { t } = useLanguage();
   const formRef = useRef<HTMLDivElement>(null);
+  const formCreatedRef = useRef(false);
   const [formStatus, setFormStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     
+    // Prevent creating multiple forms
+    if (formCreatedRef.current) {
+      return;
+    }
+    
+    // Clear any existing forms
+    if (formRef.current) {
+      formRef.current.innerHTML = '';
+    }
+    
     // Check if script already exists
     const existingScript = document.querySelector('script[src*="js-eu1.hsforms.net"]');
     
     const createForm = () => {
-      if (window.hbspt && formRef.current) {
+      if (window.hbspt && formRef.current && !formCreatedRef.current) {
         console.log('Creating HubSpot form...');
+        formCreatedRef.current = true;
         try {
           window.hbspt.forms.create({
             portalId: "144685037",
@@ -55,9 +67,10 @@ export function CTASection() {
           });
         } catch (error) {
           console.error('Error creating HubSpot form:', error);
+          formCreatedRef.current = false;
           setFormStatus('error');
         }
-      } else {
+      } else if (!window.hbspt || !formRef.current) {
         console.warn('HubSpot script not ready or form container not found');
         setFormStatus('error');
       }
@@ -99,8 +112,13 @@ export function CTASection() {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+      // Clear form container on cleanup
+      if (formRef.current) {
+        formRef.current.innerHTML = '';
+      }
+      formCreatedRef.current = false;
     };
-  }, [formStatus]);
+  }, []); // Remove formStatus dependency to prevent re-runs
 
   return (
     <section id="contact" className="py-20 section-padding">
