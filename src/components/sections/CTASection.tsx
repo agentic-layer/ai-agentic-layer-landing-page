@@ -22,7 +22,7 @@ export function CTASection() {
       const formData = new FormData();
       formData.append('email', email);
       
-      await fetch('https://2e53ot.share-eu1.hsforms.com/2NIg3nFb0RW-eME7k_H6QGA', {
+      await fetch('https://share-eu1.hsforms.com/1RNpk6k-cRHSkPZKVpBTonQ2e53ot', {
         method: 'POST',
         body: formData,
         mode: 'no-cors'
