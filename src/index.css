@@ -172,16 +172,16 @@ All colors MUST be HSL.
   }
 
   .hubspot-form .hs-form-field label {
-    @apply block text-sm font-medium text-foreground mb-2;
+    @apply block text-sm font-medium text-muted-foreground mb-2;
   }
 
   .hubspot-form .hs-form-field input[type="email"],
   .hubspot-form .hs-form-field input[type="text"] {
-    @apply flex h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+    @apply flex h-12 w-full border border-input bg-muted px-4 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
   }
 
   .hubspot-form .hs-form-field input[type="submit"] {
-    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-6 py-3 w-full mt-4;
+    @apply inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background text-foreground border border-input hover:bg-accent hover:text-accent-foreground h-12 px-6 py-3 w-full mt-4;
   }
 
   .hubspot-form .hs-error-msgs {
@@ -209,11 +209,11 @@ All colors MUST be HSL.
   .hubspot-form .hs_email input,
   .hubspot-form .hs_firstname input,
   .hubspot-form .hs_lastname input {
-    @apply flex h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+    @apply flex h-12 w-full border border-input bg-muted px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
   }
 
   .hubspot-form .hs_submit input {
-    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-6 py-3 w-full mt-4 cursor-pointer border-0;
+    @apply inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background text-foreground border border-input hover:bg-accent hover:text-accent-foreground h-12 px-6 py-3 w-full mt-4 cursor-pointer;
   }
 
   /* HubSpot fieldset and legend styling */
