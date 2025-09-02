@@ -129,10 +129,10 @@ export function CTASection() {
           </h2>
           <p className="subheadline-text max-w-4xl mx-auto">
             {t('cta.subtitle').split('\n').map((line, index) => (
-              <React.Fragment key={index}>
+              <span key={index}>
                 {line}
                 {index < t('cta.subtitle').split('\n').length - 1 && <br />}
-              </React.Fragment>
+              </span>
             ))}
           </p>
           <p className="text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
@@ -144,11 +144,11 @@ export function CTASection() {
               const hasEnglishText = paragraph.includes('Architecture and Construction of a Cloud-native AI Platform');
               
               return (
-                <React.Fragment key={index}>
+                <span key={index}>
                   {hasGermanText ? (
                     <>
                       {paragraph.split(germanText).map((part, partIndex) => (
-                        <React.Fragment key={partIndex}>
+                        <span key={partIndex}>
                           {part}
                           {partIndex === 0 && (
                             <>
@@ -164,13 +164,13 @@ export function CTASection() {
                               </a>
                             </>
                           )}
-                        </React.Fragment>
+                        </span>
                       ))}
                     </>
                   ) : hasEnglishText ? (
                     <>
                       {paragraph.split(englishText).map((part, partIndex) => (
-                        <React.Fragment key={partIndex}>
+                        <span key={partIndex}>
                           {part}
                           {partIndex === 0 && (
                             <>
@@ -186,14 +186,19 @@ export function CTASection() {
                               </a>
                             </>
                           )}
-                        </React.Fragment>
+                        </span>
                       ))}
                     </>
                   ) : (
                     paragraph
                   )}
-                  {index < t('cta.description').split('\n\n').length - 1 && <><br /><br /></>}
-                </React.Fragment>
+                  {index < t('cta.description').split('\n\n').length - 1 && (
+                    <>
+                      <br />
+                      <br />
+                    </>
+                  )}
+                </span>
               );
             })}
           </p>
