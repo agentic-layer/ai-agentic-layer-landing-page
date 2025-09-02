@@ -14,7 +14,7 @@ declare global {
           portalId: string;
           formId: string;
           region: string;
-          target?: HTMLElement;
+          target?: HTMLElement | string;
           onFormReady?: () => void;
           onFormSubmit?: () => void;
         }) => void;
@@ -49,17 +49,31 @@ export function CTASection() {
     
     const createForm = () => {
       if (window.hbspt && formRef.current && !formCreatedRef.current) {
-        console.log('Creating HubSpot form...');
+        console.log('Creating HubSpot form...', formRef.current);
         formCreatedRef.current = true;
+        
+        // Set a unique ID for better targeting
+        const formId = 'hubspot-form-' + Date.now();
+        formRef.current.id = formId;
+        
         try {
           window.hbspt.forms.create({
             portalId: "144685037",
             formId: "44da64ea-4f9c-4474-a43d-9295a414e89d",
             region: "eu1",
-            target: formRef.current,
+            target: `#${formId}`,
             onFormReady: () => {
               console.log('HubSpot form ready');
               setFormStatus('loaded');
+              
+              // Ensure the form stays inside its container
+              const formElement = document.querySelector(`#${formId} .hbspt-form`);
+              if (formElement) {
+                (formElement as HTMLElement).style.position = 'relative';
+                (formElement as HTMLElement).style.zIndex = '1';
+                (formElement as HTMLElement).style.maxWidth = '100%';
+                (formElement as HTMLElement).style.overflow = 'hidden';
+              }
             },
             onFormSubmit: () => {
               console.log('HubSpot form submitted');
@@ -71,7 +85,10 @@ export function CTASection() {
           setFormStatus('error');
         }
       } else if (!window.hbspt || !formRef.current) {
-        console.warn('HubSpot script not ready or form container not found');
+        console.warn('HubSpot script not ready or form container not found', {
+          hbspt: !!window.hbspt,
+          formRef: !!formRef.current
+        });
         setFormStatus('error');
       }
     };
@@ -89,7 +106,7 @@ export function CTASection() {
       script.onload = () => {
         console.log('HubSpot script loaded');
         // Wait a bit for the script to initialize
-        setTimeout(createForm, 100);
+        setTimeout(createForm, 500);
       };
       
       script.onerror = () => {
@@ -106,7 +123,7 @@ export function CTASection() {
         console.warn('HubSpot form loading timeout');
         setFormStatus('error');
       }
-    }, 10000);
+    }, 15000);
     
     return () => {
       if (timeoutId) {
@@ -115,6 +132,7 @@ export function CTASection() {
       // Clear form container on cleanup
       if (formRef.current) {
         formRef.current.innerHTML = '';
+        formRef.current.id = '';
       }
       formCreatedRef.current = false;
     };
