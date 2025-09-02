@@ -1,53 +1,57 @@
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, ExternalLink } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Declare HubSpot global
+declare global {
+  interface Window {
+    hbspt: {
+      forms: {
+        create: (options: {
+          portalId: string;
+          formId: string;
+          region: string;
+          target?: HTMLElement;
+        }) => void;
+      };
+    };
+  }
+}
+
 export function CTASection() {
-  const [email, setEmail] = useState('');
-  const { toast } = useToast();
   const headerRef = useScrollReveal();
   const cardRef = useScrollReveal({ delay: 200 });
   const { t } = useLanguage();
+  const formRef = useRef<HTMLDivElement>(null);
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    // Load HubSpot script
+    const script1 = document.createElement('script');
+    script1.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
+    script1.charset = 'utf-8';
+    script1.type = 'text/javascript';
     
-    try {
-      const formData = new FormData();
-      formData.append('email', email);
-      
-      await fetch('https://share-eu1.hsforms.com/1RNpk6k-cRHSkPZKVpBTonQ2e53ot', {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      });
-      
-      toast({
-        title: "Erfolgreich angemeldet!",
-        description: "Sie erhalten Updates zu unseren wichtigsten Meilensteinen."
-      });
-      setEmail('');
-    } catch (error) {
-      toast({
-        title: "Fehler bei der Anmeldung",
-        description: "Bitte versuchen Sie es später erneut.",
-        variant: "destructive"
-      });
-    }
-  };
-
-  const handleEmailClick = () => {
-    const emailAddress = 'agenticlayer@qaware.de';
-    const subject = 'Hello Agentic Layer';
-    const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}`;
-    window.open(mailtoUrl, '_self');
-  };
+    script1.onload = () => {
+      // Create HubSpot form after script loads
+      if (window.hbspt && formRef.current) {
+        window.hbspt.forms.create({
+          portalId: "144685037",
+          formId: "44da64ea-4f9c-4474-a43d-9295a414e89d",
+          region: "eu1",
+          target: formRef.current
+        });
+      }
+    };
+    
+    document.head.appendChild(script1);
+    
+    return () => {
+      document.head.removeChild(script1);
+    };
+  }, []);
 
   return (
     <section id="contact" className="py-20 section-padding">
@@ -137,25 +141,7 @@ export function CTASection() {
               <CardTitle className="text-lg font-medium">Newsletter Anmeldung</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    E-Mail-Adresse
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="deine@email.de"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Zum Newsletter anmelden
-                </Button>
-              </form>
+              <div ref={formRef} className="hubspot-form" />
             </CardContent>
           </Card>
         </div>
