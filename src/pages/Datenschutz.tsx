@@ -157,7 +157,45 @@ const Datenschutz = () => {
                 <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.cookies.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-                    <p>Die Internetseiten der QAware GmbH verwenden Cookies. Cookies sind Textdateien, welche über einen Internetbrowser auf einem Computersystem abgelegt und gespeichert werden.</p>
+                    <p>{t('datenschutz.cookies.intro')}</p>
+                    <p>{t('datenschutz.cookies.definition')}</p>
+                    
+                    <p>{t('datenschutz.cookies.types.title')}</p>
+                    <p>{t('datenschutz.cookies.types.necessary')}</p>
+                    <p>{t('datenschutz.cookies.types.optional')}</p>
+                    
+                    <p>{t('datenschutz.cookies.legal_basis.title')}</p>
+                    <p>{t('datenschutz.cookies.legal_basis.necessary')}</p>
+                    <p>{t('datenschutz.cookies.legal_basis.optional')}</p>
+                    
+                    <div className="mt-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-3">{t('datenschutz.cookies.borlabs.title')}</h3>
+                      <p>{t('datenschutz.cookies.borlabs.intro')}</p>
+                      <p>{t('datenschutz.cookies.borlabs.function')}</p>
+                      <p>{t('datenschutz.cookies.borlabs.legal')}</p>
+                    </div>
+                    
+                    <div className="mt-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-3">{t('datenschutz.cookies.services.title')}</h3>
+                      
+                      <div className="mb-4">
+                        <h4 className="text-lg font-semibold text-foreground mb-2">{t('datenschutz.cookies.google.title')}</h4>
+                        <p>{t('datenschutz.cookies.google.description')}</p>
+                        <p>{t('datenschutz.cookies.google.legal')}</p>
+                      </div>
+                      
+                      <div className="mb-4">
+                        <h4 className="text-lg font-semibold text-foreground mb-2">{t('datenschutz.cookies.hubspot.title')}</h4>
+                        <p>{t('datenschutz.cookies.hubspot.description')}</p>
+                        <p>{t('datenschutz.cookies.hubspot.legal')}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-3">{t('datenschutz.cookies.social.title')}</h3>
+                      <p>{t('datenschutz.cookies.social.description')}</p>
+                      <p>{t('datenschutz.cookies.github')}</p>
+                    </div>
                   </div>
                 </div>
                 
