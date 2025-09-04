@@ -132,6 +132,36 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.hosting.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+                    <p>{t('datenschutz.hosting.intro')}</p>
+                    <p>{t('datenschutz.hosting.data')}</p>
+                    <p>{t('datenschutz.hosting.purpose')}</p>
+                    <p>{t('datenschutz.hosting.tracking')}</p>
+                    <p>{t('datenschutz.hosting.provider_intro')}</p>
+                    <div className="space-y-2">
+                      <p className="font-semibold text-foreground">GitHub Inc.</p>
+                      <p>88 Colin P Kelly Jr St</p>
+                      <p>San Francisco, CA 94107</p>
+                      <p>United States</p>
+                    </div>
+                    <p>{t('datenschutz.hosting.recipient')}</p>
+                    <p>{t('datenschutz.hosting.github_info')}</p>
+                    <p>{t('datenschutz.hosting.objection')}</p>
+                    <p>{t('datenschutz.hosting.deletion')}</p>
+                    <p>{t('datenschutz.hosting.legal_basis')}</p>
+                    <p>{t('datenschutz.hosting.compliance')}</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.cookies.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+                    <p>Die Internetseiten der QAware GmbH verwenden Cookies. Cookies sind Textdateien, welche über einen Internetbrowser auf einem Computersystem abgelegt und gespeichert werden.</p>
+                  </div>
+                </div>
+                
+                <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.general_data.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                     <p>{t('datenschutz.general_data.collection')}</p>
