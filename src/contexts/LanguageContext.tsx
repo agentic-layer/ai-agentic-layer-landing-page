@@ -37,6 +37,29 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'hero.subtitle': 'Die souveräne Enterprise AI-Plattform',
       'hero.description': 'Orchestriere KI-Agenten sicher, transparent und zukunftsfähig in deiner IT-Infrastruktur. Open Source, cloud-agnostisch und DSGVO-konform.',
 
+      // Cookie Banner Translations
+      'cookieBanner.title': 'Cookies & Datenschutz',
+      'cookieBanner.description': 'Wir verwenden Cookies, um Ihnen die bestmögliche Nutzererfahrung zu bieten. Einige sind für die Funktion der Website notwendig, andere helfen uns, diese Website und Ihre Erfahrung zu verbessern.',
+      'cookieBanner.acceptAll': 'Alle akzeptieren',
+      'cookieBanner.rejectAll': 'Alle ablehnen',
+      'cookieBanner.customize': 'Anpassen',
+      'cookieBanner.close': 'Schließen',
+      'cookieBanner.moreInfo': 'Weitere Informationen finden Sie in unserer',
+      'cookieBanner.privacyPolicy': 'Datenschutzerklärung',
+
+      'cookieSettings.title': 'Cookie-Einstellungen',
+      'cookieSettings.description': 'Wählen Sie aus, welche Cookies Sie zulassen möchten. Sie können diese Einstellungen jederzeit ändern.',
+      'cookieSettings.cancel': 'Abbrechen',
+      'cookieSettings.save': 'Einstellungen speichern',
+      'cookieSettings.essential.name': 'Notwendige Cookies',
+      'cookieSettings.essential.description': 'Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden. Sie werden normalerweise nur als Reaktion auf Aktionen gesetzt, die Sie durchführen.',
+      'cookieSettings.analytics.name': 'Analytische Cookies',
+      'cookieSettings.analytics.description': 'Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren, indem sie anonyme Informationen sammeln und melden. Wir verwenden Google Analytics zur Analyse der Website-Nutzung.',
+      'cookieSettings.marketing.name': 'Marketing Cookies',
+      'cookieSettings.marketing.description': 'Diese Cookies werden verwendet, um Ihnen relevante Werbung zu zeigen und die Effektivität unserer Werbekampagnen zu messen.',
+      'cookieSettings.functional.name': 'Funktionale Cookies',
+      'cookieSettings.functional.description': 'Diese Cookies ermöglichen erweiterte Funktionalität und Personalisierung, wie Videos und Live-Chats.',
+
       // Business Benefits Section
       'benefits.title': 'Deine Brücke zur souveränen KI-Orchestrierung',
       'benefits.subtitle': 'Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln\nkannst. Kein Boilerplate, keine Kopfschmerzen.',
@@ -235,6 +258,29 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'hero.title': 'The Agentic Layer',
       'hero.subtitle': 'The Sovereign Enterprise AI Platform',
       'hero.description': 'Orchestrate AI agents securely, transparently, and future-proof in your IT infrastructure. Open source, cloud-agnostic, and GDPR-compliant.',
+
+      // Cookie Banner Translations
+      'cookieBanner.title': 'Cookies & Privacy',
+      'cookieBanner.description': 'We use cookies to provide you with the best possible user experience. Some are necessary for the website to function, others help us improve this website and your experience.',
+      'cookieBanner.acceptAll': 'Accept All',
+      'cookieBanner.rejectAll': 'Reject All',
+      'cookieBanner.customize': 'Customize',
+      'cookieBanner.close': 'Close',
+      'cookieBanner.moreInfo': 'For more information, see our',
+      'cookieBanner.privacyPolicy': 'Privacy Policy',
+
+      'cookieSettings.title': 'Cookie Settings',
+      'cookieSettings.description': 'Choose which cookies you want to allow. You can change these settings at any time.',
+      'cookieSettings.cancel': 'Cancel',
+      'cookieSettings.save': 'Save Settings',
+      'cookieSettings.essential.name': 'Essential Cookies',
+      'cookieSettings.essential.description': 'These cookies are necessary for the basic functions of the website and cannot be disabled. They are usually only set in response to actions you take.',
+      'cookieSettings.analytics.name': 'Analytics Cookies',
+      'cookieSettings.analytics.description': 'These cookies help us understand how visitors interact with the website by collecting and reporting anonymous information. We use Google Analytics to analyze website usage.',
+      'cookieSettings.marketing.name': 'Marketing Cookies',
+      'cookieSettings.marketing.description': 'These cookies are used to show you relevant advertising and measure the effectiveness of our advertising campaigns.',
+      'cookieSettings.functional.name': 'Functional Cookies',
+      'cookieSettings.functional.description': 'These cookies enable advanced functionality and personalization, such as videos and live chats.',
 
       // Business Benefits Section
       'benefits.title': 'Your Bridge to Sovereign AI Orchestration',

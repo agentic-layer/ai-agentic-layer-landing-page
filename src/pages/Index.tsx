@@ -8,6 +8,7 @@ import { BusinessBenefitsSection } from '@/components/sections/BusinessBenefitsS
 import { ArchitectureSection } from '@/components/sections/ArchitectureSection';
 import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { CTASection } from '@/components/sections/CTASection';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -23,41 +24,7 @@ const Index = () => {
           <CTASection />
         </main>
         
-        {/* Footer */}
-        <footer role="contentinfo" className="py-12 section-padding border-t border-border">
-          <div className="container-width text-center text-muted-foreground">
-            <img 
-              src="/lovable-uploads/0a7583d8-da06-4025-83a4-f818b759b82e.png" 
-              alt="Powered by QAware" 
-              className="mx-auto mb-8 opacity-70 w-[240px]"
-            />
-            <nav aria-label="Footer navigation">
-              <div className="flex justify-center space-x-6 mb-8">
-                <Link 
-                  to="/impressum" 
-                  className="text-sm hover:text-primary transition-colors no-underline"
-                >
-                  Impressum
-                </Link>
-                <Link 
-                  to="/datenschutz" 
-                  className="text-sm hover:text-primary transition-colors no-underline"
-                >
-                  Datenschutz
-                </Link>
-                <Link 
-                  to="/accessibility" 
-                  className="text-sm hover:text-primary transition-colors no-underline"
-                >
-                  Barrierefreiheit
-                </Link>
-              </div>
-            </nav>
-            <p className="text-sm">
-              © 2025 Agentic Layer.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </ThemeProvider>
   );
