@@ -210,51 +210,8 @@ const Datenschutz = () => {
                 
                 <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.rights.title')}</h2>
-                  <div className="text-lg text-muted-foreground leading-relaxed space-y-6">
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.confirmation.title')}</p>
-                      <p>{t('datenschutz.rights.confirmation.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.information.title')}</p>
-                      <p>{t('datenschutz.rights.information.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.correction.title')}</p>
-                      <p>{t('datenschutz.rights.correction.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.deletion.title')}</p>
-                      <p>{t('datenschutz.rights.deletion.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.restriction.title')}</p>
-                      <p>{t('datenschutz.rights.restriction.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.portability.title')}</p>
-                      <p>{t('datenschutz.rights.portability.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.objection.title')}</p>
-                      <p>{t('datenschutz.rights.objection.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.automated_decisions.title')}</p>
-                      <p>{t('datenschutz.rights.automated_decisions.content')}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-foreground">{t('datenschutz.rights.withdrawal.title')}</p>
-                      <p>{t('datenschutz.rights.withdrawal.content')}</p>
-                    </div>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+                    <p className="whitespace-pre-line">{t('datenschutz.rights.content')}</p>
                   </div>
                 </div>
                 
