@@ -209,14 +209,6 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
-                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.deletion.title')}</h2>
-                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-                    <p>{t('datenschutz.deletion.routine')}</p>
-                    <p>{t('datenschutz.deletion.conditions')}</p>
-                  </div>
-                </div>
-                
-                <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.rights.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-6">
                     <div>
