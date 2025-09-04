@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { useCookieConsent, type CookieConsentState } from '@/hooks/useCookieConsent';
+import { useCookieConsent, type CookieConsentState } from '@/contexts/CookieConsentContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, BarChart3, Target, Zap } from 'lucide-react';
 

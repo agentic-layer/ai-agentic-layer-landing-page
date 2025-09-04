@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { X, Cookie, Settings } from 'lucide-react';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CookieSettingsModal } from './CookieSettingsModal';
 

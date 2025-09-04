@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { CookieConsentProvider } from "@/components/CookieConsentProvider";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import { CookieBanner } from "@/components/CookieBanner";
 import Index from "./pages/Index";
 import Impressum from "./pages/Impressum";

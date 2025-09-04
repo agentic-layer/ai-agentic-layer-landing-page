@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export type CookieCategory = 'essential' | 'analytics' | 'marketing' | 'functional';
 
@@ -30,17 +30,13 @@ const defaultConsent: CookieConsentState = {
 const STORAGE_KEY = 'cookie-consent';
 const BANNER_STORAGE_KEY = 'cookie-banner-shown';
 
-export const CookieConsentContext = createContext<CookieConsentContextType | null>(null);
+const CookieConsentContext = createContext<CookieConsentContextType | undefined>(undefined);
 
-export const useCookieConsent = () => {
-  const context = useContext(CookieConsentContext);
-  if (!context) {
-    throw new Error('useCookieConsent must be used within a CookieConsentProvider');
-  }
-  return context;
-};
+interface CookieConsentProviderProps {
+  children: ReactNode;
+}
 
-export const useCookieConsentState = () => {
+export function CookieConsentProvider({ children }: CookieConsentProviderProps) {
   const [consent, setConsent] = useState<CookieConsentState | null>(null);
   const [hasShownBanner, setHasShownBanner] = useState(true);
 
@@ -110,7 +106,7 @@ export const useCookieConsentState = () => {
     setHasShownBanner(false);
   };
 
-  return {
+  const value: CookieConsentContextType = {
     consent,
     hasShownBanner,
     showBanner,
@@ -120,7 +116,21 @@ export const useCookieConsentState = () => {
     updateConsent,
     resetConsent,
   };
-};
+
+  return (
+    <CookieConsentContext.Provider value={value}>
+      {children}
+    </CookieConsentContext.Provider>
+  );
+}
+
+export function useCookieConsent(): CookieConsentContextType {
+  const context = useContext(CookieConsentContext);
+  if (context === undefined) {
+    throw new Error('useCookieConsent must be used within a CookieConsentProvider');
+  }
+  return context;
+}
 
 // Google Analytics management functions
 const loadGoogleAnalytics = () => {

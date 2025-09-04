@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Settings } from 'lucide-react';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Footer: React.FC = () => {
