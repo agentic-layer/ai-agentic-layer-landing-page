@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,27 +17,29 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 const basename = import.meta.env.BASE_URL;
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <CookieConsentProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter basename={basename}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/impressum" element={<Impressum />} />
-              <Route path="/datenschutz" element={<Datenschutz />} />
-              <Route path="/accessibility" element={<Accessibility />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <CookieBanner />
-          </BrowserRouter>
-        </TooltipProvider>
-      </CookieConsentProvider>
-    </LanguageProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
+        <CookieConsentProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter basename={basename}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/impressum" element={<Impressum />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/accessibility" element={<Accessibility />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <CookieBanner />
+            </BrowserRouter>
+          </TooltipProvider>
+        </CookieConsentProvider>
+      </LanguageProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
