@@ -214,7 +214,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'datenschutz.data_provision.title': '11. PFLICHT ZUR BEREITSTELLUNG VON DATEN',
       'datenschutz.data_provision.content': 'Die Bereitstellung personenbezogener Daten kann gesetzlich vorgeschrieben sein (z. B. steuerliche Vorschriften) oder sich aus vertraglichen Regelungen ergeben (z. B. Angaben zum Vertragspartner). In bestimmten Fällen ist die Bereitstellung von Daten für den Vertragsabschluss erforderlich. Werden die notwendigen Daten nicht bereitgestellt, kann ein Vertrag ggf. nicht geschlossen oder erfüllt werden. Wir informieren Sie im Rahmen der jeweiligen Verarbeitung, wenn eine solche Pflicht besteht.',
       'datenschutz.automated_decisions.title': '12. BESTEHEN EINER AUTOMATISIERTEN ENTSCHEIDUNGSFINDUNG',
-      'datenschutz.automated_decisions.content': 'Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling.',
+      'datenschutz.automated_decisions.content': 'Als verantwortungsbewusstes Unternehmen verzichten wir auf eine automatische Entscheidungsfindung oder ein Profiling gemäß Art. 22 DSGVO.',
     },
     en: {
       // Particle Animation
@@ -354,7 +354,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'datenschutz.data_provision.title': '11. OBLIGATION TO PROVIDE DATA',
       'datenschutz.data_provision.content': 'The provision of personal data may be legally required (e.g. tax regulations) or may result from contractual arrangements (e.g. information about contractual partners). In certain cases, the provision of data is necessary for the conclusion of a contract. If the necessary data is not provided, a contract may not be concluded or fulfilled. We will inform you in the context of the respective processing if such an obligation exists.',
       'datenschutz.automated_decisions.title': '12. EXISTENCE OF AUTOMATED DECISION-MAKING',
-      'datenschutz.automated_decisions.content': 'As a responsible company, we do not use automatic decision-making or profiling.',
+      'datenschutz.automated_decisions.content': 'As a responsible company, we refrain from automatic decision-making or profiling in accordance with Art. 22 GDPR.',
 
       // Accessibility Page
       'accessibility.title': 'Accessibility Statement',
