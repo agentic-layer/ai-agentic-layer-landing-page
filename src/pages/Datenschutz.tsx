@@ -207,6 +207,13 @@ const Datenschutz = () => {
                 </div>
                 
                 <div>
+                  <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.newsletter.title')}</h2>
+                  <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+                    <p className="whitespace-pre-line">{t('datenschutz.newsletter.content')}</p>
+                  </div>
+                </div>
+                
+                <div>
                   <h2 className="subheadline-text mb-4 text-foreground text-left">{t('datenschutz.general_data.title')}</h2>
                   <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                      <p>{t('datenschutz.general_data.collection')}</p>
