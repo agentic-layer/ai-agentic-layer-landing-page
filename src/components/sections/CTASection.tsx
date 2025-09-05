@@ -15,6 +15,9 @@ export function CTASection() {
     console.log('CTASection: Starting HubSpot form setup');
     console.log('CTASection: formRef.current exists:', !!formRef.current);
     
+    let timeoutId: NodeJS.Timeout;
+    let checkInterval: NodeJS.Timeout;
+    
     // Check if script already exists
     const existingScript = document.querySelector('script[src="https://js-eu1.hsforms.net/forms/embed/144685037.js"]');
     console.log('CTASection: Existing script found:', !!existingScript);
@@ -26,6 +29,27 @@ export function CTASection() {
       console.log('CTASection: Form HTML set:', formRef.current.innerHTML);
     }
     
+    // Function to check if form has loaded
+    const checkFormLoaded = () => {
+      const formFrame = formRef.current?.querySelector('.hs-form-frame');
+      const hsForm = document.querySelector('.hbspt-form');
+      const hasFormContent = formFrame && (formFrame.children.length > 0 || formFrame.innerHTML.includes('input'));
+      
+      console.log('CTASection: Checking form status');
+      console.log('CTASection: Form frame found:', !!formFrame);
+      console.log('CTASection: HS form found:', !!hsForm);
+      console.log('CTASection: Has form content:', !!hasFormContent);
+      
+      if (hsForm || hasFormContent) {
+        console.log('CTASection: Form detected successfully, clearing timeout');
+        setFormStatus('loaded');
+        if (timeoutId) clearTimeout(timeoutId);
+        if (checkInterval) clearInterval(checkInterval);
+        return true;
+      }
+      return false;
+    };
+    
     if (!existingScript) {
       console.log('CTASection: Creating and loading HubSpot script');
       const script = document.createElement('script');
@@ -36,59 +60,49 @@ export function CTASection() {
       script.onload = () => {
         console.log('CTASection: HubSpot script loaded successfully');
         console.log('CTASection: window.hbspt exists:', typeof (window as any).hbspt);
-        console.log('CTASection: Checking for form elements after script load');
         
-        setTimeout(() => {
-          const formFrame = document.querySelector('.hs-form-frame');
-          const hsForm = document.querySelector('.hbspt-form');
-          console.log('CTASection: Form frame found:', !!formFrame);
-          console.log('CTASection: HS form found:', !!hsForm);
-          
-          if (hsForm || formFrame?.children.length > 0) {
-            console.log('CTASection: Form detected, setting status to loaded');
-            setFormStatus('loaded');
-          } else {
-            console.log('CTASection: No form detected after 2 seconds');
+        // Start checking for form content every 500ms
+        checkInterval = setInterval(() => {
+          if (checkFormLoaded()) {
+            clearInterval(checkInterval);
           }
-        }, 2000);
+        }, 500);
       };
       
       script.onerror = (error) => {
         console.error('CTASection: Failed to load HubSpot script', error);
         setFormStatus('error');
+        if (timeoutId) clearTimeout(timeoutId);
+        if (checkInterval) clearInterval(checkInterval);
       };
       
       console.log('CTASection: Appending script to head');
       document.head.appendChild(script);
     } else {
       console.log('CTASection: HubSpot script already exists, checking for form');
-      
-      setTimeout(() => {
-        const formFrame = document.querySelector('.hs-form-frame');
-        const hsForm = document.querySelector('.hbspt-form');
-        console.log('CTASection: Form frame found (existing script):', !!formFrame);
-        console.log('CTASection: HS form found (existing script):', !!hsForm);
-        
-        if (hsForm || formFrame?.children.length > 0) {
-          setFormStatus('loaded');
+      // Start checking immediately if script already exists
+      checkInterval = setInterval(() => {
+        if (checkFormLoaded()) {
+          clearInterval(checkInterval);
         }
-      }, 1000);
+      }, 500);
     }
 
-    // Set a timeout to detect loading issues
-    const timeout = setTimeout(() => {
-      console.warn('CTASection: HubSpot form loading timeout after 15 seconds');
-      const formFrame = document.querySelector('.hs-form-frame');
-      const hsForm = document.querySelector('.hbspt-form');
-      console.log('CTASection: Final check - Form frame found:', !!formFrame);
-      console.log('CTASection: Final check - HS form found:', !!hsForm);
-      console.log('CTASection: Final check - FormFrame innerHTML:', formFrame?.innerHTML || 'N/A');
-      setFormStatus('error');
+    // Set a timeout to detect loading issues - only set error if form hasn't loaded
+    timeoutId = setTimeout(() => {
+      if (!checkFormLoaded()) {
+        console.warn('CTASection: HubSpot form loading timeout after 15 seconds - form not detected');
+        setFormStatus('error');
+      } else {
+        console.log('CTASection: Form already loaded, ignoring timeout');
+      }
+      if (checkInterval) clearInterval(checkInterval);
     }, 15000);
     
     return () => {
       console.log('CTASection: Cleanup');
-      clearTimeout(timeout);
+      if (timeoutId) clearTimeout(timeoutId);
+      if (checkInterval) clearInterval(checkInterval);
     };
   }, []);
 
