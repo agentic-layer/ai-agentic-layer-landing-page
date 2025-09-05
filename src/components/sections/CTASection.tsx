@@ -58,7 +58,7 @@ export function CTASection() {
         try {
           window.hbspt.forms.create({
             portalId: "144685037",
-            formId: "44da64ea-4f9c-4474-a43d-9295a414e89d",
+            formId: "ae581883-108b-4bfb-a404-458e501c6650",
             region: "eu1",
             target: `#${formId}`,
             onFormReady: () => {
@@ -155,7 +155,7 @@ export function CTASection() {
     } else {
       // Load HubSpot script
       const script = document.createElement('script');
-      script.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
+      script.src = 'https://js-eu1.hsforms.net/forms/embed/144685037.js';
       script.charset = 'utf-8';
       script.type = 'text/javascript';
       
