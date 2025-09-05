@@ -12,88 +12,48 @@ export function CTASection() {
   const [formStatus, setFormStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
 
   useEffect(() => {
-    // Check if script already exists
-    const existingScript = document.querySelector('script[src*="144685037.js"]');
+    console.log('CTASection: Starting HubSpot form setup');
     
-    const loadScript = () => {
+    // Check if script already exists
+    const existingScript = document.querySelector('script[src="https://js-eu1.hsforms.net/forms/embed/144685037.js"]');
+    
+    if (!existingScript) {
+      console.log('CTASection: Loading HubSpot script');
       const script = document.createElement('script');
       script.src = 'https://js-eu1.hsforms.net/forms/embed/144685037.js';
       script.defer = true;
       script.type = 'text/javascript';
       
       script.onload = () => {
-        console.log('HubSpot script loaded');
+        console.log('CTASection: HubSpot script loaded successfully');
         setFormStatus('loaded');
-        
-        // Apply styling after form loads
-        setTimeout(() => {
-          const formContainer = formRef.current;
-          if (formContainer) {
-            const allElements = formContainer.querySelectorAll('*');
-            allElements.forEach((el: Element) => {
-              const element = el as HTMLElement;
-              element.style.fontFamily = 'Inter, sans-serif';
-              element.style.borderRadius = '0';
-            });
-            
-            // Style labels
-            const labels = formContainer.querySelectorAll('label, .hs-form-required');
-            labels.forEach((label: Element) => {
-              const labelEl = label as HTMLElement;
-              labelEl.style.color = 'hsl(var(--muted-foreground))';
-              labelEl.style.fontFamily = 'Inter, sans-serif';
-            });
-            
-            // Style input fields
-            const inputs = formContainer.querySelectorAll('input[type="email"], input[type="text"]');
-            inputs.forEach((input: Element) => {
-              const inputEl = input as HTMLElement;
-              inputEl.style.backgroundColor = 'hsl(var(--muted))';
-              inputEl.style.borderRadius = '0';
-              inputEl.style.color = 'hsl(var(--foreground))';
-              inputEl.style.fontFamily = 'Inter, sans-serif';
-            });
-            
-            // Style submit button
-            const submitBtn = formContainer.querySelector('input[type="submit"]');
-            if (submitBtn) {
-              const btnEl = submitBtn as HTMLElement;
-              btnEl.style.backgroundColor = 'hsl(var(--background))';
-              btnEl.style.color = 'hsl(var(--foreground))';
-              btnEl.style.border = '1px solid hsl(var(--input))';
-              btnEl.style.borderRadius = '0';
-              btnEl.style.fontFamily = 'Inter, sans-serif';
-            }
-          }
-        }, 1000);
       };
       
-      script.onerror = () => {
-        console.error('Failed to load HubSpot script');
+      script.onerror = (error) => {
+        console.error('CTASection: Failed to load HubSpot script', error);
         setFormStatus('error');
       };
       
       document.head.appendChild(script);
-    };
-
-    if (!existingScript) {
-      loadScript();
     } else {
+      console.log('CTASection: HubSpot script already exists');
       setFormStatus('loaded');
     }
 
-    // Set the form HTML structure
+    // Set the exact HTML structure provided by user
     if (formRef.current) {
+      console.log('CTASection: Setting form HTML structure');
       formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="ae581883-108b-4bfb-a404-458e501c6650" data-portal-id="144685037"></div>';
     }
 
-    // Set a timeout to show error if form doesn't load
+    // Set a timeout to detect loading issues
     const timeout = setTimeout(() => {
-      console.warn('HubSpot form loading timeout');
+      console.warn('CTASection: HubSpot form loading timeout after 15 seconds');
       setFormStatus('error');
     }, 15000);
     
     return () => {
+      console.log('CTASection: Cleanup');
       clearTimeout(timeout);
     };
   }, []);
