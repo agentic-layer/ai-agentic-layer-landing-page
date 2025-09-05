@@ -1,199 +1,100 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, ExternalLink } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Declare HubSpot global
-declare global {
-  interface Window {
-    hbspt: {
-      forms: {
-        create: (options: {
-          portalId: string;
-          formId: string;
-          region: string;
-          target?: HTMLElement | string;
-          onFormReady?: () => void;
-          onFormSubmit?: () => void;
-        }) => void;
-      };
-    };
-  }
-}
-
 export function CTASection() {
   const headerRef = useScrollReveal();
   const cardRef = useScrollReveal({ delay: 200 });
   const { t } = useLanguage();
   const formRef = useRef<HTMLDivElement>(null);
-  const formCreatedRef = useRef(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [formStatus, setFormStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
 
   useEffect(() => {
-    // Prevent creating multiple forms
-    if (formCreatedRef.current) {
-      return;
-    }
-    
-    // Clear any existing forms
-    if (formRef.current) {
-      formRef.current.innerHTML = '';
-    }
-    
     // Check if script already exists
-    const existingScript = document.querySelector('script[src*="js-eu1.hsforms.net"]');
+    const existingScript = document.querySelector('script[src*="144685037.js"]');
     
-    const createForm = () => {
-      if (window.hbspt && formRef.current && !formCreatedRef.current) {
-        console.log('Creating HubSpot form...', formRef.current);
-        formCreatedRef.current = true;
-        
-        // Set a unique ID for better targeting
-        const formId = 'hubspot-form-' + Date.now();
-        formRef.current.id = formId;
-        
-        try {
-          window.hbspt.forms.create({
-            portalId: "144685037",
-            formId: "ae581883-108b-4bfb-a404-458e501c6650",
-            region: "eu1",
-            target: `#${formId}`,
-            onFormReady: () => {
-              console.log('HubSpot form ready');
-              setFormStatus('loaded');
-              
-              // Clear the timeout when form loads successfully
-              if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-                timeoutRef.current = null;
-              }
-              
-              // Apply direct styles to override HubSpot's inline styles
-              setTimeout(() => {
-                const formContainer = document.querySelector(`#${formId}`);
-                if (formContainer) {
-                  // Apply Inter font and remove border radius from all form elements
-                  const allElements = formContainer.querySelectorAll('*');
-                  allElements.forEach((el: Element) => {
-                    const element = el as HTMLElement;
-                    element.style.fontFamily = 'Inter, sans-serif';
-                    element.style.borderRadius = '0';
-                  });
-                  
-                  // Style labels
-                  const labels = formContainer.querySelectorAll('label, .hs-form-required');
-                  labels.forEach((label: Element) => {
-                    const labelEl = label as HTMLElement;
-                    labelEl.style.color = 'hsl(var(--muted-foreground))';
-                    labelEl.style.fontFamily = 'Inter, sans-serif';
-                  });
-                  
-                  // Style input fields
-                  const inputs = formContainer.querySelectorAll('input[type="email"], input[type="text"]');
-                  inputs.forEach((input: Element) => {
-                    const inputEl = input as HTMLElement;
-                    inputEl.style.backgroundColor = 'hsl(var(--muted))';
-                    inputEl.style.borderRadius = '0';
-                    inputEl.style.color = 'hsl(var(--foreground))';
-                    inputEl.style.fontFamily = 'Inter, sans-serif';
-                  });
-                  
-                  // Style submit button
-                  const submitBtn = formContainer.querySelector('input[type="submit"]');
-                  if (submitBtn) {
-                    const btnEl = submitBtn as HTMLElement;
-                    btnEl.style.backgroundColor = 'hsl(var(--background))';
-                    btnEl.style.color = 'hsl(var(--foreground))';
-                    btnEl.style.border = '1px solid hsl(var(--input))';
-                    btnEl.style.borderRadius = '0';
-                    btnEl.style.fontFamily = 'Inter, sans-serif';
-                  }
-                }
-              }, 100);
-              
-              // Ensure the form stays inside its container
-              const formElement = document.querySelector(`#${formId} .hbspt-form`);
-              if (formElement) {
-                (formElement as HTMLElement).style.position = 'relative';
-                (formElement as HTMLElement).style.zIndex = '1';
-                (formElement as HTMLElement).style.maxWidth = '100%';
-                (formElement as HTMLElement).style.overflow = 'hidden';
-              }
-            },
-            onFormSubmit: () => {
-              console.log('HubSpot form submitted');
-            }
-          });
-        } catch (error) {
-          console.error('Error creating HubSpot form:', error);
-          formCreatedRef.current = false;
-          setFormStatus('error');
-          if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
-          }
-        }
-      } else if (!window.hbspt || !formRef.current) {
-        console.warn('HubSpot script not ready or form container not found', {
-          hbspt: !!window.hbspt,
-          formRef: !!formRef.current
-        });
-        setFormStatus('error');
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
-        }
-      }
-    };
-
-    if (existingScript && window.hbspt) {
-      // Script already loaded
-      createForm();
-    } else {
-      // Load HubSpot script
+    const loadScript = () => {
       const script = document.createElement('script');
       script.src = 'https://js-eu1.hsforms.net/forms/embed/144685037.js';
-      script.charset = 'utf-8';
+      script.defer = true;
       script.type = 'text/javascript';
       
       script.onload = () => {
         console.log('HubSpot script loaded');
-        // Wait a bit for the script to initialize
-        setTimeout(createForm, 500);
+        setFormStatus('loaded');
+        
+        // Apply styling after form loads
+        setTimeout(() => {
+          const formContainer = formRef.current;
+          if (formContainer) {
+            const allElements = formContainer.querySelectorAll('*');
+            allElements.forEach((el: Element) => {
+              const element = el as HTMLElement;
+              element.style.fontFamily = 'Inter, sans-serif';
+              element.style.borderRadius = '0';
+            });
+            
+            // Style labels
+            const labels = formContainer.querySelectorAll('label, .hs-form-required');
+            labels.forEach((label: Element) => {
+              const labelEl = label as HTMLElement;
+              labelEl.style.color = 'hsl(var(--muted-foreground))';
+              labelEl.style.fontFamily = 'Inter, sans-serif';
+            });
+            
+            // Style input fields
+            const inputs = formContainer.querySelectorAll('input[type="email"], input[type="text"]');
+            inputs.forEach((input: Element) => {
+              const inputEl = input as HTMLElement;
+              inputEl.style.backgroundColor = 'hsl(var(--muted))';
+              inputEl.style.borderRadius = '0';
+              inputEl.style.color = 'hsl(var(--foreground))';
+              inputEl.style.fontFamily = 'Inter, sans-serif';
+            });
+            
+            // Style submit button
+            const submitBtn = formContainer.querySelector('input[type="submit"]');
+            if (submitBtn) {
+              const btnEl = submitBtn as HTMLElement;
+              btnEl.style.backgroundColor = 'hsl(var(--background))';
+              btnEl.style.color = 'hsl(var(--foreground))';
+              btnEl.style.border = '1px solid hsl(var(--input))';
+              btnEl.style.borderRadius = '0';
+              btnEl.style.fontFamily = 'Inter, sans-serif';
+            }
+          }
+        }, 1000);
       };
       
       script.onerror = () => {
         console.error('Failed to load HubSpot script');
         setFormStatus('error');
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
-        }
       };
       
       document.head.appendChild(script);
+    };
+
+    if (!existingScript) {
+      loadScript();
+    } else {
+      setFormStatus('loaded');
+    }
+
+    // Set the form HTML structure
+    if (formRef.current) {
+      formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="ae581883-108b-4bfb-a404-458e501c6650" data-portal-id="144685037"></div>';
     }
 
     // Set a timeout to show error if form doesn't load
-    timeoutRef.current = setTimeout(() => {
+    const timeout = setTimeout(() => {
       console.warn('HubSpot form loading timeout');
       setFormStatus('error');
     }, 15000);
     
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-      // Clear form container on cleanup
-      if (formRef.current) {
-        formRef.current.innerHTML = '';
-        formRef.current.id = '';
-      }
-      formCreatedRef.current = false;
+      clearTimeout(timeout);
     };
   }, []);
 
