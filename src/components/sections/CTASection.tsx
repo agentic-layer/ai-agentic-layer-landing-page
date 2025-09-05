@@ -13,12 +13,21 @@ export function CTASection() {
 
   useEffect(() => {
     console.log('CTASection: Starting HubSpot form setup');
+    console.log('CTASection: formRef.current exists:', !!formRef.current);
     
     // Check if script already exists
     const existingScript = document.querySelector('script[src="https://js-eu1.hsforms.net/forms/embed/144685037.js"]');
+    console.log('CTASection: Existing script found:', !!existingScript);
+    
+    // Set the exact HTML structure provided by user FIRST
+    if (formRef.current) {
+      console.log('CTASection: Setting form HTML structure');
+      formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="ae581883-108b-4bfb-a404-458e501c6650" data-portal-id="144685037"></div>';
+      console.log('CTASection: Form HTML set:', formRef.current.innerHTML);
+    }
     
     if (!existingScript) {
-      console.log('CTASection: Loading HubSpot script');
+      console.log('CTASection: Creating and loading HubSpot script');
       const script = document.createElement('script');
       script.src = 'https://js-eu1.hsforms.net/forms/embed/144685037.js';
       script.defer = true;
@@ -26,7 +35,22 @@ export function CTASection() {
       
       script.onload = () => {
         console.log('CTASection: HubSpot script loaded successfully');
-        setFormStatus('loaded');
+        console.log('CTASection: window.hbspt exists:', typeof (window as any).hbspt);
+        console.log('CTASection: Checking for form elements after script load');
+        
+        setTimeout(() => {
+          const formFrame = document.querySelector('.hs-form-frame');
+          const hsForm = document.querySelector('.hbspt-form');
+          console.log('CTASection: Form frame found:', !!formFrame);
+          console.log('CTASection: HS form found:', !!hsForm);
+          
+          if (hsForm || formFrame?.children.length > 0) {
+            console.log('CTASection: Form detected, setting status to loaded');
+            setFormStatus('loaded');
+          } else {
+            console.log('CTASection: No form detected after 2 seconds');
+          }
+        }, 2000);
       };
       
       script.onerror = (error) => {
@@ -34,21 +58,31 @@ export function CTASection() {
         setFormStatus('error');
       };
       
+      console.log('CTASection: Appending script to head');
       document.head.appendChild(script);
     } else {
-      console.log('CTASection: HubSpot script already exists');
-      setFormStatus('loaded');
-    }
-
-    // Set the exact HTML structure provided by user
-    if (formRef.current) {
-      console.log('CTASection: Setting form HTML structure');
-      formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="ae581883-108b-4bfb-a404-458e501c6650" data-portal-id="144685037"></div>';
+      console.log('CTASection: HubSpot script already exists, checking for form');
+      
+      setTimeout(() => {
+        const formFrame = document.querySelector('.hs-form-frame');
+        const hsForm = document.querySelector('.hbspt-form');
+        console.log('CTASection: Form frame found (existing script):', !!formFrame);
+        console.log('CTASection: HS form found (existing script):', !!hsForm);
+        
+        if (hsForm || formFrame?.children.length > 0) {
+          setFormStatus('loaded');
+        }
+      }, 1000);
     }
 
     // Set a timeout to detect loading issues
     const timeout = setTimeout(() => {
       console.warn('CTASection: HubSpot form loading timeout after 15 seconds');
+      const formFrame = document.querySelector('.hs-form-frame');
+      const hsForm = document.querySelector('.hbspt-form');
+      console.log('CTASection: Final check - Form frame found:', !!formFrame);
+      console.log('CTASection: Final check - HS form found:', !!hsForm);
+      console.log('CTASection: Final check - FormFrame innerHTML:', formFrame?.innerHTML || 'N/A');
       setFormStatus('error');
     }, 15000);
     
