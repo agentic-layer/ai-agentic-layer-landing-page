@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type CookieCategory = 'essential' | 'analytics' | 'marketing' | 'functional';
+export type CookieCategory = 'essential' | 'analytics';
 
 export interface CookieConsentState {
   essential: boolean;
   analytics: boolean;
-  marketing: boolean;
-  functional: boolean;
 }
 
 export interface CookieConsentContextType {
@@ -23,8 +21,6 @@ export interface CookieConsentContextType {
 const defaultConsent: CookieConsentState = {
   essential: true, // Always true, cannot be disabled
   analytics: false,
-  marketing: false,
-  functional: false,
 };
 
 const STORAGE_KEY = 'cookie-consent';
@@ -80,8 +76,6 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
     const allAccepted: CookieConsentState = {
       essential: true,
       analytics: true,
-      marketing: true,
-      functional: true,
     };
     setConsent(allAccepted);
     hideBanner();

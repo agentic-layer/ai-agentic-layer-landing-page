@@ -20,8 +20,6 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
   const [localConsent, setLocalConsent] = useState<CookieConsentState>({
     essential: true,
     analytics: false,
-    marketing: false,
-    functional: false,
   });
 
   // Initialize local state with current consent
@@ -56,20 +54,6 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
       icon: BarChart3,
       name: t('cookieSettings.analytics.name'),
       description: t('cookieSettings.analytics.description'),
-      disabled: false,
-    },
-    {
-      key: 'marketing' as const,
-      icon: Target,
-      name: t('cookieSettings.marketing.name'),
-      description: t('cookieSettings.marketing.description'),
-      disabled: false,
-    },
-    {
-      key: 'functional' as const,
-      icon: Zap,
-      name: t('cookieSettings.functional.name'),
-      description: t('cookieSettings.functional.description'),
       disabled: false,
     },
   ];
