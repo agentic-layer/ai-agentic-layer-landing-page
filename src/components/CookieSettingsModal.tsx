@@ -123,7 +123,7 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
               asChild
               className="text-sm h-auto p-2 text-primary hover:text-primary/80"
             >
-              <a href="/datenschutz" target="_blank" rel="noopener noreferrer">
+              <a href="/datenschutz?from=cookies" target="_blank" rel="noopener noreferrer">
                 Datenschutz
               </a>
             </Button>

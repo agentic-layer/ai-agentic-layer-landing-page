@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Footer } from '@/components/Footer';
 
 const Datenschutz = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
+  const [searchParams] = useSearchParams();
+  const isFromCookies = searchParams.get('from') === 'cookies';
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -16,9 +16,9 @@ const Datenschutz = () => {
   }, []);
   return <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
-        <Header />
+        {!isFromCookies && <Header />}
         
-        <section className="pt-24 pb-16 section-padding">
+        <section className={`pb-16 section-padding ${isFromCookies ? 'pt-16' : 'pt-24'}`}>
           <div className="container-width">
             <div className="max-w-4xl mx-auto">
               <h1 className="headline-text mb-16 text-left">{t('datenschutz.title')}</h1>
@@ -262,7 +262,7 @@ const Datenschutz = () => {
           </div>
         </section>
         
-        <Footer />
+        {!isFromCookies && <Footer />}
       </div>
     </ThemeProvider>;
 };
