@@ -25,7 +25,7 @@ export function CTASection() {
     // Set the exact HTML structure provided by user FIRST
     if (formRef.current) {
       console.log('CTASection: Setting form HTML structure');
-      formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="ae581883-108b-4bfb-a404-458e501c6650" data-portal-id="144685037"></div>';
+      formRef.current.innerHTML = '<div class="hs-form-frame" data-region="eu1" data-form-id="3488379c-56f4-456f-9e30-4ee4fc7e9018" data-portal-id="144685037"></div>';
       console.log('CTASection: Form HTML set:', formRef.current.innerHTML);
     }
     
