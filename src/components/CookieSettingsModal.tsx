@@ -116,6 +116,18 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
               {t('cookieSettings.save')}
             </Button>
           </div>
+
+          <div className="flex justify-center pt-2 border-t">
+            <Button 
+              variant="link" 
+              asChild
+              className="text-sm h-auto p-2 text-primary hover:text-primary/80"
+            >
+              <a href="/datenschutz" target="_blank" rel="noopener noreferrer">
+                {t('cookieSettings.privacyPolicy') || 'Datenschutz'} →
+              </a>
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
