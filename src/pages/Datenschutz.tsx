@@ -17,8 +17,21 @@ const Datenschutz = () => {
   return <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen bg-background text-foreground">
         {!isFromCookies && <Header />}
+        {isFromCookies && (
+          <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border" role="banner">
+            <nav role="navigation" aria-label="Main navigation" className="container-width section-padding">
+              <div className="flex items-center h-16">
+                <img 
+                  src="/lovable-uploads/378aa675-aad2-4802-be01-51844c0d41ef.png" 
+                  alt="Agentic Layer Logo" 
+                  className="h-6 w-auto"
+                />
+              </div>
+            </nav>
+          </header>
+        )}
         
-        <section className={`pb-16 section-padding ${isFromCookies ? 'pt-16' : 'pt-24'}`}>
+        <section className={`pb-16 section-padding ${isFromCookies ? 'pt-24' : 'pt-24'}`}>
           <div className="container-width">
             <div className="max-w-4xl mx-auto">
               <h1 className="headline-text mb-16 text-left">{t('datenschutz.title')}</h1>
