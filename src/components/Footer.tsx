@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Settings } from 'lucide-react';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CookieSettingsModal } from './CookieSettingsModal';
 
 export const Footer: React.FC = () => {
-  const { showBanner } = useCookieConsent();
   const { t } = useLanguage();
+  const [showCookieSettings, setShowCookieSettings] = useState(false);
 
   const handleCookieSettings = () => {
-    showBanner();
+    setShowCookieSettings(true);
   };
 
   return (
@@ -52,6 +53,11 @@ export const Footer: React.FC = () => {
           © 2024 QAware GmbH. Alle Rechte vorbehalten.
         </div>
       </div>
+      
+      <CookieSettingsModal 
+        open={showCookieSettings} 
+        onClose={() => setShowCookieSettings(false)} 
+      />
     </footer>
   );
 };
