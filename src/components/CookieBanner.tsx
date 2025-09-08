@@ -62,15 +62,18 @@ export const CookieBanner: React.FC = () => {
                 </Button>
               </div>
 
-              <p className="text-xs text-muted-foreground">
-                {t('cookieBanner.moreInfo')}{' '}
-                <a 
-                  href="/datenschutz" 
-                  className="text-primary hover:text-primary/80 underline"
+              <div className="flex justify-center mt-2">
+                <Button 
+                  variant="link" 
+                  asChild
+                  className="text-sm h-auto p-0 text-primary hover:text-primary/80"
                 >
-                  {t('cookieBanner.privacyPolicy')}
-                </a>
-              </p>
+                  <a href="/datenschutz" target="_blank" rel="noopener noreferrer">
+                    {t('cookieBanner.privacyPolicy')} →
+                  </a>
+                </Button>
+              </div>
+
             </div>
 
             <Button
