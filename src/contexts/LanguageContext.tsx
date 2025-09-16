@@ -306,7 +306,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'opensource.subtitle': 'The Agentic Layer is going to be Open Source.',
       'opensource.description': 'We are currently building the first version of the Agentic Layer and believe that the future of Enterprise AI is built on openness. Our Agentic Layer is therefore open source. This eliminates vendor lock-in and creates maximum transparency, operational security, and architectural flexibility. Look under the hood yourself, adapt the code to your needs, or contribute to our growing community.',
       'opensource.control': 'You are in control.',
-      'opensource.button': 'GitHub Repo Launch Coming Soon!',
+      'opensource.button': 'Visit our GitHub Repo',
 
       // CTA Section
       'cta.title': 'Experience Agentic AI?',
