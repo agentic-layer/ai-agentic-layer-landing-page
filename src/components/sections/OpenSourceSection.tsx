@@ -32,7 +32,11 @@ export function OpenSourceSection() {
         </div>
 
         <div className="text-center mb-12" ref={buttonRef}>
-          <Button size="lg" className="text-lg px-8 py-4">
+          <Button 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={() => window.open('https://github.com/agentic-layer', '_blank')}
+          >
             <Github className="mr-2 h-5 w-5" />
             {t('opensource.button')}
           </Button>
