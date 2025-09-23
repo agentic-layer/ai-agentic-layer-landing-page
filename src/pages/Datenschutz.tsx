@@ -4,11 +4,20 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Footer } from '@/components/Footer';
+import { useCookieConsent } from '@/contexts/CookieConsentContext';
 
 const Datenschutz = () => {
   const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const isFromCookies = searchParams.get('from') === 'cookies';
+  const { hideBanner } = useCookieConsent();
+
+  // Ensure the cookie banner is hidden when opened from cookie dialog
+  useEffect(() => {
+    if (isFromCookies) {
+      hideBanner();
+    }
+  }, [isFromCookies, hideBanner]);
 
   // Scroll to top when component mounts
   useEffect(() => {

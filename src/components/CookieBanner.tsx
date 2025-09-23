@@ -18,7 +18,7 @@ export const CookieBanner: React.FC = () => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50" />
+      
       <Card className="fixed bottom-4 left-4 right-4 mx-auto max-w-4xl z-50 border border-border bg-card shadow-lg">
         <div className="p-6">
           <div className="flex items-start gap-4">
