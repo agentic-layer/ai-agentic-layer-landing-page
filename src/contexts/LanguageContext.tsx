@@ -156,7 +156,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'footer.privacy': 'Datenschutz',
       'footer.accessibility': 'Barrierefreiheit',
       'footer.cookieSettings': 'Cookie-Einstellungen',
-      'footer.copyright': '© 2024 QAware GmbH. Alle Rechte vorbehalten.',
+      'footer.copyright': '© 2025 QAware GmbH. Alle Rechte vorbehalten.',
 
       // Datenschutz Section
       'datenschutz.title': 'Ihre Daten. Ihre Rechte.',
@@ -475,7 +475,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'footer.privacy': 'Privacy Policy',
       'footer.accessibility': 'Accessibility',
       'footer.cookieSettings': 'Cookie Settings',
-      'footer.copyright': '© 2024 QAware GmbH. All rights reserved.',
+      'footer.copyright': '© 2025 QAware GmbH. All rights reserved.',
     },
   };
 
