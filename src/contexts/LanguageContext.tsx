@@ -151,6 +151,13 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'impressum.content.person': 'Dr. Josef Adersberger',
       'impressum.content.address': 'Aschauer Straße 30, 81549 München',
 
+      // Footer
+      'footer.impressum': 'Impressum',
+      'footer.privacy': 'Datenschutz',
+      'footer.accessibility': 'Barrierefreiheit',
+      'footer.cookieSettings': 'Cookie-Einstellungen',
+      'footer.copyright': '© 2024 QAware GmbH. Alle Rechte vorbehalten.',
+
       // Datenschutz Section
       'datenschutz.title': 'Ihre Daten. Ihre Rechte.',
       'datenschutz.intro': 'Wir freuen uns sehr über Ihr Interesse an Agentic Layer. Agentic Layer ist ein Projekt der QAware GmbH. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der QAware GmbH. Eine Nutzung der Internetseiten von Agentic Layer ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.',
@@ -462,6 +469,13 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'impressum.content.title': 'Responsible for Content',
       'impressum.content.person': 'QAware GmbH',
       'impressum.content.address': 'Aschauer Straße 32, 81549 Munich',
+
+      // Footer
+      'footer.impressum': 'Legal Notice',
+      'footer.privacy': 'Privacy Policy',
+      'footer.accessibility': 'Accessibility',
+      'footer.cookieSettings': 'Cookie Settings',
+      'footer.copyright': '© 2024 QAware GmbH. All rights reserved.',
     },
   };
 

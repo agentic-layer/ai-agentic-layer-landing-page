@@ -22,19 +22,19 @@ export const Footer: React.FC = () => {
               href="/impressum" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Impressum
+              {t('footer.impressum')}
             </a>
             <a 
               href="/datenschutz" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Datenschutz
+              {t('footer.privacy')}
             </a>
             <a 
               href="/accessibility" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Barrierefreiheit
+              {t('footer.accessibility')}
             </a>
           </div>
 
@@ -45,12 +45,12 @@ export const Footer: React.FC = () => {
             className="text-sm text-muted-foreground hover:text-foreground"
           >
             <Settings className="h-4 w-4 mr-2" />
-            Cookie-Einstellungen
+            {t('footer.cookieSettings')}
           </Button>
         </div>
         
         <div className="mt-4 pt-4 border-t text-center text-xs text-muted-foreground">
-          © 2024 QAware GmbH. Alle Rechte vorbehalten.
+          {t('footer.copyright')}
         </div>
       </div>
       
