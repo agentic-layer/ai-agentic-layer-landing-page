@@ -120,12 +120,13 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
           <div className="flex justify-center pt-2 border-t">
             <Button 
               variant="link" 
-              asChild
               className="text-sm h-auto p-2 text-primary hover:text-primary/80"
+              onClick={() => {
+                window.open('/datenschutz?from=cookies', '_blank', 'noopener,noreferrer');
+                onClose();
+              }}
             >
-              <a href="/datenschutz?from=cookies" target="_blank" rel="noopener noreferrer">
-                Datenschutz
-              </a>
+              Datenschutz
             </Button>
           </div>
         </div>
