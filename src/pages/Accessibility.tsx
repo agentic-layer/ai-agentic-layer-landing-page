@@ -1,12 +1,21 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Footer } from '@/components/Footer';
 
 const Accessibility = () => {
-  const { t } = useLanguage();
+  const { t, setLanguage } = useLanguage();
+  const [searchParams] = useSearchParams();
+
+  // Set language from URL parameter if provided
+  useEffect(() => {
+    const langParam = searchParams.get('lang');
+    if (langParam && (langParam === 'en' || langParam === 'de')) {
+      setLanguage(langParam);
+    }
+  }, [searchParams, setLanguage]);
 
   // Scroll to top when component mounts
   useEffect(() => {

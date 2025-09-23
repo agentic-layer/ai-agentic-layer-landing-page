@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { CookieSettingsModal } from './CookieSettingsModal';
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showCookieSettings, setShowCookieSettings] = useState(false);
 
   const handleCookieSettings = () => {
@@ -19,19 +19,19 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <a 
-              href="/impressum" 
+              href={`/impressum?lang=${language}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.impressum')}
             </a>
             <a 
-              href="/datenschutz" 
+              href={`/datenschutz?lang=${language}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.privacy')}
             </a>
             <a 
-              href="/accessibility" 
+              href={`/accessibility?lang=${language}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('footer.accessibility')}

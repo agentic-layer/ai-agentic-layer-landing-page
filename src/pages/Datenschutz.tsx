@@ -7,10 +7,18 @@ import { Footer } from '@/components/Footer';
 import { useCookieConsent } from '@/contexts/CookieConsentContext';
 
 const Datenschutz = () => {
-  const { t } = useLanguage();
+  const { t, setLanguage } = useLanguage();
   const [searchParams] = useSearchParams();
   const isFromCookies = searchParams.get('from') === 'cookies';
   const { hideBanner } = useCookieConsent();
+
+  // Set language from URL parameter if provided
+  useEffect(() => {
+    const langParam = searchParams.get('lang');
+    if (langParam && (langParam === 'en' || langParam === 'de')) {
+      setLanguage(langParam);
+    }
+  }, [searchParams, setLanguage]);
 
   // Ensure the cookie banner is hidden when opened from cookie dialog
   useEffect(() => {

@@ -15,7 +15,7 @@ interface CookieSettingsModalProps {
 
 export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, onClose }) => {
   const { consent, updateConsent } = useCookieConsent();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const [localConsent, setLocalConsent] = useState<CookieConsentState>({
     essential: true,
@@ -122,7 +122,7 @@ export const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({ open, 
               variant="link" 
               className="text-sm h-auto p-2 text-primary hover:text-primary/80"
               onClick={() => {
-                window.open('/datenschutz?from=cookies', '_blank', 'noopener,noreferrer');
+                window.open(`/datenschutz?from=cookies&lang=${language}`, '_blank', 'noopener,noreferrer');
                 onClose();
               }}
             >
