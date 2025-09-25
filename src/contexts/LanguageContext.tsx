@@ -158,6 +158,11 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'footer.cookieSettings': 'Cookie-Einstellungen',
       'footer.copyright': '© 2025 QAware GmbH. Alle Rechte vorbehalten.',
 
+      // Newsletter
+      'newsletter.title': 'Newsletter Anmeldung',
+      'newsletter.loading': 'Newsletter-Formular wird geladen...',
+      'newsletter.error': 'Das Formular konnte nicht geladen werden. Bitte kontaktieren Sie uns direkt:',
+
       // Datenschutz Section
       'datenschutz.title': 'Ihre Daten. Ihre Rechte.',
       'datenschutz.intro': 'Wir freuen uns sehr über Ihr Interesse an Agentic Layer. Agentic Layer ist ein Projekt der QAware GmbH. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der QAware GmbH. Eine Nutzung der Internetseiten von Agentic Layer ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.',
@@ -476,6 +481,11 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       'footer.accessibility': 'Accessibility',
       'footer.cookieSettings': 'Cookie Settings',
       'footer.copyright': '© 2025 QAware GmbH. All rights reserved.',
+
+      // Newsletter
+      'newsletter.title': 'Newsletter Signup',
+      'newsletter.loading': 'Newsletter form is loading...',
+      'newsletter.error': 'The form could not be loaded. Please contact us directly:',
     },
   };
 

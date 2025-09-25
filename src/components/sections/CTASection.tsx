@@ -196,7 +196,7 @@ export function CTASection() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6" />
               </div>
-              <CardTitle className="text-lg font-medium">Newsletter Anmeldung</CardTitle>
+              <CardTitle className="text-lg font-medium">{t('newsletter.title')}</CardTitle>
             </CardHeader>
             <CardContent className="relative">
               <div 
@@ -211,13 +211,13 @@ export function CTASection() {
               {formStatus === 'loading' && (
                 <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                  <span className="ml-2 text-sm text-muted-foreground">Newsletter-Formular wird geladen...</span>
+                  <span className="ml-2 text-sm text-muted-foreground">{t('newsletter.loading')}</span>
                 </div>
               )}
               {formStatus === 'error' && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
                   <p className="text-sm text-muted-foreground mb-4 text-center">
-                    Das Formular konnte nicht geladen werden. Bitte kontaktieren Sie uns direkt:
+                    {t('newsletter.error')}
                   </p>
                   <a 
                     href="mailto:contact@example.com" 
