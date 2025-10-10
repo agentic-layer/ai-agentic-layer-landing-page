@@ -220,10 +220,10 @@ export function CTASection() {
                     {t('newsletter.error')}
                   </p>
                   <a 
-                    href="mailto:contact@example.com" 
+                    href="mailto:agenticlayer@qaware.de" 
                     className="text-primary hover:text-primary/80 transition-colors"
                   >
-                    contact@example.com
+                    agenticlayer@qaware.de
                   </a>
                 </div>
               )}
