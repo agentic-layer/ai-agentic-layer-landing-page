@@ -88,8 +88,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       // CTA Section
       'cta.title': 'Agentic AI erleben?',
-      'cta.subtitle': 'Zum Newsletter anmelden und\nmit etwas Glück Konferenz-Tickets gewinnen.',
-      'cta.description': 'Mit deinem Newsletter-Abo bleibst du nicht nur auf dem Laufenden, sondern hast auch die Chance, Tickets für Top-Tech-Konferenzen wie die KI Navigator oder die CLC zu gewinnen.\n\nJetzt anmelden, exklusive Einblicke sichern und vielleicht schon bald live dabei sein!',
+      'cta.subtitle': 'Zum Newsletter anmelden und keine Updates mehr verpassen.',
+      'cta.description': 'Mit deinem Newsletter-Abo bleibst du auf dem Laufenden: Einblicke in Agentic AI, Event-Highlights und neue Inhalte direkt in dein Postfach.\n\nJetzt anmelden!',
       'cta.card.title': 'Hast du weitere Fragen?',
       'cta.card.description': 'Das Agentic Layer Team freut sich auf deine Kontaktaufnahme!\n\nSchreibe uns, wie wir dir auf deinem Weg zum Agentic Layer weiterhelfen können.',
       'cta.card.button': 'E-Mail schreiben',
