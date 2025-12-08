@@ -68,7 +68,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         "Diese Cookies ermöglichen erweiterte Funktionalität und Personalisierung, wie Videos und Live-Chats.",
 
       // Business Benefits Section
-      "benefits.title": "Dein Weg zur souveränen KI-Orchestrierung",
+      "benefits.title": "Deine Brücke zur souveränen KI-Orchestrierung",
       "benefits.subtitle":
         "Wir geben dir die Kontrolle, Sicherheit und Flexibilität, damit du das volle Potenzial von Agentic AI in deinem Unternehmen entfesseln\nkannst. Kein Boilerplate, keine Kopfschmerzen.",
       "benefits.playground.title": "Dein Playground, Deine Regeln.",
