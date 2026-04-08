@@ -1,8 +1,5 @@
 # AI Agentic Layer Landing Page
 
-> **🔒 Private Repository** - This is a private repository containing proprietary configurations for the agentic layer's landing page.
-
-
 A modern, responsive landing page built with React, TypeScript, and Vite to showcase the AI Agentic Layer platform. It features a clean design, 3D animations with React Three Fiber, and is styled with Tailwind CSS.
 
 ----
