@@ -31,16 +31,10 @@ jobs:
         uses: 'actions/checkout@v4'
         # Fetches the latest code from the repository
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24.3.0' # Use Node.js version 24.3.0 for consistency
-          cache: 'npm'           # Cache npm dependencies for faster builds
-
-      - name: Install dependencies and build application
+      - name: Create dist directory and copy index.html
         run: |
-           npm ci                 # Install dependencies from package-lock.json (faster and more reliable than npm install)
-           npm run build          # Run the build script defined in package.json
+          mkdir -p ./dist
+          cp index.html ./dist/
 
      # The action will automatically create/update the gh-pages branch
       - name: Deploy to GitHub Pages
